@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Pixel Forge - Future-Ready Digital Solutions in Bangalore">
+    <link rel="manifest" href="/manifest.json">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <link rel="apple-touch-icon" href="/icons/icon-192.png">
     <meta name="theme-color" content="#4f46e5">
     <title>Pixel Forge | Digital Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
@@ -69,6 +73,41 @@
         }
         @media(pointer:coarse) { .btn-brand, .btn-outline, a, button { min-height:44px; } }
     </style>
+        /* ===== 3D CARD ANIMATIONS ===== */
+        .card-3d { perspective: 1000px; }
+        .card-3d-inner { transition: transform 0.6s ease; transform-style: preserve-3d; }
+        .card-3d:hover .card-3d-inner { transform: rotateY(8deg) rotateX(4deg) scale(1.03); }
+        .pricing-icon-wrap { display:flex; align-items:center; justify-content:center; width:100%; margin:0 auto 16px; }
+        
+        /* ===== BACK TO TOP ===== */
+        #backToTop { position:fixed; bottom:20px; right:84px; z-index:60; width:44px; height:44px; border-radius:14px; background:linear-gradient(135deg,#4f46e5,#ec4899); color:white; border:none; cursor:pointer; box-shadow:0 4px 20px rgba(79,70,229,0.4); font-size:1rem; display:none; align-items:center; justify-content:center; transition:all 0.3s; }
+        #backToTop:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(79,70,229,0.5); }
+        #backToTop.show { display:flex; }
+
+        /* ===== EDGE TO EDGE MOBILE ===== */
+        @media(max-width:640px) {
+            .edge-full { margin-left:-16px; margin-right:-16px; }
+            .section-pad { padding:40px 0; }
+            main, section { scroll-margin-top:70px; }
+        }
+
+        /* ===== 3D FLOAT ON HORIZON ===== */
+        .float-3d { animation: float3d 6s ease-in-out infinite; }
+        @keyframes float3d { 0%,100%{transform:translateY(0) rotateX(0)} 50%{transform:translateY(-10px) rotateX(2deg)} }
+
+        /* ===== BRIGHTER LIGHTER COLORS ===== */
+        body { background:#f0f4ff; }
+        .hero-bg { background:linear-gradient(135deg,#e8eeff 0%,#f0fdf4 50%,#fdf2f8 100%) !important; }
+        .card-light { background:#ffffff; border:1px solid #dbe3f8; }
+        section { background:#f0f4ff; }
+        .bg-white { background:#ffffff !important; }
+        .bg-slate-50, .bg-slate-100 { background:#f4f7ff !important; }
+        .text-slate-900 { color:#111827 !important; }
+
+        /* ===== GOOGLE MAPS ===== */
+        .map-wrap { border-radius:20px; overflow:hidden; box-shadow:0 10px 40px rgba(79,70,229,0.15); border:4px solid white; }
+        .map-wrap iframe { display:block; width:100%; height:400px; border:0; filter:saturate(1.2); }
+        @media(max-width:640px){ .map-wrap iframe { height:300px; } }
 </head>
 <body>
 
@@ -193,37 +232,37 @@
             <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Our <span class="gradient-text">Expertise</span></h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="100">
                 <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-laptop-code text-xl text-brand-600"></i></div>
                 <h3 class="font-bold text-lg text-slate-900 mb-2">Web Development</h3>
                 <p class="text-slate-500 text-sm mb-3">Next.js, React, Vue apps optimized for SEO and speed. PWA ready.</p>
                 <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=200&fit=crop" alt="Web Dev" class="rounded-xl w-full h-32 object-cover">
             </div>
-            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="200">
                 <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-mobile-screen-button text-xl text-pink-600"></i></div>
                 <h3 class="font-bold text-lg text-slate-900 mb-2">Mobile Apps</h3>
                 <p class="text-slate-500 text-sm mb-3">Native performance with Flutter and React Native for iOS and Android.</p>
                 <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=200&fit=crop" alt="Mobile" class="rounded-xl w-full h-32 object-cover">
             </div>
-            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="300">
                 <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-cloud text-xl text-cyan-600"></i></div>
                 <h3 class="font-bold text-lg text-slate-900 mb-2">Cloud & DevOps</h3>
                 <p class="text-slate-500 text-sm mb-3">AWS architecture, Docker, Kubernetes, CI/CD for zero downtime.</p>
                 <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop" alt="Cloud" class="rounded-xl w-full h-32 object-cover">
             </div>
-            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="100">
                 <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-robot text-xl text-green-600"></i></div>
                 <h3 class="font-bold text-lg text-slate-900 mb-2">AI & ML Integration</h3>
                 <p class="text-slate-500 text-sm mb-3">Embed GPT-4, computer vision, and predictive models into your products.</p>
                 <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop" alt="AI" class="rounded-xl w-full h-32 object-cover">
             </div>
-            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="200">
                 <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-palette text-xl text-yellow-600"></i></div>
                 <h3 class="font-bold text-lg text-slate-900 mb-2">UI/UX Design</h3>
                 <p class="text-slate-500 text-sm mb-3">Beautiful interfaces designed in Figma. User-tested and conversion-optimized.</p>
                 <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=200&fit=crop" alt="Design" class="rounded-xl w-full h-32 object-cover">
             </div>
-            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="300">
                 <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-shield-halved text-xl text-red-600"></i></div>
                 <h3 class="font-bold text-lg text-slate-900 mb-2">Cybersecurity</h3>
                 <p class="text-slate-500 text-sm mb-3">Penetration testing, vulnerability assessments, and compliance solutions.</p>
@@ -306,7 +345,7 @@
             <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Featured <span class="gradient-text">Projects</span></h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="card-light rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-light rounded-2xl overflow-hidden card-3d-inner" data-aos="fade-up" data-aos-delay="100">
                 <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <span class="text-xs font-bold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Analytics</span>
@@ -319,7 +358,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card-light rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-light rounded-2xl overflow-hidden card-3d-inner" data-aos="fade-up" data-aos-delay="200">
                 <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <span class="text-xs font-bold text-pink-600 bg-pink-50 px-3 py-1 rounded-full">E-Commerce</span>
@@ -332,7 +371,7 @@
                     </div>
                 </div>
             </div>
-            <div class="card-light rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-light rounded-2xl overflow-hidden card-3d-inner" data-aos="fade-up" data-aos-delay="300">
                 <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
                 <div class="p-6">
                     <span class="text-xs font-bold text-green-600 bg-green-50 px-3 py-1 rounded-full">Mobile App</span>
@@ -397,7 +436,7 @@
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
             <div class="bg-white p-8 rounded-2xl border border-slate-200 card-light text-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-paper-plane text-brand-600 text-xl"></i></div>
+                <div class="pricing-icon-wrap"><div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center"><i class="fa-solid fa-paper-plane text-brand-600 text-xl"></i></div></div>
                 <h3 class="font-bold text-lg text-slate-900">Starter</h3>
                 <p class="text-slate-400 text-xs mb-4">For small businesses</p>
                 <div class="text-4xl font-black text-slate-900 mb-1">₹25K</div>
@@ -413,7 +452,7 @@
             </div>
             <div class="bg-white p-8 rounded-2xl border-2 border-brand-500 card-light text-center relative shadow-lg shadow-brand-500/10" data-aos="fade-up" data-aos-delay="200">
                 <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-500 to-purple-600 text-white text-xs font-bold px-4 py-1 rounded-full">MOST POPULAR</span>
-                <div class="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-rocket text-pink-500 text-xl"></i></div>
+                <div class="pricing-icon-wrap"><div class="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center"><i class="fa-solid fa-rocket text-pink-500 text-xl"></i></div></div>
                 <h3 class="font-bold text-lg text-slate-900">Professional</h3>
                 <p class="text-slate-400 text-xs mb-4">For growing startups</p>
                 <div class="text-4xl font-black text-slate-900 mb-1">₹1.5L</div>
@@ -428,7 +467,7 @@
                 <a href="#contact" class="block w-full py-3 rounded-xl bg-gradient-to-r from-brand-500 to-purple-600 text-white font-bold text-sm hover:opacity-90 transition shadow-md">Get Started</a>
             </div>
             <div class="bg-white p-8 rounded-2xl border border-slate-200 card-light text-center" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-gem text-cyan-600 text-xl"></i></div>
+                <div class="pricing-icon-wrap"><div class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center"><i class="fa-solid fa-gem text-cyan-600 text-xl"></i></div></div>
                 <h3 class="font-bold text-lg text-slate-900">Enterprise</h3>
                 <p class="text-slate-400 text-xs mb-4">For large-scale projects</p>
                 <div class="text-4xl font-black text-slate-900 mb-1">₹5L+</div>
@@ -454,7 +493,7 @@
             <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Meet The <span class="gradient-text">Team</span></h2>
         </div>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="bg-white rounded-2xl overflow-hidden card-light text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="card-3d bg-white rounded-2xl overflow-hidden card-light text-center card-3d-inner" data-aos="fade-up" data-aos-delay="100">
                 <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Arjun" class="w-full h-44 object-cover">
                 <div class="p-5">
                     <h3 class="font-bold text-slate-900 text-sm">Arjun Mehta</h3>
@@ -465,7 +504,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-2xl overflow-hidden card-light text-center" data-aos="fade-up" data-aos-delay="200">
+            <div class="card-3d bg-white rounded-2xl overflow-hidden card-light text-center card-3d-inner" data-aos="fade-up" data-aos-delay="200">
                 <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" alt="Priya" class="w-full h-44 object-cover">
                 <div class="p-5">
                     <h3 class="font-bold text-slate-900 text-sm">Priya Nair</h3>
@@ -476,7 +515,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-2xl overflow-hidden card-light text-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="card-3d bg-white rounded-2xl overflow-hidden card-light text-center card-3d-inner" data-aos="fade-up" data-aos-delay="300">
                 <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop" alt="Vikram" class="w-full h-44 object-cover">
                 <div class="p-5">
                     <h3 class="font-bold text-slate-900 text-sm">Vikram Das</h3>
@@ -487,7 +526,7 @@
                     </div>
                 </div>
             </div>
-            <div class="bg-white rounded-2xl overflow-hidden card-light text-center" data-aos="fade-up" data-aos-delay="400">
+            <div class="card-3d bg-white rounded-2xl overflow-hidden card-light text-center card-3d-inner" data-aos="fade-up" data-aos-delay="400">
                 <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Ananya" class="w-full h-44 object-cover">
                 <div class="p-5">
                     <h3 class="font-bold text-slate-900 text-sm">Ananya Roy</h3>
@@ -673,6 +712,29 @@
 </section>
 
 <!-- FOOTER -->
+<!-- GOOGLE MAPS -->
+<section class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10" data-aos="fade-up">
+            <p class="text-brand-600 font-bold text-sm tracking-widest uppercase mb-2">Find Us</p>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Our <span class="gradient-text">Location</span></h2>
+        </div>
+        <div class="map-wrap" data-aos="fade-up" data-aos-delay="100">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.985!2d77.604!3d12.976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBrigade%20Road%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pixel Forge Office"></iframe>
+        </div>
+        <div class="flex flex-col sm:flex-row justify-center gap-6 mt-8 text-center" data-aos="fade-up">
+            <div class="flex items-center justify-center gap-2 text-slate-600">
+                <i class="fa-solid fa-location-dot text-brand-500"></i>
+                <span class="text-sm font-medium">No 1, M.G Road, Brigade Road, Bangalore</span>
+            </div>
+            <div class="flex items-center justify-center gap-2 text-slate-600">
+                <i class="fa-solid fa-phone text-green-500"></i>
+                <span class="text-sm font-medium">+91 9620024812</span>
+            </div>
+        </div>
+    </div>
+</section>
+
 <footer class="bg-slate-900 text-white py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
@@ -834,5 +896,29 @@
         setTimeout(()=>{this.reset();b.innerHTML='Send Message <i class="fa-solid fa-paper-plane"></i>';b.classList.remove('bg-green-500');b.disabled=false},2000)},1200);
     });
 </script>
+<!-- BACK TO TOP -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
+<script>
+window.addEventListener("scroll",function(){var b=document.getElementById("backToTop");if(window.scrollY>400){b.classList.add("show")}else{b.classList.remove("show")}});
+</script>
+
+<!-- PWA SW Registration -->
+<script>
+if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").then(function(r){console.log("SW OK:",r.scope)}).catch(function(e){console.log("SW err:",e)})})}
+</script>
 </body>
+<script>
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').then(r=>console.log('SW OK:',r.scope)).catch(e=>console.log('SW err:',e))})}
+</script>
+<!-- BACK TO TOP -->
+<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <i class="fa-solid fa-arrow-up"></i>
+</button>
+<script>
+    window.addEventListener('scroll',function(){
+        var btn=document.getElementById('backToTop');
+        if(window.scrollY>400){btn.classList.add('show')}
+        else{btn.classList.remove('show')}
+    });
+</script>
 </html>
