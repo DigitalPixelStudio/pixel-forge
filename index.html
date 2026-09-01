@@ -2,131 +2,157 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Pixel Forge - Future-Ready Digital Solutions in Bangalore">
+    <meta name="theme-color" content="#4f46e5">
+    <title>Pixel Forge | Digital Solutions</title>
     <link rel="manifest" href="/manifest.json">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="apple-touch-icon" href="/icons/icon-192.png">
-    <meta name="theme-color" content="#4f46e5">
-    <title>Pixel Forge | Digital Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    fontFamily: { sans: ['Inter', 'sans-serif'] },
-                    colors: {
-                        brand: { 50:'#eef2ff', 100:'#e0e7ff', 200:'#c7d2fe', 300:'#a5b4fc', 400:'#818cf8', 500:'#6366f1', 600:'#4f46e5', 700:'#4338ca', 800:'#3730a3', 900:'#312e81' }
-                    }
-                }
-            }
-        }
+        tailwind.config={theme:{extend:{fontFamily:{sans:['Inter','sans-serif'],display:['Space Grotesk','sans-serif']}}}}
     </script>
     <style>
-        * { margin:0; padding:0; box-sizing:border-box; }
-        body { font-family:'Inter',sans-serif; background:#f8fafc; color:#1e293b; }
-        .hero-bg { background: linear-gradient(135deg, #eef2ff 0%, #f0fdf4 50%, #fdf2f8 100%); }
-        .section-alt { background:#ffffff; }
-        .card-light { background:#ffffff; border:1px solid #e2e8f0; transition:all 0.3s ease; }
-        .card-light:hover { box-shadow:0 20px 60px -15px rgba(99,102,241,0.2); transform:translateY(-4px); border-color:#a5b4fc; }
-        .text-brand { color:#4f46e5; }
-        .bg-brand { background:#4f46e5; }
-        .gradient-text { background:linear-gradient(135deg,#4f46e5,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
-        .glass-light { background:rgba(255,255,255,0.8); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.6); }
-        .btn-brand { background:linear-gradient(135deg,#4f46e5,#7c3aed); color:white; padding:14px 32px; border-radius:12px; font-weight:700; display:inline-flex; align-items:center; gap:8px; transition:all 0.3s; text-decoration:none; }
-        .btn-brand:hover { box-shadow:0 8px 30px rgba(79,70,229,0.4); transform:translateY(-2px); }
-        .btn-outline { border:2px solid #e2e8f0; color:#334155; padding:12px 28px; border-radius:12px; font-weight:600; display:inline-flex; align-items:center; gap:8px; transition:all 0.3s; text-decoration:none; background:transparent; }
-        .btn-outline:hover { border-color:#4f46e5; color:#4f46e5; background:#eef2ff; }
-        .section-divider { height:1px; background:linear-gradient(90deg,transparent,#e2e8f0,transparent); max-width:800px; margin:0 auto; }
-        .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
-        .faq-item.active .faq-answer { max-height:500px; }
-        .faq-item.active .faq-icon { transform:rotate(45deg); }
-        .faq-icon { transition:transform 0.3s; }
-        .nav-link { position:relative; }
-        .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:linear-gradient(90deg,#4f46e5,#ec4899); transition:width 0.3s; }
-        .nav-link:hover::after { width:100%; }
-        .input-icon { position:relative; }
-        .input-icon i { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#a5b4fc; font-size:0.85rem; }
-        .input-icon input, .input-icon textarea, .input-icon select { padding-left:42px; }
-        .mobile-menu { transform:translateX(100%); transition:transform 0.3s ease; }
-        .mobile-menu.open { transform:translateX(0); }
-        .typing-dot { animation:typing 1.4s infinite ease-in-out both; }
-        .typing-dot:nth-child(1) { animation-delay:-0.32s; }
-        .typing-dot:nth-child(2) { animation-delay:-0.16s; }
-        @keyframes typing { 0%,80%,100%{transform:scale(0)} 40%{transform:scale(1)} }
-        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
-        .animate-float { animation:float 5s ease-in-out infinite; }
-        @keyframes pulse-glow { 0%,100%{box-shadow:0 0 20px rgba(34,197,94,0.3)} 50%{box-shadow:0 0 40px rgba(34,197,94,0.6)} }
-        .whatsapp-pulse { animation:pulse-glow 2s ease-in-out infinite; }
-        .marquee-track { display:flex; animation:marquee 25s linear infinite; }
-        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
-        ::-webkit-scrollbar { width:6px; }
-        ::-webkit-scrollbar-thumb { background:#c7d2fe; border-radius:3px; }
-        @media(max-width:640px) {
-            .hero-title { font-size:2rem !important; line-height:1.15 !important; }
-            .stat-number { font-size:2rem !important; }
-            .section-pad { padding:48px 0 !important; }
+        *{margin:0;padding:0;box-sizing:border-box}
+        body{font-family:'Inter',sans-serif;background:#f0f4ff;color:#1e293b;overflow-x:hidden}
+        h1,h2,h3,.font-display{font-family:'Space Grotesk',sans-serif}
+
+        /* ===== PARTICLES BG ===== */
+        #particles{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+        .particle{position:absolute;width:4px;height:4px;background:rgba(99,102,241,0.3);border-radius:50%;animation:particleFloat linear infinite}
+        @keyframes particleFloat{0%{transform:translateY(100vh) scale(0);opacity:0}10%{opacity:1}90%{opacity:1}100%{transform:translateY(-10vh) scale(1);opacity:0}}
+
+        /* ===== HERO ===== */
+        .hero-bg{background:linear-gradient(135deg,#eef2ff 0%,#f0fdf4 40%,#fdf2f8 100%);position:relative;z-index:1}
+        .hero-bg::before{content:'';position:absolute;top:-20%;right:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(99,102,241,0.08) 0%,transparent 70%);border-radius:50%}
+        .hero-bg::after{content:'';position:absolute;bottom:-10%;left:-5%;width:400px;height:400px;background:radial-gradient(circle,rgba(236,72,153,0.06) 0%,transparent 70%);border-radius:50%}
+
+        /* ===== CARDS ===== */
+        .card-glass{background:rgba(255,255,255,0.85);backdrop-filter:blur(12px);border:1px solid rgba(219,227,248,0.8);border-radius:20px;transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
+        .card-glass:hover{box-shadow:0 20px 60px -15px rgba(79,70,229,0.2);transform:translateY(-6px);border-color:#a5b4fc}
+        .card-solid{background:#ffffff;border:1px solid #e2e8f0;border-radius:20px;transition:all 0.4s cubic-bezier(0.4,0,0.2,1)}
+        .card-solid:hover{box-shadow:0 20px 60px -15px rgba(79,70,229,0.15);transform:translateY(-4px)}
+
+        /* ===== 3D TILT ===== */
+        .tilt{perspective:800px;transform-style:preserve-3d}
+        .tilt-inner{transition:transform 0.5s ease}
+        .tilt:hover .tilt-inner{transform:rotateY(6deg) rotateX(3deg) scale(1.02)}
+
+        /* ===== GRADIENTS ===== */
+        .gradient-text{background:linear-gradient(135deg,#4f46e5,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+        .btn-primary{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:14px 32px;border-radius:14px;font-weight:700;display:inline-flex;align-items:center;gap:8px;transition:all 0.3s;text-decoration:none;border:none;cursor:pointer;font-size:0.95rem}
+        .btn-primary:hover{box-shadow:0 8px 30px rgba(79,70,229,0.4);transform:translateY(-2px)}
+        .btn-outline{border:2px solid #e2e8f0;color:#475569;padding:12px 28px;border-radius:14px;font-weight:600;display:inline-flex;align-items:center;gap:8px;transition:all 0.3s;text-decoration:none;background:transparent}
+        .btn-outline:hover{border-color:#4f46e5;color:#4f46e5;background:#eef2ff}
+
+        /* ===== NAV ===== */
+        .nav-glass{background:rgba(240,244,255,0.9);backdrop-filter:blur(16px);border-bottom:1px solid rgba(219,227,248,0.5)}
+        .nav-link{position:relative;color:#475569;font-weight:500;font-size:0.9rem;transition:color 0.3s}
+        .nav-link:hover{color:#4f46e5}
+        .nav-link::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:linear-gradient(90deg,#4f46e5,#ec4899);transition:width 0.3s;border-radius:1px}
+        .nav-link:hover::after{width:100%}
+
+        /* ===== FAQ ===== */
+        .faq-answer{max-height:0;overflow:hidden;transition:max-height 0.4s ease,padding 0.3s}
+        .faq-item.active .faq-answer{max-height:500px;padding-bottom:20px}
+        .faq-item.active .faq-icon{transform:rotate(45deg)}
+        .faq-icon{transition:transform 0.3s}
+
+        /* ===== FORM ICONS ===== */
+        .fi{position:relative}
+        .fi i{position:absolute;left:14px;top:50%;transform:translateY(-50%);color:#a5b4fc;font-size:0.85rem;pointer-events:none}
+        .fi input,.fi textarea,.fi select{padding-left:42px}
+        .fi:focus-within i{color:#6366f1}
+
+        /* ===== MAP ===== */
+        .map-wrap{border-radius:20px;overflow:hidden;box-shadow:0 10px 40px rgba(79,70,229,0.12);border:4px solid #fff}
+        .map-wrap iframe{display:block;width:100%;height:400px;border:0}
+        @media(max-width:640px){.map-wrap iframe{height:280px}}
+
+        /* ===== MOBILE ===== */
+        .mobile-menu{transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1)}
+        .mobile-menu.open{transform:translateX(0)}
+
+        /* ===== BOTTON ACTIONS ===== */
+        .bottom-actions{position:fixed;bottom:20px;right:16px;z-index:50;display:flex;align-items:center;gap:10px}
+        .action-btn{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:all 0.3s;cursor:pointer;border:none;text-decoration:none;color:#fff}
+        .action-btn:hover{transform:translateY(-3px) scale(1.05)}
+        .wa-btn{background:linear-gradient(135deg,#25D366,#128C7E);animation:waPulse 2s ease-in-out infinite}
+        .chat-btn{background:linear-gradient(135deg,#4f46e5,#ec4899)}
+        .back-btn{background:linear-gradient(135deg,#64748b,#475569);position:fixed;bottom:20px;left:16px;z-index:50;width:44px;height:44px;border-radius:14px;display:none;align-items:center;justify-content:center;color:#fff;font-size:0.9rem;box-shadow:0 4px 15px rgba(0,0,0,0.15);cursor:pointer;border:none}
+        .back-btn.show{display:flex}
+        @keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.3)}50%{box-shadow:0 4px 30px rgba(37,211,102,0.6)}}
+
+        /* ===== CHAT ===== */
+        .chat-window{position:absolute;bottom:62px;right:0;width:calc(100vw - 32px);max-width:400px;background:#fff;border:1px solid #e2e8f0;border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.2);overflow:hidden;display:none;flex-direction:column;height:480px}
+        .chat-window.open{display:flex}
+        .typing-dot{animation:typing 1.4s infinite ease-in-out both}
+        .typing-dot:nth-child(1){animation-delay:-0.32s}
+        .typing-dot:nth-child(2){animation-delay:-0.16s}
+        @keyframes typing{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}
+
+        /* ===== MARQUEE ===== */
+        .marquee-track{display:flex;animation:marquee 20s linear infinite}
+        @keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+        /* ===== FLOAT ===== */
+        @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-12px)}}
+        .anim-float{animation:float 5s ease-in-out infinite}
+
+        /* ===== SECTION DIVIDER ===== */
+        .sdiv{height:1px;background:linear-gradient(90deg,transparent,#dbe3f8,transparent);max-width:800px;margin:0 auto}
+
+        /* ===== VIDEO CAROUSEL ===== */
+        .vid-carousel{display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;padding-bottom:8px;scrollbar-width:none}
+        .vid-carousel::-webkit-scrollbar{display:none}
+        .vid-item{min-width:280px;scroll-snap-align:start;border-radius:16px;overflow:hidden;position:relative;flex-shrink:0;background:#1e293b}
+        .vid-item img{width:100%;height:180px;object-fit:cover;display:block}
+        .vid-overlay{position:absolute;inset:0;background:linear-gradient(transparent 40%,rgba(0,0,0,0.7));display:flex;align-items:flex-end;padding:16px}
+        .vid-play{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:48px;height:48px;background:rgba(255,255,255,0.95);border-radius:50%;display:flex;align-items:center;justify-content:center;color:#4f46e5;font-size:1rem;box-shadow:0 4px 20px rgba(0,0,0,0.3);cursor:pointer;transition:all 0.3s}
+        .vid-play:hover{transform:translate(-50%,-50%) scale(1.1);background:#4f46e5;color:#fff}
+
+        /* ===== IMAGE GALLERY ===== */
+        .gallery{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+        .gallery img{width:100%;height:120px;object-fit:cover;border-radius:12px;transition:all 0.3s;cursor:pointer}
+        .gallery img:hover{transform:scale(1.05);box-shadow:0 8px 24px rgba(0,0,0,0.15)}
+        @media(max-width:640px){.gallery{grid-template-columns:repeat(2,1fr)}.gallery img{height:100px}}
+
+        /* ===== RESPONSIVE ===== */
+        @media(max-width:640px){
+            .hero-title{font-size:1.9rem!important;line-height:1.15!important}
+            .section-pad{padding:36px 0!important}
+            .card-glass,.card-solid{border-radius:16px}
         }
-        @media(pointer:coarse) { .btn-brand, .btn-outline, a, button { min-height:44px; } }
+        @media(pointer:coarse){.btn-primary,.btn-outline,a,button{min-height:44px}}
     </style>
-        /* ===== 3D CARD ANIMATIONS ===== */
-        .card-3d { perspective: 1000px; }
-        .card-3d-inner { transition: transform 0.6s ease; transform-style: preserve-3d; }
-        .card-3d:hover .card-3d-inner { transform: rotateY(8deg) rotateX(4deg) scale(1.03); }
-        .pricing-icon-wrap { display:flex; align-items:center; justify-content:center; width:100%; margin:0 auto 16px; }
-        
-        /* ===== BACK TO TOP ===== */
-        #backToTop { position:fixed; bottom:20px; right:84px; z-index:60; width:44px; height:44px; border-radius:14px; background:linear-gradient(135deg,#4f46e5,#ec4899); color:white; border:none; cursor:pointer; box-shadow:0 4px 20px rgba(79,70,229,0.4); font-size:1rem; display:none; align-items:center; justify-content:center; transition:all 0.3s; }
-        #backToTop:hover { transform:translateY(-3px); box-shadow:0 8px 30px rgba(79,70,229,0.5); }
-        #backToTop.show { display:flex; }
-
-        /* ===== EDGE TO EDGE MOBILE ===== */
-        @media(max-width:640px) {
-            .edge-full { margin-left:-16px; margin-right:-16px; }
-            .section-pad { padding:40px 0; }
-            main, section { scroll-margin-top:70px; }
-        }
-
-        /* ===== 3D FLOAT ON HORIZON ===== */
-        .float-3d { animation: float3d 6s ease-in-out infinite; }
-        @keyframes float3d { 0%,100%{transform:translateY(0) rotateX(0)} 50%{transform:translateY(-10px) rotateX(2deg)} }
-
-        /* ===== BRIGHTER LIGHTER COLORS ===== */
-        body { background:#f0f4ff; }
-        .hero-bg { background:linear-gradient(135deg,#e8eeff 0%,#f0fdf4 50%,#fdf2f8 100%) !important; }
-        .card-light { background:#ffffff; border:1px solid #dbe3f8; }
-        section { background:#f0f4ff; }
-        .bg-white { background:#ffffff !important; }
-        .bg-slate-50, .bg-slate-100 { background:#f4f7ff !important; }
-        .text-slate-900 { color:#111827 !important; }
-
-        /* ===== GOOGLE MAPS ===== */
-        .map-wrap { border-radius:20px; overflow:hidden; box-shadow:0 10px 40px rgba(79,70,229,0.15); border:4px solid white; }
-        .map-wrap iframe { display:block; width:100%; height:400px; border:0; filter:saturate(1.2); }
-        @media(max-width:640px){ .map-wrap iframe { height:300px; } }
 </head>
 <body>
 
+<!-- PARTICLES -->
+<div id="particles"></div>
+
 <!-- NAVBAR -->
-<nav class="fixed w-full z-50 glass-light shadow-sm" id="navbar">
+<nav class="fixed w-full z-50 nav-glass" id="navbar">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="flex justify-between items-center h-16 sm:h-18">
-            <a href="#" class="flex items-center gap-2 font-black text-xl text-brand-600">
-                <div class="w-9 h-9 bg-gradient-to-br from-brand-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
+        <div class="flex justify-between items-center h-16">
+            <a href="#" class="flex items-center gap-2 font-display font-black text-xl text-indigo-600">
+                <div class="w-9 h-9 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-xl flex items-center justify-center shadow-md shadow-indigo-500/20">
                     <i class="fa-solid fa-microchip text-white text-sm"></i>
                 </div>
-                PIXEL FORGE<span class="text-pink-500">📡</span>
+                <span>PIXEL FORGE<span class="text-pink-500">📡</span></span>
             </a>
-            <div class="hidden md:flex items-center gap-7">
-                <a href="#services" class="nav-link text-slate-600 hover:text-brand-600 font-medium text-sm transition">Services</a>
-                <a href="#process" class="nav-link text-slate-600 hover:text-brand-600 font-medium text-sm transition">Process</a>
-                <a href="#pricing" class="nav-link text-slate-600 hover:text-brand-600 font-medium text-sm transition">Pricing</a>
-                <a href="#faq" class="nav-link text-slate-600 hover:text-brand-600 font-medium text-sm transition">FAQ</a>
-                <a href="https://wa.me/919620024812" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-full font-bold text-sm transition flex items-center gap-2 shadow-md shadow-green-500/20">
+            <div class="hidden md:flex items-center gap-6">
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#process" class="nav-link">Process</a>
+                <a href="#portfolio" class="nav-link">Portfolio</a>
+                <a href="#pricing" class="nav-link">Pricing</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="https://wa.me/919620024812" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-xl font-bold text-sm transition flex items-center gap-2 shadow-md shadow-green-500/20">
                     <i class="fa-brands fa-whatsapp text-base"></i> Chat Now
                 </a>
             </div>
@@ -135,17 +161,17 @@
     </div>
 </nav>
 
-<!-- Mobile Menu -->
+<!-- MOBILE MENU -->
 <div class="mobile-menu fixed top-0 right-0 w-72 h-full bg-white z-[60] p-6 shadow-2xl" id="mobileMenu">
-    <button class="absolute top-4 right-4 text-2xl text-slate-500" onclick="toggleMobile()"><i class="fa-solid fa-xmark"></i></button>
+    <button class="absolute top-4 right-4 text-2xl text-slate-400" onclick="toggleMobile()"><i class="fa-solid fa-xmark"></i></button>
     <div class="mt-14 space-y-1">
-        <a href="#services" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-rocket mr-3 text-brand-500 w-5"></i>Services</a>
-        <a href="#process" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-diagram-project mr-3 text-pink-500 w-5"></i>Process</a>
-        <a href="#pricing" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-indian-rupee-sign mr-3 text-green-500 w-5"></i>Pricing</a>
-        <a href="#team" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-users mr-3 text-cyan-500 w-5"></i>Team</a>
-        <a href="#blog" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-pen-nib mr-3 text-yellow-500 w-5"></i>Blog</a>
-        <a href="#faq" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-circle-question mr-3 text-purple-500 w-5"></i>FAQ</a>
-        <a href="#contact" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-envelope mr-3 text-orange-500 w-5"></i>Contact</a>
+        <a href="#services" onclick="toggleMobile()" class="flex items-center gap-3 py-3 px-4 rounded-xl font-semibold text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 transition"><i class="fa-solid fa-rocket text-indigo-500 w-5 text-center"></i> Services</a>
+        <a href="#process" onclick="toggleMobile()" class="flex items-center gap-3 py-3 px-4 rounded-xl font-semibold text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 transition"><i class="fa-solid fa-diagram-project text-pink-500 w-5 text-center"></i> Process</a>
+        <a href="#portfolio" onclick="toggleMobile()" class="flex items-center gap-3 py-3 px-4 rounded-xl font-semibold text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 transition"><i class="fa-solid fa-briefcase text-cyan-500 w-5 text-center"></i> Portfolio</a>
+        <a href="#pricing" onclick="toggleMobile()" class="flex items-center gap-3 py-3 px-4 rounded-xl font-semibold text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 transition"><i class="fa-solid fa-indian-rupee-sign text-green-500 w-5 text-center"></i> Pricing</a>
+        <a href="#team" onclick="toggleMobile()" class="flex items-center gap-3 py-3 px-4 rounded-xl font-semibold text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 transition"><i class="fa-solid fa-users text-cyan-500 w-5 text-center"></i> Team</a>
+        <a href="#faq" onclick="toggleMobile()" class="flex items-center gap-3 py-3 px-4 rounded-xl font-semibold text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 transition"><i class="fa-solid fa-circle-question text-purple-500 w-5 text-center"></i> FAQ</a>
+        <a href="#contact" onclick="toggleMobile()" class="flex items-center gap-3 py-3 px-4 rounded-xl font-semibold text-slate-700 hover:bg-indigo-50 hover:text-indigo-600 transition"><i class="fa-solid fa-envelope text-orange-500 w-5 text-center"></i> Contact</a>
         <div class="pt-4 mt-4 border-t border-slate-100">
             <a href="https://wa.me/919620024812" target="_blank" class="flex items-center gap-3 bg-green-50 text-green-600 px-4 py-3 rounded-xl font-bold"><i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Us</a>
         </div>
@@ -153,41 +179,41 @@
 </div>
 
 <!-- HERO -->
-<section class="hero-bg min-h-screen flex items-center pt-16 overflow-hidden">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+<section class="hero-bg min-h-screen flex items-center pt-16 relative overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-8 items-center relative z-10">
         <div data-aos="fade-right" data-aos-duration="800">
-            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-600 text-xs font-bold mb-5">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-600 text-xs font-bold mb-5">
                 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Available for New Projects
             </div>
-            <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-5 text-slate-900">We Build<br><span class="gradient-text">Digital Reality.</span></h1>
-            <p class="text-base sm:text-lg text-slate-500 mb-7 max-w-lg leading-relaxed">From high-performance web apps to scalable cloud infrastructure. We turn your vision into a market-dominating product in <strong class="text-slate-800">Bangalore</strong> and beyond.</p>
+            <h1 class="hero-title font-display text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-5 text-slate-900">We Build<br><span class="gradient-text">Digital Reality.</span></h1>
+            <p class="text-base sm:text-lg text-slate-500 mb-7 max-w-lg leading-relaxed">From high-performance web apps to scalable cloud infrastructure. We turn your vision into a market-dominating product.</p>
             <div class="flex flex-col sm:flex-row gap-3">
-                <a href="#contact" class="btn-brand text-center">Start Project <i class="fa-solid fa-arrow-right"></i></a>
-                <a href="#portfolio" class="btn-outline text-center">View Portfolio</a>
+                <a href="#contact" class="btn-primary text-center justify-center">Start Project <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#portfolio" class="btn-outline text-center justify-center"><i class="fa-solid fa-play text-sm"></i> View Our Work</a>
             </div>
-            <div class="mt-10 flex items-center gap-4">
+            <div class="mt-8 flex items-center gap-4">
                 <div class="flex -space-x-3">
-                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
-                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
+                    <img src="https://i.pravatar.cc/80?img=1" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
+                    <img src="https://i.pravatar.cc/80?img=3" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
+                    <img src="https://i.pravatar.cc/80?img=5" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
+                    <img src="https://i.pravatar.cc/80?img=8" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
                 </div>
                 <div class="text-sm text-slate-500">
-                    <div class="flex text-yellow-400 text-xs mb-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    <div class="flex text-amber-400 text-xs mb-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                     Trusted by <strong class="text-slate-800">50+ Startups</strong>
                 </div>
             </div>
         </div>
-        <div class="relative hidden lg:block" data-aos="fade-left" data-aos-duration="800">
-            <div class="animate-float">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Dashboard" class="rounded-2xl shadow-2xl border border-slate-200 w-full object-cover h-[440px]">
-                <div class="absolute -top-5 -left-5 bg-white p-3 rounded-xl shadow-lg flex items-center gap-3 border border-slate-100">
-                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center"><i class="fa-solid fa-code text-green-600"></i></div>
-                    <div><p class="text-[10px] text-slate-400">Status</p><p class="text-sm font-bold">System Online</p></div>
+        <div class="relative hidden lg:flex justify-center" data-aos="fade-left" data-aos-duration="800">
+            <div class="anim-float relative">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=550&fit=crop&auto=format" alt="Dashboard" class="rounded-3xl shadow-2xl border border-slate-200/60 w-full max-w-[520px] object-cover h-[420px]" onerror="this.src='https://picsum.photos/800/550?random=1'">
+                <div class="absolute -top-5 -left-5 bg-white p-3 rounded-2xl shadow-lg flex items-center gap-3 border border-slate-100">
+                    <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center"><i class="fa-solid fa-code text-green-600"></i></div>
+                    <div><p class="text-[10px] text-slate-400 font-medium">Status</p><p class="text-sm font-bold text-slate-900">System Online</p></div>
                 </div>
-                <div class="absolute -bottom-5 -right-5 bg-white p-3 rounded-xl shadow-lg flex items-center gap-3 border border-slate-100">
-                    <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center"><i class="fa-solid fa-rocket text-brand-600"></i></div>
-                    <div><p class="text-[10px] text-slate-400">Speed</p><p class="text-sm font-bold">100/100 Score</p></div>
+                <div class="absolute -bottom-5 -right-5 bg-white p-3 rounded-2xl shadow-lg flex items-center gap-3 border border-slate-100">
+                    <div class="w-10 h-10 bg-indigo-100 rounded-xl flex items-center justify-center"><i class="fa-solid fa-rocket text-indigo-600"></i></div>
+                    <div><p class="text-[10px] text-slate-400 font-medium">Score</p><p class="text-sm font-bold text-slate-900">100/100</p></div>
                 </div>
             </div>
         </div>
@@ -195,12 +221,12 @@
 </section>
 
 <!-- TECH MARQUEE -->
-<div class="py-6 bg-white border-y border-slate-100 overflow-hidden">
+<div class="py-5 bg-white border-y border-slate-100 relative z-10 overflow-hidden">
     <div class="marquee-track">
         <div class="flex items-center gap-10 text-slate-400 text-sm font-medium mx-10 whitespace-nowrap">
             <span><i class="fa-brands fa-react text-xl text-cyan-500"></i> React</span>
             <span><i class="fa-brands fa-node-js text-xl text-green-600"></i> Node.js</span>
-            <span><i class="fa-brands fa-python text-xl text-yellow-500"></i> Python</span>
+            <span><i class="fa-brands fa-python text-xl text-amber-500"></i> Python</span>
             <span><i class="fa-brands fa-aws text-xl text-orange-500"></i> AWS</span>
             <span><i class="fa-brands fa-docker text-xl text-blue-500"></i> Docker</span>
             <span><i class="fa-solid fa-database text-xl text-purple-500"></i> MongoDB</span>
@@ -212,7 +238,7 @@
         <div class="flex items-center gap-10 text-slate-400 text-sm font-medium mx-10 whitespace-nowrap" aria-hidden="true">
             <span><i class="fa-brands fa-react text-xl text-cyan-500"></i> React</span>
             <span><i class="fa-brands fa-node-js text-xl text-green-600"></i> Node.js</span>
-            <span><i class="fa-brands fa-python text-xl text-yellow-500"></i> Python</span>
+            <span><i class="fa-brands fa-python text-xl text-amber-500"></i> Python</span>
             <span><i class="fa-brands fa-aws text-xl text-orange-500"></i> AWS</span>
             <span><i class="fa-brands fa-docker text-xl text-blue-500"></i> Docker</span>
             <span><i class="fa-solid fa-database text-xl text-purple-500"></i> MongoDB</span>
@@ -225,82 +251,87 @@
 </div>
 
 <!-- SERVICES -->
-<section id="services" class="section-alt section-pad py-20">
+<section id="services" class="py-20 relative z-10 bg-white">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
-            <p class="text-brand-600 font-bold text-sm tracking-widest uppercase mb-2">What We Do</p>
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Our <span class="gradient-text">Expertise</span></h2>
+            <p class="text-indigo-600 font-bold text-sm tracking-widest uppercase mb-2">What We Do</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Our <span class="gradient-text">Expertise</span></h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-laptop-code text-xl text-brand-600"></i></div>
-                <h3 class="font-bold text-lg text-slate-900 mb-2">Web Development</h3>
-                <p class="text-slate-500 text-sm mb-3">Next.js, React, Vue apps optimized for SEO and speed. PWA ready.</p>
-                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=200&fit=crop" alt="Web Dev" class="rounded-xl w-full h-32 object-cover">
-            </div>
-            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-mobile-screen-button text-xl text-pink-600"></i></div>
-                <h3 class="font-bold text-lg text-slate-900 mb-2">Mobile Apps</h3>
-                <p class="text-slate-500 text-sm mb-3">Native performance with Flutter and React Native for iOS and Android.</p>
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=200&fit=crop" alt="Mobile" class="rounded-xl w-full h-32 object-cover">
-            </div>
-            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-cloud text-xl text-cyan-600"></i></div>
-                <h3 class="font-bold text-lg text-slate-900 mb-2">Cloud & DevOps</h3>
-                <p class="text-slate-500 text-sm mb-3">AWS architecture, Docker, Kubernetes, CI/CD for zero downtime.</p>
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop" alt="Cloud" class="rounded-xl w-full h-32 object-cover">
-            </div>
-            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="100">
-                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-robot text-xl text-green-600"></i></div>
-                <h3 class="font-bold text-lg text-slate-900 mb-2">AI & ML Integration</h3>
-                <p class="text-slate-500 text-sm mb-3">Embed GPT-4, computer vision, and predictive models into your products.</p>
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop" alt="AI" class="rounded-xl w-full h-32 object-cover">
-            </div>
-            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="200">
-                <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-palette text-xl text-yellow-600"></i></div>
-                <h3 class="font-bold text-lg text-slate-900 mb-2">UI/UX Design</h3>
-                <p class="text-slate-500 text-sm mb-3">Beautiful interfaces designed in Figma. User-tested and conversion-optimized.</p>
-                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=200&fit=crop" alt="Design" class="rounded-xl w-full h-32 object-cover">
-            </div>
-            <div class="card-light p-7 rounded-2xl card-3d card-3d-inner" data-aos="fade-up" data-aos-delay="300">
-                <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-shield-halved text-xl text-red-600"></i></div>
-                <h3 class="font-bold text-lg text-slate-900 mb-2">Cybersecurity</h3>
-                <p class="text-slate-500 text-sm mb-3">Penetration testing, vulnerability assessments, and compliance solutions.</p>
-                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=200&fit=crop" alt="Security" class="rounded-xl w-full h-32 object-cover">
-            </div>
+            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="100"><div class="tilt-inner">
+                <div class="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-laptop-code text-indigo-600"></i></div>
+                <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Web Development</h3>
+                <p class="text-slate-500 text-sm mb-4">Next.js, React, Vue apps optimized for SEO and speed. PWA ready.</p>
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=250&fit=crop&auto=format" alt="Web Dev" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#eef2ff,#fdf2f8)';this.style.height='120px'">
+            </div></div>
+            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="200"><div class="tilt-inner">
+                <div class="w-12 h-12 bg-pink-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-mobile-screen-button text-pink-600"></i></div>
+                <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Mobile Apps</h3>
+                <p class="text-slate-500 text-sm mb-4">Native performance with Flutter and React Native for iOS and Android.</p>
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=250&fit=crop&auto=format" alt="Mobile" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#fdf2f8,#eef2ff)';this.style.height='120px'">
+            </div></div>
+            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="300"><div class="tilt-inner">
+                <div class="w-12 h-12 bg-cyan-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-cloud text-cyan-600"></i></div>
+                <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Cloud & DevOps</h3>
+                <p class="text-slate-500 text-sm mb-4">AWS architecture, Docker, Kubernetes, CI/CD for zero downtime.</p>
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=250&fit=crop&auto=format" alt="Cloud" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#ecfeff,#eef2ff)';this.style.height='120px'">
+            </div></div>
+            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="100"><div class="tilt-inner">
+                <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-robot text-green-600"></i></div>
+                <h3 class="font-display font-bold text-lg text-slate-900 mb-2">AI & ML Integration</h3>
+                <p class="text-slate-500 text-sm mb-4">Embed GPT-4, computer vision, and predictive models into products.</p>
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=250&fit=crop&auto=format" alt="AI" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#f0fdf4,#eef2ff)';this.style.height='120px'">
+            </div></div>
+            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="200"><div class="tilt-inner">
+                <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-palette text-amber-600"></i></div>
+                <h3 class="font-display font-bold text-lg text-slate-900 mb-2">UI/UX Design</h3>
+                <p class="text-slate-500 text-sm mb-4">Beautiful interfaces designed in Figma. User-tested and optimized.</p>
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=250&fit=crop&auto=format" alt="Design" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#fffbeb,#eef2ff)';this.style.height='120px'">
+            </div></div>
+            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="300"><div class="tilt-inner">
+                <div class="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-shield-halved text-red-600"></i></div>
+                <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Cybersecurity</h3>
+                <p class="text-slate-500 text-sm mb-4">Penetration testing, vulnerability assessments, compliance.</p>
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&h=250&fit=crop&auto=format" alt="Security" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#fef2f2,#eef2ff)';this.style.height='120px'">
+            </div></div>
         </div>
     </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="sdiv"></div>
+
+<!-- VIDEO CAROUSEL -->
+<section class="py-20 bg-slate-50 relative z-10">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-10" data-aos="fade-up">
+            <p class="text-pink-500 font-bold text-sm tracking-widest uppercase mb-2">Showcase</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Featured <span class="gradient-text">Work</span></h2>
+        </div>
+        <div class="vid-carousel" data-aos="fade-up">
+            <div class="vid-item"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop&auto=format" alt="Analytics"><div class="vid-play"><i class="fa-solid fa-play"></i></div><div class="vid-overlay"><div><p class="text-white font-bold text-sm">FinTrack Analytics Dashboard</p><p class="text-white/60 text-xs">React + D3.js + AI</p></div></div></div>
+            <div class="vid-item"><img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=340&fit=crop&auto=format" alt="Ecommerce"><div class="vid-play"><i class="fa-solid fa-play"></i></div><div class="vid-overlay"><div><p class="text-white font-bold text-sm">ShopElite E-Commerce</p><p class="text-white/60 text-xs">Next.js + Stripe</p></div></div></div>
+            <div class="vid-item"><img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=340&fit=crop&auto=format" alt="Health"><div class="vid-play"><i class="fa-solid fa-play"></i></div><div class="vid-overlay"><div><p class="text-white font-bold text-sm">HealthPulse Mobile App</p><p class="text-white/60 text-xs">Flutter + Firebase</p></div></div></div>
+            <div class="vid-item"><img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=340&fit=crop&auto=format" alt="Dashboard"><div class="vid-play"><i class="fa-solid fa-play"></i></div><div class="vid-overlay"><div><p class="text-white font-bold text-sm">CloudNine Infrastructure</p><p class="text-white/60 text-xs">AWS + Kubernetes</p></div></div></div>
+            <div class="vid-item"><img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=340&fit=crop&auto=format" alt="Mobile"><div class="vid-play"><i class="fa-solid fa-play"></i></div><div class="vid-overlay"><div><p class="text-white font-bold text-sm">SecureNet Mobile</p><p class="text-white/60 text-xs">React Native</p></div></div></div>
+        </div>
+    </div>
+</section>
+
+<div class="sdiv"></div>
 
 <!-- PROCESS -->
-<section id="process" class="py-20 bg-slate-50">
+<section id="process" class="py-20 bg-white relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div data-aos="fade-right">
-                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" alt="Team" class="rounded-2xl shadow-xl w-full">
-            </div>
+            <div data-aos="fade-right"><img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop&auto=format" alt="Team" class="rounded-3xl shadow-xl w-full" onerror="this.style.background='linear-gradient(135deg,#eef2ff,#fdf2f8)';this.style.height='400px'"></div>
             <div data-aos="fade-left">
                 <p class="text-pink-500 font-bold text-sm tracking-widest uppercase mb-2">How We Work</p>
-                <h2 class="text-3xl font-black text-slate-900 mb-8">How We <span class="text-brand-600">Forge</span> Success</h2>
+                <h2 class="font-display text-3xl font-black text-slate-900 mb-8">How We <span class="text-indigo-600">Forge</span> Success</h2>
                 <div class="space-y-6">
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-11 h-11 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold">1</div>
-                        <div><h4 class="font-bold text-slate-900 mb-1">Discovery & Strategy</h4><p class="text-slate-500 text-sm">We analyze your goals and map out a technical roadmap.</p></div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-11 h-11 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold">2</div>
-                        <div><h4 class="font-bold text-slate-900 mb-1">Design & Prototype</h4><p class="text-slate-500 text-sm">High-fidelity UI/UX designs for your approval before coding.</p></div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-11 h-11 rounded-full bg-cyan-500 text-white flex items-center justify-center font-bold">3</div>
-                        <div><h4 class="font-bold text-slate-900 mb-1">Agile Development</h4><p class="text-slate-500 text-sm">2-week sprints with weekly demos. You see progress every step.</p></div>
-                    </div>
-                    <div class="flex gap-4">
-                        <div class="flex-shrink-0 w-11 h-11 rounded-full bg-green-500 text-white flex items-center justify-center font-bold">4</div>
-                        <div><h4 class="font-bold text-slate-900 mb-1">Launch & Scale</h4><p class="text-slate-500 text-sm">Production deployment, monitoring, and ongoing support.</p></div>
-                    </div>
+                    <div class="flex gap-4"><div class="flex-shrink-0 w-11 h-11 rounded-2xl bg-indigo-500 text-white flex items-center justify-center font-bold shadow-md shadow-indigo-500/20">1</div><div><h4 class="font-bold text-slate-900 mb-1">Discovery & Strategy</h4><p class="text-slate-500 text-sm">We analyze your goals and map out a technical roadmap.</p></div></div>
+                    <div class="flex gap-4"><div class="flex-shrink-0 w-11 h-11 rounded-2xl bg-pink-500 text-white flex items-center justify-center font-bold shadow-md shadow-pink-500/20">2</div><div><h4 class="font-bold text-slate-900 mb-1">Design & Prototype</h4><p class="text-slate-500 text-sm">High-fidelity UI/UX designs for your approval.</p></div></div>
+                    <div class="flex gap-4"><div class="flex-shrink-0 w-11 h-11 rounded-2xl bg-cyan-500 text-white flex items-center justify-center font-bold shadow-md shadow-cyan-500/20">3</div><div><h4 class="font-bold text-slate-900 mb-1">Agile Development</h4><p class="text-slate-500 text-sm">2-week sprints with weekly demos.</p></div></div>
+                    <div class="flex gap-4"><div class="flex-shrink-0 w-11 h-11 rounded-2xl bg-green-500 text-white flex items-center justify-center font-bold shadow-md shadow-green-500/20">4</div><div><h4 class="font-bold text-slate-900 mb-1">Launch & Scale</h4><p class="text-slate-500 text-sm">Production deployment and ongoing support.</p></div></div>
                 </div>
             </div>
         </div>
@@ -308,138 +339,113 @@
 </section>
 
 <!-- STATS -->
-<section id="stats" class="py-16 bg-white">
+<section class="py-16 bg-white relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
-            <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="zoom-in">
-                <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-rocket text-brand-600 text-xl"></i></div>
-                <h3 class="text-4xl font-black text-slate-900 stat-number counter" data-target="50">0</h3>
-                <p class="text-brand-600 font-bold text-xs tracking-wider uppercase mt-1">Projects Delivered</p>
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-5">
+            <div class="text-center p-5 rounded-2xl bg-gradient-to-br from-indigo-50 to-indigo-100/50 border border-indigo-100" data-aos="zoom-in">
+                <div class="w-12 h-12 bg-indigo-500 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md shadow-indigo-500/20"><i class="fa-solid fa-rocket text-white"></i></div>
+                <h3 class="text-3xl sm:text-4xl font-display font-black text-slate-900 counter" data-target="50">0</h3>
+                <p class="text-indigo-600 font-bold text-[10px] tracking-wider uppercase mt-1">Projects Delivered</p>
             </div>
-            <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="zoom-in" data-aos-delay="100">
-                <div class="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-heart text-pink-500 text-xl"></i></div>
-                <h3 class="text-4xl font-black text-slate-900 stat-number counter" data-target="98">0</h3>
-                <p class="text-pink-500 font-bold text-xs tracking-wider uppercase mt-1">Client Satisfaction %</p>
+            <div class="text-center p-5 rounded-2xl bg-gradient-to-br from-pink-50 to-pink-100/50 border border-pink-100" data-aos="zoom-in" data-aos-delay="100">
+                <div class="w-12 h-12 bg-pink-500 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md shadow-pink-500/20"><i class="fa-solid fa-heart text-white"></i></div>
+                <h3 class="text-3xl sm:text-4xl font-display font-black text-slate-900 counter" data-target="98">0</h3>
+                <p class="text-pink-500 font-bold text-[10px] tracking-wider uppercase mt-1">Client Satisfaction %</p>
             </div>
-            <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="zoom-in" data-aos-delay="200">
-                <div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-clock text-cyan-600 text-xl"></i></div>
-                <h3 class="text-4xl font-black text-slate-900 stat-number counter" data-target="5">0</h3>
-                <p class="text-cyan-600 font-bold text-xs tracking-wider uppercase mt-1">Years Experience</p>
+            <div class="text-center p-5 rounded-2xl bg-gradient-to-br from-cyan-50 to-cyan-100/50 border border-cyan-100" data-aos="zoom-in" data-aos-delay="200">
+                <div class="w-12 h-12 bg-cyan-500 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md shadow-cyan-500/20"><i class="fa-solid fa-clock text-white"></i></div>
+                <h3 class="text-3xl sm:text-4xl font-display font-black text-slate-900 counter" data-target="5">0</h3>
+                <p class="text-cyan-600 font-bold text-[10px] tracking-wider uppercase mt-1">Years Experience</p>
             </div>
-            <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="zoom-in" data-aos-delay="300">
-                <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-headset text-green-600 text-xl"></i></div>
-                <h3 class="text-4xl font-black text-slate-900 stat-number">24/7</h3>
-                <p class="text-green-600 font-bold text-xs tracking-wider uppercase mt-1">Hour Support</p>
+            <div class="text-center p-5 rounded-2xl bg-gradient-to-br from-green-50 to-green-100/50 border border-green-100" data-aos="zoom-in" data-aos-delay="300">
+                <div class="w-12 h-12 bg-green-500 rounded-2xl flex items-center justify-center mx-auto mb-3 shadow-md shadow-green-500/20"><i class="fa-solid fa-headset text-white"></i></div>
+                <h3 class="text-3xl sm:text-4xl font-display font-black text-slate-900">24/7</h3>
+                <p class="text-green-600 font-bold text-[10px] tracking-wider uppercase mt-1">Hour Support</p>
             </div>
         </div>
     </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="sdiv"></div>
 
 <!-- PORTFOLIO -->
-<section id="portfolio" class="py-20 bg-white">
+<section id="portfolio" class="py-20 bg-white relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
             <p class="text-cyan-600 font-bold text-sm tracking-widest uppercase mb-2">Our Work</p>
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Featured <span class="gradient-text">Projects</span></h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Featured <span class="gradient-text">Projects</span></h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="card-light rounded-2xl overflow-hidden card-3d-inner" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Analytics</span>
-                    <h3 class="font-bold text-lg text-slate-900 mt-3 mb-2">FinTrack Analytics</h3>
-                    <p class="text-slate-500 text-sm mb-3">Real-time financial dashboard with AI-powered insights.</p>
-                    <div class="flex gap-2 flex-wrap">
-                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">React</span>
-                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">D3.js</span>
-                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">AI</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card-light rounded-2xl overflow-hidden card-3d-inner" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-pink-600 bg-pink-50 px-3 py-1 rounded-full">E-Commerce</span>
-                    <h3 class="font-bold text-lg text-slate-900 mt-3 mb-2">ShopElite India</h3>
-                    <p class="text-slate-500 text-sm mb-3">Full-stack e-commerce with payments and admin dashboard.</p>
-                    <div class="flex gap-2 flex-wrap">
-                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Next.js</span>
-                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Stripe</span>
-                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Postgres</span>
-                    </div>
-                </div>
-            </div>
-            <div class="card-light rounded-2xl overflow-hidden card-3d-inner" data-aos="fade-up" data-aos-delay="300">
-                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-green-600 bg-green-50 px-3 py-1 rounded-full">Mobile App</span>
-                    <h3 class="font-bold text-lg text-slate-900 mt-3 mb-2">HealthPulse App</h3>
-                    <p class="text-slate-500 text-sm mb-3">Cross-platform health tracking with wearable integration.</p>
-                    <div class="flex gap-2 flex-wrap">
-                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Flutter</span>
-                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Firebase</span>
-                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">ML Kit</span>
-                    </div>
-                </div>
+            <div class="card-solid overflow-hidden tilt" data-aos="fade-up" data-aos-delay="100"><div class="tilt-inner">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop&auto=format" alt="Project" class="w-full h-48 object-cover">
+                <div class="p-5"><span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">Analytics</span><h3 class="font-display font-bold text-lg text-slate-900 mt-3 mb-2">FinTrack Analytics</h3><p class="text-slate-500 text-sm">Real-time financial dashboard with AI-powered insights.</p></div>
+            </div></div>
+            <div class="card-solid overflow-hidden tilt" data-aos="fade-up" data-aos-delay="200"><div class="tilt-inner">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=300&fit=crop&auto=format" alt="Project" class="w-full h-48 object-cover">
+                <div class="p-5"><span class="text-xs font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full">E-Commerce</span><h3 class="font-display font-bold text-lg text-slate-900 mt-3 mb-2">ShopElite India</h3><p class="text-slate-500 text-sm">Full-stack e-commerce with payments and admin.</p></div>
+            </div></div>
+            <div class="card-solid overflow-hidden tilt" data-aos="fade-up" data-aos-delay="300"><div class="tilt-inner">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=300&fit=crop&auto=format" alt="Project" class="w-full h-48 object-cover">
+                <div class="p-5"><span class="text-xs font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-full">Mobile</span><h3 class="font-display font-bold text-lg text-slate-900 mt-3 mb-2">HealthPulse App</h3><p class="text-slate-500 text-sm">Cross-platform health tracking with wearable integration.</p></div>
+            </div></div>
+        </div>
+        <!-- IMAGE GALLERY -->
+        <div class="mt-10" data-aos="fade-up">
+            <h3 class="font-display font-bold text-lg text-slate-900 mb-4 text-center">More from Our Portfolio</h3>
+            <div class="gallery">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=300&fit=crop&auto=format" alt="Work" onerror="this.style.background='#e2e8f0'">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=400&h=300&fit=crop&auto=format" alt="Work" onerror="this.style.background='#e2e8f0'">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&auto=format" alt="Work" onerror="this.style.background='#e2e8f0'">
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=300&fit=crop&auto=format" alt="Work" onerror="this.style.background='#e2e8f0'">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=400&h=300&fit=crop&auto=format" alt="Work" onerror="this.style.background='#e2e8f0'">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=400&h=300&fit=crop&auto=format" alt="Work" onerror="this.style.background='#e2e8f0'">
             </div>
         </div>
     </div>
 </section>
 
 <!-- TESTIMONIALS -->
-<section class="py-20 bg-slate-50">
+<section class="py-20 bg-slate-50 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
             <p class="text-green-600 font-bold text-sm tracking-widest uppercase mb-2">Testimonials</p>
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">What Clients <span class="gradient-text">Say</span></h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">What Clients <span class="gradient-text">Say</span></h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="100">
-                <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="text-slate-600 text-sm mb-5 leading-relaxed">"Pixel Forge transformed our outdated system into a modern platform. Their team is incredibly talented. Highly recommend!"</p>
-                <div class="flex items-center gap-3">
-                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" class="w-11 h-11 rounded-full object-cover" alt="">
-                    <div><strong class="text-slate-900 text-sm">Rajesh Kumar</strong><br><span class="text-slate-400 text-xs">CTO, TechStartup</span></div>
-                </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex text-amber-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-slate-600 text-sm mb-5 leading-relaxed">"Pixel Forge transformed our outdated system. Their team is incredibly talented and responsive. Highly recommend!"</p>
+                <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/80?img=11" class="w-10 h-10 rounded-full" alt=""><div><strong class="text-slate-900 text-sm">Rajesh Kumar</strong><br><span class="text-slate-400 text-xs">CTO, TechStartup</span></div></div>
             </div>
-            <div class="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="200">
-                <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="text-slate-600 text-sm mb-5 leading-relaxed">"The mobile app they built increased our user engagement by 300%. Professional, on-time, and beyond expectations."</p>
-                <div class="flex items-center gap-3">
-                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" class="w-11 h-11 rounded-full object-cover" alt="">
-                    <div><strong class="text-slate-900 text-sm">Priya Sharma</strong><br><span class="text-slate-400 text-xs">CEO, HealthApp Inc</span></div>
-                </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex text-amber-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-slate-600 text-sm mb-5 leading-relaxed">"The mobile app increased our user engagement by 300%. Professional, on-time, beyond expectations!"</p>
+                <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/80?img=5" class="w-10 h-10 rounded-full" alt=""><div><strong class="text-slate-900 text-sm">Priya Sharma</strong><br><span class="text-slate-400 text-xs">CEO, HealthApp</span></div></div>
             </div>
-            <div class="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="300">
-                <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                <p class="text-slate-600 text-sm mb-5 leading-relaxed">"Their cloud infrastructure saved us 60% on hosting costs while improving uptime to 99.99%. Absolutely incredible work!"</p>
-                <div class="flex items-center gap-3">
-                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop" class="w-11 h-11 rounded-full object-cover" alt="">
-                    <div><strong class="text-slate-900 text-sm">Amit Patel</strong><br><span class="text-slate-400 text-xs">Founder, CloudNine</span></div>
-                </div>
+            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex text-amber-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-slate-600 text-sm mb-5 leading-relaxed">"Their cloud infrastructure saved us 60% on hosting while improving uptime to 99.99%. Incredible!"</p>
+                <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/80?img=12" class="w-10 h-10 rounded-full" alt=""><div><strong class="text-slate-900 text-sm">Amit Patel</strong><br><span class="text-slate-400 text-xs">Founder, CloudNine</span></div></div>
             </div>
         </div>
     </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="sdiv"></div>
 
 <!-- PRICING -->
-<section id="pricing" class="py-20 bg-white">
+<section id="pricing" class="py-20 bg-white relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
             <p class="text-pink-500 font-bold text-sm tracking-widest uppercase mb-2">Pricing</p>
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Transparent <span class="gradient-text">Pricing</span></h2>
-            <p class="text-slate-500 mt-2">No hidden costs. Pick a plan that fits your needs.</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Transparent <span class="gradient-text">Pricing</span></h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div class="bg-white p-8 rounded-2xl border border-slate-200 card-light text-center" data-aos="fade-up" data-aos-delay="100">
-                <div class="pricing-icon-wrap"><div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center"><i class="fa-solid fa-paper-plane text-brand-600 text-xl"></i></div></div>
-                <h3 class="font-bold text-lg text-slate-900">Starter</h3>
+            <div class="bg-white p-7 rounded-2xl border border-slate-200 card-glass text-center" data-aos="fade-up" data-aos-delay="100">
+                <div style="display:flex;align-items:center;justify-content:center;margin:0 auto 16px"><div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center"><i class="fa-solid fa-paper-plane text-indigo-600 text-xl"></i></div></div>
+                <h3 class="font-display font-bold text-lg text-slate-900">Starter</h3>
                 <p class="text-slate-400 text-xs mb-4">For small businesses</p>
-                <div class="text-4xl font-black text-slate-900 mb-1">₹25K</div>
+                <div class="text-4xl font-display font-black text-slate-900 mb-1">₹25K</div>
                 <p class="text-slate-400 text-xs mb-6">/project</p>
                 <ul class="space-y-2.5 text-sm text-left mb-6">
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Landing Page</li>
@@ -448,29 +454,29 @@
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Contact Form</li>
                     <li class="flex items-center gap-2 text-slate-300"><i class="fa-solid fa-xmark text-xs"></i> Mobile App</li>
                 </ul>
-                <a href="#contact" class="block w-full py-3 rounded-xl border-2 border-slate-200 text-slate-600 font-bold text-sm hover:border-brand-500 hover:text-brand-600 transition">Get Started</a>
+                <a href="#contact" class="block w-full py-3 rounded-xl border-2 border-slate-200 text-slate-600 font-bold text-sm hover:border-indigo-500 hover:text-indigo-600 transition">Get Started</a>
             </div>
-            <div class="bg-white p-8 rounded-2xl border-2 border-brand-500 card-light text-center relative shadow-lg shadow-brand-500/10" data-aos="fade-up" data-aos-delay="200">
-                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-500 to-purple-600 text-white text-xs font-bold px-4 py-1 rounded-full">MOST POPULAR</span>
-                <div class="pricing-icon-wrap"><div class="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center"><i class="fa-solid fa-rocket text-pink-500 text-xl"></i></div></div>
-                <h3 class="font-bold text-lg text-slate-900">Professional</h3>
+            <div class="bg-white p-7 rounded-2xl border-2 border-indigo-500 card-glass text-center relative shadow-lg shadow-indigo-500/10" data-aos="fade-up" data-aos-delay="200">
+                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-indigo-500 to-purple-600 text-white text-[10px] font-bold px-4 py-1 rounded-full uppercase tracking-wider">Most Popular</span>
+                <div style="display:flex;align-items:center;justify-content:center;margin:0 auto 16px"><div class="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center"><i class="fa-solid fa-rocket text-pink-500 text-xl"></i></div></div>
+                <h3 class="font-display font-bold text-lg text-slate-900">Professional</h3>
                 <p class="text-slate-400 text-xs mb-4">For growing startups</p>
-                <div class="text-4xl font-black text-slate-900 mb-1">₹1.5L</div>
+                <div class="text-4xl font-display font-black text-slate-900 mb-1">₹1.5L</div>
                 <p class="text-slate-400 text-xs mb-6">/project</p>
                 <ul class="space-y-2.5 text-sm text-left mb-6">
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Full Website (5+ pages)</li>
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Admin Dashboard</li>
-                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Backend API + Database</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Backend + Database</li>
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> PWA Support</li>
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> 3 Months Support</li>
                 </ul>
-                <a href="#contact" class="block w-full py-3 rounded-xl bg-gradient-to-r from-brand-500 to-purple-600 text-white font-bold text-sm hover:opacity-90 transition shadow-md">Get Started</a>
+                <a href="#contact" class="block w-full py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm hover:opacity-90 transition shadow-md">Get Started</a>
             </div>
-            <div class="bg-white p-8 rounded-2xl border border-slate-200 card-light text-center" data-aos="fade-up" data-aos-delay="300">
-                <div class="pricing-icon-wrap"><div class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center"><i class="fa-solid fa-gem text-cyan-600 text-xl"></i></div></div>
-                <h3 class="font-bold text-lg text-slate-900">Enterprise</h3>
+            <div class="bg-white p-7 rounded-2xl border border-slate-200 card-glass text-center" data-aos="fade-up" data-aos-delay="300">
+                <div style="display:flex;align-items:center;justify-content:center;margin:0 auto 16px"><div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center"><i class="fa-solid fa-gem text-cyan-600 text-xl"></i></div></div>
+                <h3 class="font-display font-bold text-lg text-slate-900">Enterprise</h3>
                 <p class="text-slate-400 text-xs mb-4">For large-scale projects</p>
-                <div class="text-4xl font-black text-slate-900 mb-1">₹5L+</div>
+                <div class="text-4xl font-display font-black text-slate-900 mb-1">₹5L+</div>
                 <p class="text-slate-400 text-xs mb-6">/project</p>
                 <ul class="space-y-2.5 text-sm text-left mb-6">
                     <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Full-Stack Web App</li>
@@ -486,439 +492,209 @@
 </section>
 
 <!-- TEAM -->
-<section id="team" class="py-20 bg-slate-50">
+<section id="team" class="py-20 bg-slate-50 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
             <p class="text-cyan-600 font-bold text-sm tracking-widest uppercase mb-2">Our People</p>
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Meet The <span class="gradient-text">Team</span></h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Meet The <span class="gradient-text">Team</span></h2>
         </div>
-        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="card-3d bg-white rounded-2xl overflow-hidden card-light text-center card-3d-inner" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Arjun" class="w-full h-44 object-cover">
-                <div class="p-5">
-                    <h3 class="font-bold text-slate-900 text-sm">Arjun Mehta</h3>
-                    <p class="text-brand-600 text-xs font-mono mt-1">Founder & CEO</p>
-                    <div class="flex justify-center gap-2 mt-3">
-                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-brand-600 transition"><i class="fa-brands fa-linkedin text-xs"></i></a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-800 transition"><i class="fa-brands fa-github text-xs"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="card-3d bg-white rounded-2xl overflow-hidden card-light text-center card-3d-inner" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" alt="Priya" class="w-full h-44 object-cover">
-                <div class="p-5">
-                    <h3 class="font-bold text-slate-900 text-sm">Priya Nair</h3>
-                    <p class="text-pink-500 text-xs font-mono mt-1">Lead Designer</p>
-                    <div class="flex justify-center gap-2 mt-3">
-                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-pink-500 transition"><i class="fa-brands fa-dribbble text-xs"></i></a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-pink-600 transition"><i class="fa-brands fa-instagram text-xs"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="card-3d bg-white rounded-2xl overflow-hidden card-light text-center card-3d-inner" data-aos="fade-up" data-aos-delay="300">
-                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop" alt="Vikram" class="w-full h-44 object-cover">
-                <div class="p-5">
-                    <h3 class="font-bold text-slate-900 text-sm">Vikram Das</h3>
-                    <p class="text-cyan-600 text-xs font-mono mt-1">Full-Stack Engineer</p>
-                    <div class="flex justify-center gap-2 mt-3">
-                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-800 transition"><i class="fa-brands fa-github text-xs"></i></a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-brand-600 transition"><i class="fa-brands fa-linkedin text-xs"></i></a>
-                    </div>
-                </div>
-            </div>
-            <div class="card-3d bg-white rounded-2xl overflow-hidden card-light text-center card-3d-inner" data-aos="fade-up" data-aos-delay="400">
-                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Ananya" class="w-full h-44 object-cover">
-                <div class="p-5">
-                    <h3 class="font-bold text-slate-900 text-sm">Ananya Roy</h3>
-                    <p class="text-green-600 text-xs font-mono mt-1">DevOps Engineer</p>
-                    <div class="flex justify-center gap-2 mt-3">
-                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-800 transition"><i class="fa-brands fa-github text-xs"></i></a>
-                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-brand-600 transition"><i class="fa-brands fa-linkedin text-xs"></i></a>
-                    </div>
-                </div>
-            </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
+            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="100"><img src="https://i.pravatar.cc/400?img=11" alt="Arjun" class="w-full h-44 object-cover"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Arjun Mehta</h3><p class="text-indigo-600 text-xs font-mono mt-1">Founder & CEO</p></div></div>
+            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="200"><img src="https://i.pravatar.cc/400?img=5" alt="Priya" class="w-full h-44 object-cover"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Priya Nair</h3><p class="text-pink-500 text-xs font-mono mt-1">Lead Designer</p></div></div>
+            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="300"><img src="https://i.pravatar.cc/400?img=12" alt="Vikram" class="w-full h-44 object-cover"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Vikram Das</h3><p class="text-cyan-600 text-xs font-mono mt-1">Full-Stack Dev</p></div></div>
+            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="400"><img src="https://i.pravatar.cc/400?img=9" alt="Ananya" class="w-full h-44 object-cover"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Ananya Roy</h3><p class="text-green-600 text-xs font-mono mt-1">DevOps Engineer</p></div></div>
         </div>
     </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="sdiv"></div>
 
 <!-- BLOG -->
-<section id="blog" class="py-20 bg-white">
+<section id="blog" class="py-20 bg-white relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
-            <p class="text-yellow-500 font-bold text-sm tracking-widest uppercase mb-2">Latest Insights</p>
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">From Our <span class="gradient-text">Blog</span></h2>
+            <p class="text-amber-500 font-bold text-sm tracking-widest uppercase mb-2">Latest Insights</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">From Our <span class="gradient-text">Blog</span></h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="bg-white rounded-2xl overflow-hidden card-light" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=300&fit=crop" alt="Blog" class="w-full h-44 object-cover">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">AI</span>
-                    <p class="text-slate-400 text-xs mt-3 mb-2">Sep 1, 2026</p>
-                    <h3 class="font-bold text-slate-900 mb-2">How AI is Revolutionizing Web Development</h3>
-                    <a href="#" class="text-brand-600 font-bold text-sm">Read More →</a>
-                </div>
+            <div class="bg-white rounded-2xl overflow-hidden card-glass" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=280&fit=crop&auto=format" alt="Blog" class="w-full h-44 object-cover">
+                <div class="p-5"><span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">AI</span><p class="text-slate-400 text-xs mt-3 mb-2">Sep 1, 2026</p><h3 class="font-display font-bold text-slate-900 text-sm mb-2">How AI is Revolutionizing Web Dev</h3><a href="#" class="text-indigo-600 font-bold text-sm">Read More →</a></div>
             </div>
-            <div class="bg-white rounded-2xl overflow-hidden card-light" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=300&fit=crop" alt="Blog" class="w-full h-44 object-cover">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full">Mobile</span>
-                    <p class="text-slate-400 text-xs mt-3 mb-2">Aug 28, 2026</p>
-                    <h3 class="font-bold text-slate-900 mb-2">Flutter vs React Native: The 2026 Comparison</h3>
-                    <a href="#" class="text-pink-500 font-bold text-sm">Read More →</a>
-                </div>
+            <div class="bg-white rounded-2xl overflow-hidden card-glass" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=280&fit=crop&auto=format" alt="Blog" class="w-full h-44 object-cover">
+                <div class="p-5"><span class="text-xs font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full">Mobile</span><p class="text-slate-400 text-xs mt-3 mb-2">Aug 28, 2026</p><h3 class="font-display font-bold text-slate-900 text-sm mb-2">Flutter vs React Native: 2026</h3><a href="#" class="text-pink-500 font-bold text-sm">Read More →</a></div>
             </div>
-            <div class="bg-white rounded-2xl overflow-hidden card-light" data-aos="fade-up" data-aos-delay="300">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=300&fit=crop" alt="Blog" class="w-full h-44 object-cover">
-                <div class="p-6">
-                    <span class="text-xs font-bold text-cyan-600 bg-cyan-50 px-2.5 py-1 rounded-full">Cloud</span>
-                    <p class="text-slate-400 text-xs mt-3 mb-2">Aug 20, 2026</p>
-                    <h3 class="font-bold text-slate-900 mb-2">10 Cloud Architecture Patterns for Startups</h3>
-                    <a href="#" class="text-cyan-600 font-bold text-sm">Read More →</a>
-                </div>
+            <div class="bg-white rounded-2xl overflow-hidden card-glass" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=280&fit=crop&auto=format" alt="Blog" class="w-full h-44 object-cover">
+                <div class="p-5"><span class="text-xs font-bold text-cyan-600 bg-cyan-50 px-2.5 py-1 rounded-full">Cloud</span><p class="text-slate-400 text-xs mt-3 mb-2">Aug 20, 2026</p><h3 class="font-display font-bold text-slate-900 text-sm mb-2">10 Cloud Patterns for Startups</h3><a href="#" class="text-cyan-600 font-bold text-sm">Read More →</a></div>
             </div>
         </div>
     </div>
 </section>
 
-<div class="section-divider"></div>
+<div class="sdiv"></div>
 
 <!-- FAQ -->
-<section id="faq" class="py-20 bg-slate-50">
+<section id="faq" class="py-20 bg-slate-50 relative z-10">
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
-            <p class="text-brand-600 font-bold text-sm tracking-widest uppercase mb-2">Got Questions?</p>
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Frequently Asked <span class="gradient-text">Questions</span></h2>
+            <p class="text-indigo-600 font-bold text-sm tracking-widest uppercase mb-2">Got Questions?</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">FAQ</h2>
         </div>
         <div class="space-y-3" data-aos="fade-up">
-            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center p-5">
-                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">How much does it cost to build a website?</h3>
-                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed">Our projects start from <strong class="text-slate-800">₹25,000</strong> for landing pages to <strong class="text-slate-800">₹5,00,000+</strong> for complex apps. Contact us for a free quote!</div>
-            </div>
-            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center p-5">
-                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">How long does it take to complete a project?</h3>
-                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed"><strong class="text-slate-800">Landing pages: 1-2 weeks</strong>, <strong class="text-slate-800">Websites: 3-4 weeks</strong>, <strong class="text-slate-800">Web apps: 6-10 weeks</strong>, <strong class="text-slate-800">Mobile apps: 8-12 weeks</strong>.</div>
-            </div>
-            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center p-5">
-                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">Do you provide hosting and maintenance?</h3>
-                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed">Yes! Hosting, SSL, domain setup, and maintenance packages starting at ₹5,000/month.</div>
-            </div>
-            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center p-5">
-                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">What technologies do you use?</h3>
-                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed"><strong class="text-slate-800">Frontend:</strong> React, Next.js, Vue. <strong class="text-slate-800">Backend:</strong> Node.js, Python. <strong class="text-slate-800">Mobile:</strong> Flutter, React Native. <strong class="text-slate-800">Cloud:</strong> AWS, Vercel.</div>
-            </div>
-            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center p-5">
-                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">Can you build a PWA?</h3>
-                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed">Yes! We specialize in PWAs — installable, offline-ready, push notifications, and blazing fast.</div>
-            </div>
-            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center p-5">
-                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">Do you work with clients outside Bangalore?</h3>
-                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed">Yes! We work globally via Zoom, Slack, Notion, and GitHub for seamless remote collaboration.</div>
-            </div>
-            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                <div class="flex justify-between items-center p-5">
-                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">What is your payment structure?</h3>
-                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
-                </div>
-                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed">30% upfront, 40% at midpoint, 30% on delivery. UPI, bank transfer, and wire accepted.</div>
-            </div>
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)"><div class="flex justify-between items-center p-5"><h3 class="font-bold text-slate-900 text-sm">How much does it cost?</h3><i class="fa-solid fa-plus text-indigo-500 faq-icon text-sm"></i></div><div class="faq-answer px-5 text-slate-500 text-sm leading-relaxed">Projects start from <strong class="text-slate-800">₹25,000</strong> to <strong class="text-slate-800">₹5,00,000+</strong>. Free quotes available!</div></div>
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)"><div class="flex justify-between items-center p-5"><h3 class="font-bold text-slate-900 text-sm">How long to complete?</h3><i class="fa-solid fa-plus text-indigo-500 faq-icon text-sm"></i></div><div class="faq-answer px-5 text-slate-500 text-sm leading-relaxed"><strong class="text-slate-800">Landing: 1-2wk</strong>, <strong class="text-slate-800">Site: 3-4wk</strong>, <strong class="text-slate-800">App: 8-12wk</strong></div></div>
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)"><div class="flex justify-between items-center p-5"><h3 class="font-bold text-slate-900 text-sm">Hosting & maintenance?</h3><i class="fa-solid fa-plus text-indigo-500 faq-icon text-sm"></i></div><div class="faq-answer px-5 text-slate-500 text-sm leading-relaxed">Yes! Hosting, SSL, domain setup, and maintenance from ₹5,000/month.</div></div>
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)"><div class="flex justify-between items-center p-5"><h3 class="font-bold text-slate-900 text-sm">Can you build PWAs?</h3><i class="fa-solid fa-plus text-indigo-500 faq-icon text-sm"></i></div><div class="faq-answer px-5 text-slate-500 text-sm leading-relaxed">Yes! Installable, offline-ready, push notifications, blazing fast.</div></div>
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)"><div class="flex justify-between items-center p-5"><h3 class="font-bold text-slate-900 text-sm">Global clients?</h3><i class="fa-solid fa-plus text-indigo-500 faq-icon text-sm"></i></div><div class="faq-answer px-5 text-slate-500 text-sm leading-relaxed">Yes! We work globally via Zoom, Slack, and GitHub.</div></div>
         </div>
     </div>
 </section>
 
-<div class="section-divider"></div>
-
 <!-- CTA -->
-<section class="py-20 bg-white">
+<section class="py-16 bg-white relative z-10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
-        <div class="bg-gradient-to-br from-brand-500 via-purple-600 to-pink-500 p-10 sm:p-14 rounded-3xl text-white">
-            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-5 animate-float"><i class="fa-solid fa-rocket text-white text-2xl"></i></div>
-            <h2 class="text-2xl sm:text-4xl font-black mb-3">Ready to Launch Your Project?</h2>
-            <p class="text-white/80 mb-8 max-w-xl mx-auto">Join 50+ satisfied clients. Let's create something extraordinary together.</p>
+        <div class="bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 p-8 sm:p-12 rounded-3xl text-white">
+            <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 anim-float"><i class="fa-solid fa-rocket text-white text-xl"></i></div>
+            <h2 class="font-display text-2xl sm:text-4xl font-black mb-3">Ready to Launch?</h2>
+            <p class="text-white/80 mb-6 max-w-lg mx-auto text-sm sm:text-base">Join 50+ satisfied clients. Let's build something extraordinary.</p>
             <div class="flex flex-col sm:flex-row gap-3 justify-center">
-                <a href="https://wa.me/919620024812?text=Hi%20Pixel%20Forge!" target="_blank" class="bg-white text-green-600 px-7 py-3.5 rounded-full font-bold flex items-center justify-center gap-2 hover:shadow-lg transition"><i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Us</a>
-                <a href="#contact" class="bg-white/20 text-white border border-white/40 px-7 py-3.5 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-white/30 transition"><i class="fa-solid fa-envelope"></i> Send Message</a>
+                <a href="https://wa.me/919620024812?text=Hi%20Pixel%20Forge!" target="_blank" class="bg-white text-green-600 px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:shadow-lg transition text-sm"><i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp</a>
+                <a href="#contact" class="bg-white/20 text-white border border-white/40 px-6 py-3 rounded-xl font-bold flex items-center justify-center gap-2 hover:bg-white/30 transition text-sm"><i class="fa-solid fa-envelope"></i> Email Us</a>
             </div>
         </div>
     </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact" class="py-20 bg-slate-50">
+<section id="contact" class="py-20 bg-slate-50 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl" data-aos="fade-up">
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div>
-                    <p class="text-brand-600 font-bold text-sm tracking-widest uppercase mb-2">Get In Touch</p>
-                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-5">Let's Start Your <span class="gradient-text">Project</span></h2>
-                    <p class="text-slate-500 text-sm mb-6">Fill the form or reach us directly. We reply within 1 hour.</p>
+                    <p class="text-indigo-600 font-bold text-sm tracking-widest uppercase mb-2">Get In Touch</p>
+                    <h2 class="font-display text-2xl sm:text-3xl font-black text-slate-900 mb-5">Let's Start Your <span class="gradient-text">Project</span></h2>
                     <div class="space-y-3">
-                        <a href="https://wa.me/919620024812" target="_blank" class="flex items-center gap-3 p-4 rounded-xl bg-green-50 border border-green-100 hover:border-green-300 transition">
-                            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center"><i class="fa-brands fa-whatsapp text-green-600"></i></div>
-                            <div><p class="text-[10px] text-slate-400 uppercase">WhatsApp</p><p class="font-bold text-sm text-slate-900">+91 9620024812</p></div>
-                        </a>
-                        <div class="flex items-center gap-3 p-4 rounded-xl bg-brand-50 border border-brand-100">
-                            <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center"><i class="fa-solid fa-location-dot text-brand-600"></i></div>
-                            <div><p class="text-[10px] text-slate-400 uppercase">Office</p><p class="font-bold text-sm text-slate-900">No 1, M.G Road, Brigade Road, Bangalore</p></div>
-                        </div>
-                        <a href="mailto:hello@pixelforge.dev" class="flex items-center gap-3 p-4 rounded-xl bg-yellow-50 border border-yellow-100 hover:border-yellow-300 transition">
-                            <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center"><i class="fa-solid fa-envelope text-yellow-600"></i></div>
-                            <div><p class="text-[10px] text-slate-400 uppercase">Email</p><p class="font-bold text-sm text-slate-900">hello@pixelforge.dev</p></div>
-                        </a>
+                        <a href="https://wa.me/919620024812" target="_blank" class="flex items-center gap-3 p-4 rounded-xl bg-green-50 border border-green-100 hover:border-green-300 transition"><div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center"><i class="fa-brands fa-whatsapp text-green-600"></i></div><div><p class="text-[10px] text-slate-400 uppercase font-medium">WhatsApp</p><p class="font-bold text-sm text-slate-900">+91 9620024812</p></div></a>
+                        <div class="flex items-center gap-3 p-4 rounded-xl bg-indigo-50 border border-indigo-100"><div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center"><i class="fa-solid fa-location-dot text-indigo-600"></i></div><div><p class="text-[10px] text-slate-400 uppercase font-medium">Office</p><p class="font-bold text-sm text-slate-900">No 1, M.G Road, Brigade Road, Bangalore</p></div></div>
+                        <a href="mailto:hello@pixelforge.dev" class="flex items-center gap-3 p-4 rounded-xl bg-amber-50 border border-amber-100 hover:border-amber-300 transition"><div class="w-10 h-10 rounded-xl bg-amber-100 flex items-center justify-center"><i class="fa-solid fa-envelope text-amber-600"></i></div><div><p class="text-[10px] text-slate-400 uppercase font-medium">Email</p><p class="font-bold text-sm text-slate-900">hello@pixelforge.dev</p></div></a>
                     </div>
                 </div>
                 <form id="contactForm" class="space-y-3">
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                        <div class="input-icon"><input type="text" placeholder="Your Name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition"><i class="fa-solid fa-user"></i></div>
-                        <div class="input-icon"><input type="tel" placeholder="Phone Number" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition"><i class="fa-solid fa-phone"></i></div>
+                        <div class="fi"><input type="text" placeholder="Your Name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition"><i class="fa-solid fa-user"></i></div>
+                        <div class="fi"><input type="tel" placeholder="Phone" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition"><i class="fa-solid fa-phone"></i></div>
                     </div>
-                    <div class="input-icon"><input type="email" placeholder="Email Address" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition"><i class="fa-solid fa-envelope"></i></div>
-                    <div class="input-icon">
-                        <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition appearance-none">
-                            <option value="">Select Service</option>
-                            <option>Web Development</option>
-                            <option>Mobile App</option>
-                            <option>Cloud & DevOps</option>
-                            <option>AI & ML</option>
-                            <option>UI/UX Design</option>
-                        </select>
-                        <i class="fa-solid fa-briefcase"></i>
-                    </div>
-                    <div class="input-icon"><textarea rows="3" placeholder="Tell us about your project..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition resize-none"></textarea><i class="fa-solid fa-comment" style="top:20px;transform:none;"></i></div>
-                    <button type="submit" class="w-full btn-brand justify-center text-center" id="submitBtn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+                    <div class="fi"><input type="email" placeholder="Email" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="fi"><select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-500 focus:border-indigo-500 outline-none transition appearance-none"><option value="">Select Service</option><option>Web Development</option><option>Mobile App</option><option>Cloud & DevOps</option><option>AI/ML</option><option>UI/UX</option></select><i class="fa-solid fa-briefcase"></i></div>
+                    <div class="fi"><textarea rows="3" placeholder="Your project..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-indigo-500 focus:ring-2 focus:ring-indigo-100 outline-none transition resize-none"></textarea><i class="fa-solid fa-comment" style="top:20px;transform:none"></i></div>
+                    <button type="submit" class="w-full btn-primary justify-center text-center" id="submitBtn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
                 </form>
             </div>
         </div>
     </div>
 </section>
 
-<!-- FOOTER -->
 <!-- GOOGLE MAPS -->
-<section class="py-16 bg-white">
+<section class="py-16 bg-white relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10" data-aos="fade-up">
-            <p class="text-brand-600 font-bold text-sm tracking-widest uppercase mb-2">Find Us</p>
-            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Our <span class="gradient-text">Location</span></h2>
+            <p class="text-indigo-600 font-bold text-sm tracking-widest uppercase mb-2">Find Us</p>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Our <span class="gradient-text">Location</span></h2>
         </div>
-        <div class="map-wrap" data-aos="fade-up" data-aos-delay="100">
-            <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.985!2d77.604!3d12.976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBrigade%20Road%2C%20Bengaluru%2C%20Karnataka!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade" title="Pixel Forge Office"></iframe>
-        </div>
-        <div class="flex flex-col sm:flex-row justify-center gap-6 mt-8 text-center" data-aos="fade-up">
-            <div class="flex items-center justify-center gap-2 text-slate-600">
-                <i class="fa-solid fa-location-dot text-brand-500"></i>
-                <span class="text-sm font-medium">No 1, M.G Road, Brigade Road, Bangalore</span>
-            </div>
-            <div class="flex items-center justify-center gap-2 text-slate-600">
-                <i class="fa-solid fa-phone text-green-500"></i>
-                <span class="text-sm font-medium">+91 9620024812</span>
-            </div>
-        </div>
+        <div class="map-wrap" data-aos="fade-up"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.985!2d77.604!3d12.976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBrigade%20Road%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" title="Office"></iframe></div>
     </div>
 </section>
 
-<footer class="bg-slate-900 text-white py-12">
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-white py-10 relative z-10">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
-            <div>
-                <div class="flex items-center gap-2 mb-4">
-                    <div class="w-8 h-8 bg-gradient-to-br from-brand-400 to-purple-500 rounded-lg flex items-center justify-center"><i class="fa-solid fa-microchip text-white text-sm"></i></div>
-                    <span class="font-black text-lg">PIXEL FORGE<span class="text-pink-400">📡</span></span>
-                </div>
-                <p class="text-slate-400 text-sm leading-relaxed">Future-ready digital solutions. From concept to launch.</p>
+        <div class="grid grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            <div class="col-span-2 lg:col-span-1">
+                <div class="flex items-center gap-2 mb-3"><div class="w-8 h-8 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-lg flex items-center justify-center"><i class="fa-solid fa-microchip text-white text-sm"></i></div><span class="font-display font-black text-lg">PIXEL FORGE<span class="text-pink-400">📡</span></span></div>
+                <p class="text-slate-400 text-sm">Future-ready digital solutions.</p>
             </div>
-            <div>
-                <h4 class="font-bold mb-4 text-sm">Quick Links</h4>
-                <div class="space-y-2 text-sm">
-                    <a href="#services" class="block text-slate-400 hover:text-white transition">Services</a>
-                    <a href="#pricing" class="block text-slate-400 hover:text-white transition">Pricing</a>
-                    <a href="#team" class="block text-slate-400 hover:text-white transition">Team</a>
-                    <a href="#faq" class="block text-slate-400 hover:text-white transition">FAQ</a>
-                </div>
-            </div>
-            <div>
-                <h4 class="font-bold mb-4 text-sm">Connect</h4>
-                <div class="flex gap-3 mb-4">
-                    <a href="https://wa.me/919620024812" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
-                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-500 transition"><i class="fa-brands fa-linkedin"></i></a>
-                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-500 transition"><i class="fa-brands fa-instagram"></i></a>
-                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-slate-700 transition"><i class="fa-brands fa-github"></i></a>
-                </div>
-                <p class="text-slate-500 text-xs"><i class="fa-solid fa-location-dot mr-1"></i> No 1, M.G Road, Brigade Road, Bangalore</p>
-                <p class="text-slate-500 text-xs mt-1"><i class="fa-solid fa-phone mr-1"></i> +91 9620024812</p>
-            </div>
+            <div><h4 class="font-bold mb-3 text-sm">Quick Links</h4><div class="space-y-2 text-sm"><a href="#services" class="block text-slate-400 hover:text-white transition">Services</a><a href="#pricing" class="block text-slate-400 hover:text-white transition">Pricing</a><a href="#faq" class="block text-slate-400 hover:text-white transition">FAQ</a><a href="#contact" class="block text-slate-400 hover:text-white transition">Contact</a></div></div>
+            <div><h4 class="font-bold mb-3 text-sm">Connect</h4><div class="flex gap-3 mb-3"><a href="https://wa.me/919620024812" target="_blank" class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center hover:bg-green-500 transition"><i class="fa-brands fa-whatsapp"></i></a><a href="#" class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center hover:bg-blue-500 transition"><i class="fa-brands fa-linkedin"></i></a><a href="#" class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center hover:bg-pink-500 transition"><i class="fa-brands fa-instagram"></i></a><a href="#" class="w-9 h-9 rounded-xl bg-white/10 flex items-center justify-center hover:bg-slate-600 transition"><i class="fa-brands fa-github"></i></a></div><p class="text-slate-500 text-xs"><i class="fa-solid fa-location-dot mr-1"></i> Brigade Road, Bangalore</p></div>
         </div>
         <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500">
             <p>&copy; 2026 Pixel Forge. All rights reserved.</p>
-            <p>Designed by <span class="text-brand-400">Pixel Forge Team</span></p>
+            <p>Designed by <span class="text-indigo-400">Pixel Forge Team</span></p>
         </div>
     </div>
 </footer>
 
-<!-- WHATSAPP FLOAT -->
-<a href="https://wa.me/919620024812?text=Hi%20Pixel%20Forge!" target="_blank" class="fixed bottom-20 left-5 z-50 bg-green-500 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl whatsapp-pulse hover:bg-green-600 transition">
-    <i class="fa-brands fa-whatsapp"></i>
-</a>
-
-<!-- CHATBOT -->
-<div class="fixed bottom-5 right-5 z-50 flex flex-col items-end">
-    <div id="chat-window" class="hidden w-80 sm:w-96 bg-white border border-slate-200 rounded-2xl shadow-2xl mb-3 overflow-hidden flex flex-col h-[480px] transition-all duration-300 origin-bottom-right scale-95 opacity-0">
-        <div class="bg-gradient-to-r from-brand-500 to-purple-600 p-4 text-white flex justify-between items-center">
-            <div class="flex items-center gap-3">
-                <div class="relative"><div class="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center"><i class="fa-solid fa-robot text-sm"></i></div><div class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-400 rounded-full border-2 border-brand-500"></div></div>
-                <div><span class="font-bold text-sm block">ForgeBot AI</span><span class="text-xs text-white/70">Online</span></div>
+<!-- ===== BOTTOM ACTIONS: WhatsApp + Chatbot (aligned same row) ===== -->
+<div class="bottom-actions">
+    <a href="https://wa.me/919620024812?text=Hi%20Pixel%20Forge!" target="_blank" class="action-btn wa-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+    <div style="position:relative">
+        <div class="chat-window" id="chatWindow">
+            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 text-white flex justify-between items-center">
+                <div class="flex items-center gap-3">
+                    <div class="relative"><div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"><i class="fa-solid fa-robot text-xs"></i></div><div class="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-green-400 rounded-full border-2 border-indigo-500"></div></div>
+                    <div><span class="font-bold text-sm block">ForgeBot AI</span><span class="text-[10px] text-white/70">Online</span></div>
+                </div>
+                <button onclick="toggleChat()" class="hover:bg-white/20 p-1.5 rounded-lg transition"><i class="fa-solid fa-xmark text-sm"></i></button>
             </div>
-            <button onclick="toggleChat()" class="hover:bg-white/20 p-1.5 rounded-lg transition"><i class="fa-solid fa-xmark"></i></button>
-        </div>
-        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-50">
-            <div class="flex justify-start">
-                <div class="bg-white border border-slate-200 text-slate-700 px-4 py-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-sm">Hello! I'm <strong>ForgeBot</strong>. How can I help you today?</div>
+            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-50">
+                <div class="flex justify-start"><div class="bg-white border border-slate-200 text-slate-700 px-4 py-3 rounded-2xl rounded-tl-none text-sm max-w-[85%]">Hello! I'm <strong>ForgeBot</strong>. How can I help? 😊</div></div>
+                <div class="flex flex-wrap gap-2" id="quickReplies">
+                    <button onclick="sendQuick('Services')" class="text-xs bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-full border border-indigo-200 hover:bg-indigo-100 transition">Services</button>
+                    <button onclick="sendQuick('Pricing')" class="text-xs bg-pink-50 text-pink-600 px-3 py-1.5 rounded-full border border-pink-200 hover:bg-pink-100 transition">Pricing</button>
+                    <button onclick="sendQuick('Location')" class="text-xs bg-cyan-50 text-cyan-600 px-3 py-1.5 rounded-full border border-cyan-200 hover:bg-cyan-100 transition">Location</button>
+                </div>
             </div>
-            <div class="flex flex-wrap gap-2" id="quick-replies">
-                <button onclick="sendQuick('What services do you offer?')" class="text-xs bg-brand-50 text-brand-600 px-3 py-1.5 rounded-full border border-brand-200 hover:bg-brand-100 transition">Services</button>
-                <button onclick="sendQuick('How much does it cost?')" class="text-xs bg-pink-50 text-pink-600 px-3 py-1.5 rounded-full border border-pink-200 hover:bg-pink-100 transition">Pricing</button>
-                <button onclick="sendQuick('Where is your office?')" class="text-xs bg-cyan-50 text-cyan-600 px-3 py-1.5 rounded-full border border-cyan-200 hover:bg-cyan-100 transition">Location</button>
-                <button onclick="sendQuick('Tell me about FAQs')" class="text-xs bg-green-50 text-green-600 px-3 py-1.5 rounded-full border border-green-200 hover:bg-green-100 transition">FAQ</button>
+            <div class="p-3 bg-white border-t border-slate-100 flex gap-2">
+                <input type="text" id="chatInput" placeholder="Type a message..." class="flex-1 bg-slate-50 border border-slate-200 rounded-full px-4 py-2 text-sm text-slate-900 focus:border-indigo-500 outline-none transition" onkeypress="if(event.key==='Enter')sendMsg()">
+                <button onclick="sendMsg()" class="bg-indigo-500 hover:bg-indigo-600 text-white w-9 h-9 rounded-full flex items-center justify-center transition flex-shrink-0"><i class="fa-solid fa-paper-plane text-xs"></i></button>
             </div>
         </div>
-        <div class="p-3 bg-white border-t border-slate-100 flex gap-2">
-            <input type="text" id="user-input" placeholder="Type a message..." class="flex-1 bg-slate-50 border border-slate-200 rounded-full px-4 py-2 text-sm text-slate-900 focus:border-brand-500 outline-none transition" onkeypress="if(event.key==='Enter')sendMsg()">
-            <button onclick="sendMsg()" class="bg-brand-500 hover:bg-brand-600 text-white w-9 h-9 rounded-full flex items-center justify-center transition flex-shrink-0"><i class="fa-solid fa-paper-plane text-xs"></i></button>
-        </div>
+        <button onclick="toggleChat()" class="action-btn chat-btn" title="Chat"><i class="fa-solid fa-comment-dots" id="chatIcon"></i></button>
     </div>
-    <button onclick="toggleChat()" class="bg-gradient-to-r from-brand-500 to-purple-600 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-xl hover:shadow-xl transition transform hover:scale-110">
-        <i class="fa-solid fa-comment-dots" id="chatIcon"></i>
-    </button>
 </div>
+
+<!-- BACK TO TOP -->
+<button class="back-btn" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
 
 <!-- SCRIPTS -->
 <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
 <script>
-    AOS.init({ once:true, offset:80, duration:700, easing:'ease-out-cubic' });
+// AOS
+AOS.init({once:true,offset:80,duration:700,easing:'ease-out-cubic'});
 
-    // Counter
-    let counted=false;
-    window.addEventListener('scroll',()=>{
-        const s=document.getElementById('stats');
-        if(s && window.scrollY+window.innerHeight>s.offsetTop+100 && !counted){
-            counted=true;
-            document.querySelectorAll('.counter').forEach(c=>{
-                const t=+c.dataset.target;let n=0;const i=t/80;
-                const tm=setInterval(()=>{n+=i;if(n>=t){c.innerText=t+'+';clearInterval(tm)}else c.innerText=Math.ceil(n)},25);
-            });
-        }
-    });
+// Particles
+(function(){const c=document.getElementById('particles');for(let i=0;i<30;i++){const p=document.createElement('div');p.className='particle';p.style.left=Math.random()*100+'%';p.style.animationDuration=(8+Math.random()*12)+'s';p.style.animationDelay=Math.random()*10+'s';p.style.width=p.style.height=(2+Math.random()*4)+'px';p.style.opacity=(0.2+Math.random()*0.3);c.appendChild(p)}})();
 
-    // FAQ
-    function toggleFaq(el){
-        const wasActive=el.classList.contains('active');
-        document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('active'));
-        if(!wasActive) el.classList.add('active');
-    }
+// Counter
+let counted=false;
+window.addEventListener('scroll',function(){
+    document.getElementById('backToTop').classList.toggle('show',window.scrollY>400);
+    const s=document.getElementById('stats')||document.querySelector('[data-target]');
+    if(s&&window.scrollY+window.innerHeight>s.offsetTop+100&&!counted){counted=true;document.querySelectorAll('.counter').forEach(c=>{const t=+c.dataset.target;let n=0;const i=t/80;const tm=setInterval(()=>{n+=i;if(n>=t){c.innerText=t+'+';clearInterval(tm)}else c.innerText=Math.ceil(n)},25)})}
+});
 
-    // Mobile
-    function toggleMobile(){
-        const m=document.getElementById('mobileMenu');
-        m.classList.toggle('open');
-        document.getElementById('menuIcon').className=m.classList.contains('open')?'fa-solid fa-xmark':'fa-solid fa-bars';
-    }
+// Mobile
+function toggleMobile(){const m=document.getElementById('mobileMenu');m.classList.toggle('open');document.getElementById('menuIcon').className=m.classList.contains('open')?'fa-solid fa-xmark':'fa-solid fa-bars'}
 
-    // Chat
-    let chatOpen=false;
-    function toggleChat(){
-        chatOpen=!chatOpen;
-        const w=document.getElementById('chat-window');
-        if(chatOpen){w.classList.remove('hidden');setTimeout(()=>{w.classList.remove('scale-95','opacity-0');w.classList.add('scale-100','opacity-100')},10)}
-        else{w.classList.add('scale-95','opacity-0');setTimeout(()=>w.classList.add('hidden'),300)}
-    }
-    function sendQuick(t){document.getElementById('user-input').value=t;sendMsg()}
-    function sendMsg(){
-        const t=document.getElementById('user-input').value.trim();if(!t)return;
-        addMsg(t,'user');document.getElementById('user-input').value='';
-        const qr=document.getElementById('quick-replies');if(qr)qr.style.display='none';
-        showTyping();
-        setTimeout(()=>{removeTyping();addMsg(getResponse(t),'bot')},800+Math.random()*800);
-    }
-    function addMsg(t,s){
-        const d=document.createElement('div');d.className='flex '+(s==='user'?'justify-end':'justify-start');
-        const b=document.createElement('div');
-        b.className='px-4 py-3 rounded-2xl shadow-sm max-w-[85%] text-sm leading-relaxed '+(s==='user'?'bg-brand-500 text-white rounded-tr-none':'bg-white border border-slate-200 text-slate-700 rounded-tl-none');
-        b.innerText=t;d.appendChild(b);document.getElementById('chat-messages').appendChild(d);
-        document.getElementById('chat-messages').scrollTop=99999;
-    }
-    function showTyping(){
-        const d=document.createElement('div');d.id='typing';d.className='flex justify-start';
-        d.innerHTML='<div class="bg-white border border-slate-200 px-4 py-3 rounded-2xl rounded-tl-none flex gap-1.5 items-center h-10"><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div></div>';
-        document.getElementById('chat-messages').appendChild(d);document.getElementById('chat-messages').scrollTop=99999;
-    }
-    function removeTyping(){const e=document.getElementById('typing');if(e)e.remove()}
-    function getResponse(i){
-        i=i.toLowerCase();
-        if(/^(hi|hello|hey|namaste|sup|yo)/.test(i)) return "Hello! Welcome to Pixel Forge! How can I help you? 😊";
-        if(i.includes('service')||i.includes('offer')||i.includes('do you')) return "We offer: 🌐 Web Dev, 📱 Mobile Apps, ☁️ Cloud/DevOps, 🤖 AI/ML, 🎨 UI/UX, 🛡️ Cybersecurity. Which interests you?";
-        if(i.includes('price')||i.includes('cost')||i.includes('budget')||i.includes('how much')) return "Pricing starts at:\n📄 Landing Page: ₹25K\n🌐 Website: ₹1.5L\n📱 Mobile App: ₹2L+\n🚀 Enterprise: ₹5L+\n\nWant a free quote? 📝";
-        if(i.includes('location')||i.includes('address')||i.includes('where')||i.includes('office')) return "📍 No 1, M.G Road, Brigade Road, Bangalore. Drop by for coffee! ☕";
-        if(i.includes('contact')||i.includes('phone')||i.includes('whatsapp')) return "📱 WhatsApp: +91 9620024812\n📧 Email: hello@pixelforge.dev\n📍 Office: Brigade Road, Bangalore";
-        if(i.includes('time')||i.includes('long')||i.includes('how soon')) return "⏱️ Timelines:\n📄 Landing: 1-2 weeks\n🌐 Website: 3-4 weeks\n📱 App: 8-12 weeks";
-        if(i.includes('faq')||i.includes('question')) return "FAQ highlights:\n1️⃣ Pricing starts ₹25K\n2️⃣ Timelines: 1-12 weeks\n3️⃣ Hosting included\n4️⃣ React, Flutter, AWS stack\n5️⃣ PWA specialists\n6️⃣ Global clients welcome!";
-        if(i.includes('tech')||i.includes('stack')) return "🛠️ Our stack: React, Next.js, Node.js, Python, Flutter, AWS, Docker, PostgreSQL, MongoDB.";
-        if(i.includes('pwa')||i.includes('progressive')) return "📱 Yes! We build PWAs: installable, offline-ready, push notifications, blazing fast!";
-        if(i.includes('portfolio')||i.includes('work')||i.includes('project')) return "💼 Featured projects: FinTrack Analytics, ShopElite India, HealthPulse App. Scroll to Portfolio section!";
-        if(i.includes('team')||i.includes('about')) return "👥 Pixel Forge: 5+ years experience, 50+ projects delivered. Arjun (CEO), Priya (Design), Vikram (Dev), Ananya (DevOps).";
-        if(i.includes('review')||i.includes('testimonial')) return "⭐ 98% client satisfaction! \"Transformed our system\" — Rajesh K. \"300% engagement boost\" — Priya S.";
-        if(i.includes('thank')) return "You're welcome! 😊 Happy to help. WhatsApp us anytime: +91 9620024812 🚀";
-        return "I can help with: 💰 Pricing, 🛠️ Services, 📍 Location, 📞 Contact, ❓ FAQs. Ask me anything! 💬";
-    }
+// FAQ
+function toggleFaq(el){const was=el.classList.contains('active');document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('active'));if(!was)el.classList.add('active')}
 
-    // Form
-    document.getElementById('contactForm').addEventListener('submit',function(e){
-        e.preventDefault();const b=document.getElementById('submitBtn');
-        b.innerHTML='<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';b.disabled=true;
-        setTimeout(()=>{b.innerHTML='<i class="fa-solid fa-check"></i> Sent!';b.classList.add('bg-green-500');
-        setTimeout(()=>{this.reset();b.innerHTML='Send Message <i class="fa-solid fa-paper-plane"></i>';b.classList.remove('bg-green-500');b.disabled=false},2000)},1200);
-    });
-</script>
-<!-- BACK TO TOP -->
-<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
-<script>
-window.addEventListener("scroll",function(){var b=document.getElementById("backToTop");if(window.scrollY>400){b.classList.add("show")}else{b.classList.remove("show")}});
-</script>
+// Chat
+let chatOpen=false;
+function toggleChat(){chatOpen=!chatOpen;const w=document.getElementById('chatWindow');if(chatOpen){w.classList.add('open');setTimeout(()=>document.getElementById('chatInput').focus(),100)}else w.classList.remove('open')}
+function sendQuick(t){document.getElementById('chatInput').value=t;sendMsg()}
+function sendMsg(){const t=document.getElementById('chatInput').value.trim();if(!t)return;addMsg(t,'user');document.getElementById('chatInput').value='';const qr=document.getElementById('quickReplies');if(qr)qr.style.display='none';showTyping();setTimeout(()=>{removeTyping();addMsg(getResp(t),'bot')},600+Math.random()*600)}
+function addMsg(t,s){const d=document.createElement('div');d.className='flex '+(s==='user'?'justify-end':'justify-start');const b=document.createElement('div');b.className='px-4 py-3 rounded-2xl text-sm leading-relaxed max-w-[85%] '+(s==='user'?'bg-indigo-500 text-white rounded-tr-none':'bg-white border border-slate-200 text-slate-700 rounded-tl-none');b.innerText=t;d.appendChild(b);document.getElementById('chatMessages').appendChild(d);document.getElementById('chatMessages').scrollTop=99999}
+function showTyping(){const d=document.createElement('div');d.id='typing';d.className='flex justify-start';d.innerHTML='<div class="bg-white border border-slate-200 px-4 py-3 rounded-2xl rounded-tl-none flex gap-1.5 items-center h-10"><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div></div>';document.getElementById('chatMessages').appendChild(d)}
+function removeTyping(){const e=document.getElementById('typing');if(e)e.remove()}
+function getResp(i){i=i.toLowerCase();if(/^(hi|hello|hey|namaste)/.test(i))return"Hello! Welcome to Pixel Forge! How can I help? 😊";if(i.includes('service')||i.includes('offer'))return"We offer: 🌐 Web Dev, 📱 Mobile, ☁️ Cloud, 🤖 AI/ML, 🎨 UI/UX, 🛡️ Security!";if(i.includes('price')||i.includes('cost')||i.includes('how much'))return"📄 Landing: ₹25K\n🌐 Website: ₹1.5L\n📱 App: ₹2L+\n🚀 Enterprise: ₹5L+";if(i.includes('location')||i.includes('where')||i.includes('office'))return"📍 No 1, M.G Road, Brigade Road, Bangalore. Visit us! ☕";if(i.includes('contact')||i.includes('phone')||i.includes('whatsapp'))return"📱 WhatsApp: +91 9620024812\n📧 hello@pixelforge.dev";if(i.includes('faq')||i.includes('question'))return"FAQs: 💰 Pricing from ₹25K, ⏱️ 1-12 weeks, ☁️ Hosting included, 📱 PWA specialists!";if(i.includes('thank'))return"You're welcome! 😊 WhatsApp anytime: +91 9620024812";return"Ask me about: 💰 Pricing, 🛠️ Services, 📍 Location, 📞 Contact!"}
 
-<!-- PWA SW Registration -->
-<script>
-if("serviceWorker" in navigator){window.addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").then(function(r){console.log("SW OK:",r.scope)}).catch(function(e){console.log("SW err:",e)})})}
+// Form
+document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();const b=document.getElementById('submitBtn');b.innerHTML='<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';b.disabled=true;setTimeout(()=>{b.innerHTML='<i class="fa-solid fa-check"></i> Sent!';b.classList.add('bg-green-500');setTimeout(()=>{this.reset();b.innerHTML='Send Message <i class="fa-solid fa-paper-plane"></i>';b.classList.remove('bg-green-500');b.disabled=false},2000)},1200)});
+
+// SW
+if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(()=>{})})}
 </script>
 </body>
-<script>
-if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').then(r=>console.log('SW OK:',r.scope)).catch(e=>console.log('SW err:',e))})}
-</script>
-<!-- BACK TO TOP -->
-<button id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-    <i class="fa-solid fa-arrow-up"></i>
-</button>
-<script>
-    window.addEventListener('scroll',function(){
-        var btn=document.getElementById('backToTop');
-        if(window.scrollY>400){btn.classList.add('show')}
-        else{btn.classList.remove('show')}
-    });
-</script>
 </html>
