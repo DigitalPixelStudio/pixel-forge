@@ -132,6 +132,153 @@
             .card-glass,.card-solid{border-radius:16px}
         }
         @media(pointer:coarse){.btn-primary,.btn-outline,a,button{min-height:44px}}
+        /* ===== BREATHING GLOW EFFECTS ON FONTS ===== */
+        .glow-text {
+            text-shadow: 0 0 10px rgba(79,70,229,0.3), 0 0 40px rgba(79,70,229,0.1);
+            animation: breatheGlow 3s ease-in-out infinite;
+        }
+        @keyframes breatheGlow {
+            0%, 100% { text-shadow: 0 0 10px rgba(79,70,229,0.3), 0 0 40px rgba(79,70,229,0.1); }
+            50% { text-shadow: 0 0 20px rgba(79,70,229,0.5), 0 0 60px rgba(79,70,229,0.2), 0 0 100px rgba(79,70,229,0.1); }
+        }
+
+        .glow-gradient {
+            background: linear-gradient(135deg, #4f46e5, #ec4899, #4f46e5);
+            background-size: 200% 200%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: gradientShift 4s ease-in-out infinite, breatheGlowSoft 3s ease-in-out infinite;
+            filter: drop-shadow(0 0 8px rgba(79,70,229,0.3));
+        }
+        @keyframes gradientShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+        }
+        @keyframes breatheGlowSoft {
+            0%, 100% { filter: drop-shadow(0 0 8px rgba(79,70,229,0.3)); }
+            50% { filter: drop-shadow(0 0 20px rgba(79,70,229,0.5)); }
+        }
+
+        /* Hero title breathing glow */
+        .hero-title .glow-gradient {
+            animation: gradientShift 4s ease-in-out infinite, breatheGlowSoft 3s ease-in-out infinite;
+        }
+
+        /* Section headers glow */
+        .section-glow {
+            text-shadow: 0 0 8px rgba(79,70,229,0.15);
+            animation: breatheGlow 4s ease-in-out infinite;
+        }
+
+        /* ===== WIDER ASPECT RATIO IMAGES ===== */
+        .img-wide { aspect-ratio: 16/9; width: 100%; object-fit: cover; border-radius: 16px; }
+        .img-ultra { aspect-ratio: 21/9; width: 100%; object-fit: cover; border-radius: 16px; }
+        .img-card { aspect-ratio: 3/2; width: 100%; object-fit: cover; border-radius: 16px; }
+        .img-square { aspect-ratio: 1/1; width: 100%; object-fit: cover; border-radius: 16px; }
+
+        /* Service card images - wider */
+        .card-glass .img-wide, .card-solid .img-wide {
+            height: auto;
+            max-height: 200px;
+        }
+
+        /* Portfolio images - wider */
+        .portfolio-img {
+            aspect-ratio: 16/9;
+            width: 100%;
+            object-fit: cover;
+            display: block;
+        }
+
+        /* Video carousel - wider */
+        .vid-item img { aspect-ratio: 16/9; height: auto; }
+
+        /* Gallery - wider */
+        .gallery img { aspect-ratio: 16/10; height: auto; }
+
+        /* ===== EDGE TO EDGE MOBILE ===== */
+        @media (max-width: 640px) {
+            /* Remove all horizontal padding for edge-to-edge */
+            .edge-mobile { margin-left: -16px; margin-right: -16px; border-radius: 0; padding-left: 16px; padding-right: 16px; }
+            .edge-full { margin-left: 0; margin-right: 0; border-radius: 0; }
+            .edge-bleed { margin-left: calc(-50vw + 50%); margin-right: calc(-50vw + 50%); }
+
+            /* Hero wider */
+            .hero-bg { padding-top: 70px; min-height: 100dvh; }
+            .hero-title { font-size: 1.75rem !important; }
+
+            /* Cards wider */
+            .card-glass, .card-solid { border-radius: 16px; margin: 0 4px; }
+
+            /* Stats */
+            .stat-box { padding: 12px 8px !important; }
+
+            /* Process steps */
+            .process-img { border-radius: 16px; margin: 0 4px; }
+
+            /* Pricing wider */
+            .pricing-card { border-radius: 16px !important; }
+
+            /* Map full width */
+            .map-wrap { border-radius: 0; margin-left: -16px; margin-right: -16px; border-left: none; border-right: none; }
+            .map-wrap iframe { height: 250px; }
+
+            /* CTA full width */
+            .cta-box { border-radius: 0 !important; margin-left: -16px; margin-right: -16px; }
+
+            /* Gallery edge to edge */
+            .gallery { margin-left: -16px; margin-right: -16px; padding-left: 16px; padding-right: 16px; }
+
+            /* Video carousel full bleed */
+            .vid-carousel { margin-left: -16px; margin-right: -16px; padding-left: 16px; padding-right: 16px; }
+
+            /* Contact form edge to edge */
+            .contact-card { border-radius: 16px !important; margin: 0 4px; }
+
+            /* Testimonials */
+            .testimonial-card { border-radius: 16px; }
+
+            /* Larger touch targets */
+            .btn-primary, .btn-outline { padding: 16px 24px; font-size: 1rem; }
+
+            /* Bigger hero image */
+            .hero-img { height: 280px !important; border-radius: 20px; }
+        }
+
+        /* ===== WIDER CARDS ===== */
+        .card-full { width: 100%; border-radius: 20px; overflow: hidden; }
+
+        /* ===== GLOW BORDERS ===== */
+        .glow-border {
+            position: relative;
+        }
+        .glow-border::before {
+            content: '';
+            position: absolute;
+            inset: -2px;
+            border-radius: inherit;
+            background: linear-gradient(135deg, rgba(79,70,229,0.3), rgba(236,72,153,0.3), rgba(79,70,229,0.3));
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s;
+            animation: borderGlow 3s ease-in-out infinite;
+        }
+        .glow-border:hover::before { opacity: 1; }
+        @keyframes borderGlow {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 0.7; }
+        }
+
+        /* ===== GLOW BOX SHADOW ===== */
+        .glow-box {
+            box-shadow: 0 0 30px rgba(79,70,229,0.15), 0 0 60px rgba(79,70,229,0.05);
+            animation: boxGlow 4s ease-in-out infinite;
+        }
+        @keyframes boxGlow {
+            0%, 100% { box-shadow: 0 0 30px rgba(79,70,229,0.1), 0 0 60px rgba(79,70,229,0.03); }
+            50% { box-shadow: 0 0 40px rgba(79,70,229,0.2), 0 0 80px rgba(79,70,229,0.08); }
+        }
     </style>
 </head>
 <body>
@@ -188,7 +335,7 @@
             <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-indigo-50 border border-indigo-200 text-indigo-600 text-xs font-bold mb-5">
                 <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Available for New Projects
             </div>
-            <h1 class="hero-title font-display text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-5 text-slate-900">We Build<br><span class="gradient-text">Digital Reality.</span></h1>
+            <h1 class="hero-title font-display text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-5 text-slate-900">We Build<br><span class="glow-gradient">Digital Reality.</span></h1>
             <p class="text-base sm:text-lg text-slate-500 mb-7 max-w-lg leading-relaxed">From high-performance web apps to scalable cloud infrastructure. We turn your vision into a market-dominating product.</p>
             <div class="flex flex-col sm:flex-row gap-3">
                 <a href="#contact" class="btn-primary text-center justify-center">Start Project <i class="fa-solid fa-arrow-right"></i></a>
@@ -209,7 +356,7 @@
         </div>
         <div class="relative hidden lg:flex justify-center" data-aos="fade-left" data-aos-duration="800">
             <div class="anim-float relative">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=550&fit=crop" alt="Dashboard" class="rounded-3xl shadow-2xl border border-slate-200/60 w-full max-w-[520px] object-cover h-[420px]" onerror="this.src='https://picsum.photos/800/550?random=1'">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=550&fit=crop" alt="Dashboard" class="rounded-3xl shadow-2xl border border-slate-200/60 w-full max-w-[580px] object-cover h-[440px] hero-img img-wide" onerror="this.src='https://picsum.photos/800/550?random=1'">
                 <div class="absolute -top-5 -left-5 bg-white p-3 rounded-2xl shadow-lg flex items-center gap-3 border border-slate-100">
                     <div class="w-10 h-10 bg-green-100 rounded-xl flex items-center justify-center"><i class="fa-solid fa-code text-green-600"></i></div>
                     <div><p class="text-[10px] text-slate-400 font-medium">Status</p><p class="text-sm font-bold text-slate-900">System Online</p></div>
@@ -258,44 +405,44 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
             <p class="text-indigo-600 font-bold text-sm tracking-widest uppercase mb-2">What We Do</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Our <span class="gradient-text">Expertise</span></h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900 section-glow">Our <span class="glow-gradient">Expertise</span></h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="100"><div class="tilt-inner">
+            <div class="card-glass p-6 tilt edge-mobile" data-aos="fade-up" data-aos-delay="100"><div class="tilt-inner">
                 <div class="w-12 h-12 bg-indigo-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-laptop-code text-indigo-600"></i></div>
                 <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Web Development</h3>
                 <p class="text-slate-500 text-sm mb-4">Next.js, React, Vue apps optimized for SEO and speed. PWA ready.</p>
-                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=250&fit=crop" alt="Web Dev" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#eef2ff,#fdf2f8)';this.style.height='120px'">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=500&h=250&fit=crop" alt="Web Dev" class="img-wide rounded-xl" onerror="this.style.background='linear-gradient(135deg,#eef2ff,#fdf2f8)';this.style.height='120px'">
             </div></div>
-            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="200"><div class="tilt-inner">
+            <div class="card-glass p-6 tilt edge-mobile" data-aos="fade-up" data-aos-delay="200"><div class="tilt-inner">
                 <div class="w-12 h-12 bg-pink-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-mobile-screen-button text-pink-600"></i></div>
                 <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Mobile Apps</h3>
                 <p class="text-slate-500 text-sm mb-4">Native performance with Flutter and React Native for iOS and Android.</p>
-                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=250&fit=crop" alt="Mobile" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#fdf2f8,#eef2ff)';this.style.height='120px'">
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=500&h=250&fit=crop" alt="Mobile" class="img-wide rounded-xl" onerror="this.style.background='linear-gradient(135deg,#fdf2f8,#eef2ff)';this.style.height='120px'">
             </div></div>
-            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="300"><div class="tilt-inner">
+            <div class="card-glass p-6 tilt edge-mobile" data-aos="fade-up" data-aos-delay="300"><div class="tilt-inner">
                 <div class="w-12 h-12 bg-cyan-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-cloud text-cyan-600"></i></div>
                 <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Cloud & DevOps</h3>
                 <p class="text-slate-500 text-sm mb-4">AWS architecture, Docker, Kubernetes, CI/CD for zero downtime.</p>
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=250&fit=crop" alt="Cloud" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#ecfeff,#eef2ff)';this.style.height='120px'">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=250&fit=crop" alt="Cloud" class="img-wide rounded-xl" onerror="this.style.background='linear-gradient(135deg,#ecfeff,#eef2ff)';this.style.height='120px'">
             </div></div>
-            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="100"><div class="tilt-inner">
+            <div class="card-glass p-6 tilt edge-mobile" data-aos="fade-up" data-aos-delay="100"><div class="tilt-inner">
                 <div class="w-12 h-12 bg-green-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-robot text-green-600"></i></div>
                 <h3 class="font-display font-bold text-lg text-slate-900 mb-2">AI & ML Integration</h3>
                 <p class="text-slate-500 text-sm mb-4">Embed GPT-4, computer vision, and predictive models into products.</p>
-                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=250&fit=crop" alt="AI" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#f0fdf4,#eef2ff)';this.style.height='120px'">
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=500&h=250&fit=crop" alt="AI" class="img-wide rounded-xl" onerror="this.style.background='linear-gradient(135deg,#f0fdf4,#eef2ff)';this.style.height='120px'">
             </div></div>
-            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="200"><div class="tilt-inner">
+            <div class="card-glass p-6 tilt edge-mobile" data-aos="fade-up" data-aos-delay="200"><div class="tilt-inner">
                 <div class="w-12 h-12 bg-amber-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-palette text-amber-600"></i></div>
                 <h3 class="font-display font-bold text-lg text-slate-900 mb-2">UI/UX Design</h3>
                 <p class="text-slate-500 text-sm mb-4">Beautiful interfaces designed in Figma. User-tested and optimized.</p>
-                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=250&fit=crop" alt="Design" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#fffbeb,#eef2ff)';this.style.height='120px'">
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=500&h=250&fit=crop" alt="Design" class="img-wide rounded-xl" onerror="this.style.background='linear-gradient(135deg,#fffbeb,#eef2ff)';this.style.height='120px'">
             </div></div>
-            <div class="card-glass p-6 tilt" data-aos="fade-up" data-aos-delay="300"><div class="tilt-inner">
+            <div class="card-glass p-6 tilt edge-mobile" data-aos="fade-up" data-aos-delay="300"><div class="tilt-inner">
                 <div class="w-12 h-12 bg-red-100 rounded-2xl flex items-center justify-center mb-4"><i class="fa-solid fa-shield-halved text-red-600"></i></div>
                 <h3 class="font-display font-bold text-lg text-slate-900 mb-2">Cybersecurity</h3>
                 <p class="text-slate-500 text-sm mb-4">Penetration testing, vulnerability assessments, compliance.</p>
-                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&h=250&fit=crop" alt="Security" class="rounded-xl w-full h-36 object-cover" onerror="this.style.background='linear-gradient(135deg,#fef2f2,#eef2ff)';this.style.height='120px'">
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=500&h=250&fit=crop" alt="Security" class="img-wide rounded-xl" onerror="this.style.background='linear-gradient(135deg,#fef2f2,#eef2ff)';this.style.height='120px'">
             </div></div>
         </div>
     </div>
@@ -308,7 +455,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10" data-aos="fade-up">
             <p class="text-pink-500 font-bold text-sm tracking-widest uppercase mb-2">Showcase</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Featured <span class="gradient-text">Work</span></h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900 section-glow">Featured <span class="glow-gradient">Work</span></h2>
         </div>
         <div class="vid-carousel" data-aos="fade-up">
             <div class="vid-item"><img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=340&fit=crop" alt="Analytics"><div class="vid-play"><i class="fa-solid fa-play"></i></div><div class="vid-overlay"><div><p class="text-white font-bold text-sm">FinTrack Analytics Dashboard</p><p class="text-white/60 text-xs">React + D3.js + AI</p></div></div></div>
@@ -376,19 +523,19 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
             <p class="text-cyan-600 font-bold text-sm tracking-widest uppercase mb-2">Our Work</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Featured <span class="gradient-text">Projects</span></h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900 section-glow">Featured <span class="glow-gradient">Projects</span></h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            <div class="card-solid overflow-hidden tilt" data-aos="fade-up" data-aos-delay="100"><div class="tilt-inner">
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
+            <div class="card-solid overflow-hidden tilt edge-mobile" data-aos="fade-up" data-aos-delay="100"><div class="tilt-inner">
+                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=300&fit=crop" alt="Project" class="portfolio-img">
                 <div class="p-5"><span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">Analytics</span><h3 class="font-display font-bold text-lg text-slate-900 mt-3 mb-2">FinTrack Analytics</h3><p class="text-slate-500 text-sm">Real-time financial dashboard with AI-powered insights.</p></div>
             </div></div>
-            <div class="card-solid overflow-hidden tilt" data-aos="fade-up" data-aos-delay="200"><div class="tilt-inner">
-                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
+            <div class="card-solid overflow-hidden tilt edge-mobile" data-aos="fade-up" data-aos-delay="200"><div class="tilt-inner">
+                <img src="https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=600&h=300&fit=crop" alt="Project" class="portfolio-img">
                 <div class="p-5"><span class="text-xs font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full">E-Commerce</span><h3 class="font-display font-bold text-lg text-slate-900 mt-3 mb-2">ShopElite India</h3><p class="text-slate-500 text-sm">Full-stack e-commerce with payments and admin.</p></div>
             </div></div>
-            <div class="card-solid overflow-hidden tilt" data-aos="fade-up" data-aos-delay="300"><div class="tilt-inner">
-                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
+            <div class="card-solid overflow-hidden tilt edge-mobile" data-aos="fade-up" data-aos-delay="300"><div class="tilt-inner">
+                <img src="https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?w=600&h=300&fit=crop" alt="Project" class="portfolio-img">
                 <div class="p-5"><span class="text-xs font-bold text-green-600 bg-green-50 px-2.5 py-1 rounded-full">Mobile</span><h3 class="font-display font-bold text-lg text-slate-900 mt-3 mb-2">HealthPulse App</h3><p class="text-slate-500 text-sm">Cross-platform health tracking with wearable integration.</p></div>
             </div></div>
         </div>
@@ -412,20 +559,20 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
             <p class="text-green-600 font-bold text-sm tracking-widest uppercase mb-2">Testimonials</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">What Clients <span class="gradient-text">Say</span></h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900 section-glow">What Clients <span class="glow-gradient">Say</span></h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm testimonial-card edge-mobile" data-aos="fade-up" data-aos-delay="100">
                 <div class="flex text-amber-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                 <p class="text-slate-600 text-sm mb-5 leading-relaxed">"Pixel Forge transformed our outdated system. Their team is incredibly talented and responsive. Highly recommend!"</p>
                 <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/80?img=11" class="w-10 h-10 rounded-full" alt=""><div><strong class="text-slate-900 text-sm">Rajesh Kumar</strong><br><span class="text-slate-400 text-xs">CTO, TechStartup</span></div></div>
             </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm testimonial-card edge-mobile" data-aos="fade-up" data-aos-delay="200">
                 <div class="flex text-amber-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                 <p class="text-slate-600 text-sm mb-5 leading-relaxed">"The mobile app increased our user engagement by 300%. Professional, on-time, beyond expectations!"</p>
                 <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/80?img=5" class="w-10 h-10 rounded-full" alt=""><div><strong class="text-slate-900 text-sm">Priya Sharma</strong><br><span class="text-slate-400 text-xs">CEO, HealthApp</span></div></div>
             </div>
-            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-white p-6 rounded-2xl border border-slate-100 shadow-sm testimonial-card edge-mobile" data-aos="fade-up" data-aos-delay="300">
                 <div class="flex text-amber-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
                 <p class="text-slate-600 text-sm mb-5 leading-relaxed">"Their cloud infrastructure saved us 60% on hosting while improving uptime to 99.99%. Incredible!"</p>
                 <div class="flex items-center gap-3"><img src="https://i.pravatar.cc/80?img=12" class="w-10 h-10 rounded-full" alt=""><div><strong class="text-slate-900 text-sm">Amit Patel</strong><br><span class="text-slate-400 text-xs">Founder, CloudNine</span></div></div>
@@ -441,10 +588,10 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
             <p class="text-pink-500 font-bold text-sm tracking-widest uppercase mb-2">Pricing</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Transparent <span class="gradient-text">Pricing</span></h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900 section-glow">Transparent <span class="glow-gradient">Pricing</span></h2>
         </div>
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
-            <div class="bg-white p-7 rounded-2xl border border-slate-200 card-glass text-center" data-aos="fade-up" data-aos-delay="100">
+            <div class="bg-white p-7 rounded-2xl border border-slate-200 card-glass text-center pricing-card" data-aos="fade-up" data-aos-delay="100">
                 <div style="display:flex;align-items:center;justify-content:center;margin:0 auto 16px"><div class="w-14 h-14 bg-indigo-100 rounded-2xl flex items-center justify-center"><i class="fa-solid fa-paper-plane text-indigo-600 text-xl"></i></div></div>
                 <h3 class="font-display font-bold text-lg text-slate-900">Starter</h3>
                 <p class="text-slate-400 text-xs mb-4">For small businesses</p>
@@ -475,7 +622,7 @@
                 </ul>
                 <a href="#contact" class="block w-full py-3 rounded-xl bg-gradient-to-r from-indigo-500 to-purple-600 text-white font-bold text-sm hover:opacity-90 transition shadow-md">Get Started</a>
             </div>
-            <div class="bg-white p-7 rounded-2xl border border-slate-200 card-glass text-center" data-aos="fade-up" data-aos-delay="300">
+            <div class="bg-white p-7 rounded-2xl border border-slate-200 card-glass text-center pricing-card" data-aos="fade-up" data-aos-delay="300">
                 <div style="display:flex;align-items:center;justify-content:center;margin:0 auto 16px"><div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center"><i class="fa-solid fa-gem text-cyan-600 text-xl"></i></div></div>
                 <h3 class="font-display font-bold text-lg text-slate-900">Enterprise</h3>
                 <p class="text-slate-400 text-xs mb-4">For large-scale projects</p>
@@ -499,13 +646,13 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
             <p class="text-cyan-600 font-bold text-sm tracking-widest uppercase mb-2">Our People</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Meet The <span class="gradient-text">Team</span></h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900 section-glow">Meet The <span class="glow-gradient">Team</span></h2>
         </div>
         <div class="grid grid-cols-2 lg:grid-cols-4 gap-5">
-            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="100"><img src="https://i.pravatar.cc/400?img=11" alt="Arjun" class="w-full h-44 object-cover"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Arjun Mehta</h3><p class="text-indigo-600 text-xs font-mono mt-1">Founder & CEO</p></div></div>
-            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="200"><img src="https://i.pravatar.cc/400?img=5" alt="Priya" class="w-full h-44 object-cover"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Priya Nair</h3><p class="text-pink-500 text-xs font-mono mt-1">Lead Designer</p></div></div>
-            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="300"><img src="https://i.pravatar.cc/400?img=12" alt="Vikram" class="w-full h-44 object-cover"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Vikram Das</h3><p class="text-cyan-600 text-xs font-mono mt-1">Full-Stack Dev</p></div></div>
-            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="400"><img src="https://i.pravatar.cc/400?img=9" alt="Ananya" class="w-full h-44 object-cover"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Ananya Roy</h3><p class="text-green-600 text-xs font-mono mt-1">DevOps Engineer</p></div></div>
+            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="100"><img src="https://i.pravatar.cc/400?img=11" alt="Arjun" class="img-card"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Arjun Mehta</h3><p class="text-indigo-600 text-xs font-mono mt-1">Founder & CEO</p></div></div>
+            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="200"><img src="https://i.pravatar.cc/400?img=5" alt="Priya" class="img-card"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Priya Nair</h3><p class="text-pink-500 text-xs font-mono mt-1">Lead Designer</p></div></div>
+            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="300"><img src="https://i.pravatar.cc/400?img=12" alt="Vikram" class="img-card"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Vikram Das</h3><p class="text-cyan-600 text-xs font-mono mt-1">Full-Stack Dev</p></div></div>
+            <div class="bg-white rounded-2xl overflow-hidden card-glass text-center" data-aos="fade-up" data-aos-delay="400"><img src="https://i.pravatar.cc/400?img=9" alt="Ananya" class="img-card"><div class="p-4"><h3 class="font-display font-bold text-slate-900 text-sm">Ananya Roy</h3><p class="text-green-600 text-xs font-mono mt-1">DevOps Engineer</p></div></div>
         </div>
     </div>
 </section>
@@ -517,19 +664,19 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
             <p class="text-amber-500 font-bold text-sm tracking-widest uppercase mb-2">Latest Insights</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">From Our <span class="gradient-text">Blog</span></h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900 section-glow">From Our <span class="glow-gradient">Blog</span></h2>
         </div>
         <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             <div class="bg-white rounded-2xl overflow-hidden card-glass" data-aos="fade-up" data-aos-delay="100">
-                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=280&fit=crop" alt="Blog" class="w-full h-44 object-cover">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=280&fit=crop" alt="Blog" class="img-card">
                 <div class="p-5"><span class="text-xs font-bold text-indigo-600 bg-indigo-50 px-2.5 py-1 rounded-full">AI</span><p class="text-slate-400 text-xs mt-3 mb-2">Sep 1, 2026</p><h3 class="font-display font-bold text-slate-900 text-sm mb-2">How AI is Revolutionizing Web Dev</h3><a href="#" class="text-indigo-600 font-bold text-sm">Read More →</a></div>
             </div>
             <div class="bg-white rounded-2xl overflow-hidden card-glass" data-aos="fade-up" data-aos-delay="200">
-                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=280&fit=crop" alt="Blog" class="w-full h-44 object-cover">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=280&fit=crop" alt="Blog" class="img-card">
                 <div class="p-5"><span class="text-xs font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full">Mobile</span><p class="text-slate-400 text-xs mt-3 mb-2">Aug 28, 2026</p><h3 class="font-display font-bold text-slate-900 text-sm mb-2">Flutter vs React Native: 2026</h3><a href="#" class="text-pink-500 font-bold text-sm">Read More →</a></div>
             </div>
             <div class="bg-white rounded-2xl overflow-hidden card-glass" data-aos="fade-up" data-aos-delay="300">
-                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=280&fit=crop" alt="Blog" class="w-full h-44 object-cover">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=280&fit=crop" alt="Blog" class="img-card">
                 <div class="p-5"><span class="text-xs font-bold text-cyan-600 bg-cyan-50 px-2.5 py-1 rounded-full">Cloud</span><p class="text-slate-400 text-xs mt-3 mb-2">Aug 20, 2026</p><h3 class="font-display font-bold text-slate-900 text-sm mb-2">10 Cloud Patterns for Startups</h3><a href="#" class="text-cyan-600 font-bold text-sm">Read More →</a></div>
             </div>
         </div>
@@ -543,7 +690,7 @@
     <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-14" data-aos="fade-up">
             <p class="text-indigo-600 font-bold text-sm tracking-widest uppercase mb-2">Got Questions?</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">FAQ</h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900 section-glow">FAQ</h2>
         </div>
         <div class="space-y-3" data-aos="fade-up">
             <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)"><div class="flex justify-between items-center p-5"><h3 class="font-bold text-slate-900 text-sm">How much does it cost?</h3><i class="fa-solid fa-plus text-indigo-500 faq-icon text-sm"></i></div><div class="faq-answer px-5 text-slate-500 text-sm leading-relaxed">Projects start from <strong class="text-slate-800">₹25,000</strong> to <strong class="text-slate-800">₹5,00,000+</strong>. Free quotes available!</div></div>
@@ -558,7 +705,7 @@
 <!-- CTA -->
 <section class="py-16 bg-white relative z-10">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
-        <div class="bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 p-8 sm:p-12 rounded-3xl text-white">
+        <div class="bg-gradient-to-br from-indigo-500 via-purple-600 to-pink-500 p-8 sm:p-12 sm:rounded-3xl rounded-none text-white glow-box cta-box">
             <div class="w-14 h-14 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-4 anim-float"><i class="fa-solid fa-rocket text-white text-xl"></i></div>
             <h2 class="font-display text-2xl sm:text-4xl font-black mb-3">Ready to Launch?</h2>
             <p class="text-white/80 mb-6 max-w-lg mx-auto text-sm sm:text-base">Join 50+ satisfied clients. Let's build something extraordinary.</p>
@@ -577,7 +724,7 @@
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
                 <div>
                     <p class="text-indigo-600 font-bold text-sm tracking-widest uppercase mb-2">Get In Touch</p>
-                    <h2 class="font-display text-2xl sm:text-3xl font-black text-slate-900 mb-5">Let's Start Your <span class="gradient-text">Project</span></h2>
+                    <h2 class="font-display text-2xl sm:text-3xl font-black text-slate-900 mb-5">Let's Start Your <span class="glow-gradient">Project</span></h2>
                     <div class="space-y-3">
                         <a href="https://wa.me/919620024812" target="_blank" class="flex items-center gap-3 p-4 rounded-xl bg-green-50 border border-green-100 hover:border-green-300 transition"><div class="w-10 h-10 rounded-xl bg-green-100 flex items-center justify-center"><i class="fa-brands fa-whatsapp text-green-600"></i></div><div><p class="text-[10px] text-slate-400 uppercase font-medium">WhatsApp</p><p class="font-bold text-sm text-slate-900">+91 9620024812</p></div></a>
                         <div class="flex items-center gap-3 p-4 rounded-xl bg-indigo-50 border border-indigo-100"><div class="w-10 h-10 rounded-xl bg-indigo-100 flex items-center justify-center"><i class="fa-solid fa-location-dot text-indigo-600"></i></div><div><p class="text-[10px] text-slate-400 uppercase font-medium">Office</p><p class="font-bold text-sm text-slate-900">No 1, M.G Road, Brigade Road, Bangalore</p></div></div>
@@ -604,7 +751,7 @@
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center mb-10" data-aos="fade-up">
             <p class="text-indigo-600 font-bold text-sm tracking-widest uppercase mb-2">Find Us</p>
-            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900">Our <span class="gradient-text">Location</span></h2>
+            <h2 class="font-display text-3xl sm:text-4xl font-black text-slate-900 section-glow">Our <span class="glow-gradient">Location</span></h2>
         </div>
         <div class="map-wrap" data-aos="fade-up"><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3887.985!2d77.604!3d12.976!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae1670c9b44e6d%3A0xf8dfc3e8517e4fe0!2sBrigade%20Road%2C%20Bengaluru!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" allowfullscreen="" loading="lazy" title="Office"></iframe></div>
     </div>
