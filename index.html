@@ -1,1571 +1,838 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pixel Forge📡 — Future-Ready Digital Solutions in Bangalore. Web Development, Mobile Apps, Cloud & DevOps.">
-    <meta name="theme-color" content="#6366f1">
-    <title>Pixel Forge📡 | Future-Ready Digital Solutions</title>
-
-    <!-- Tailwind CSS -->
+    <meta name="description" content="Pixel Forge - Future-Ready Digital Solutions in Bangalore">
+    <meta name="theme-color" content="#4f46e5">
+    <title>Pixel Forge | Digital Solutions</title>
     <script src="https://cdn.tailwindcss.com"></script>
-
-    <!-- Animate On Scroll (AOS) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
-
-    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
-            darkMode: 'class',
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Outfit', 'sans-serif'],
-                        mono: ['Space Grotesk', 'monospace'],
-                    },
+                    fontFamily: { sans: ['Inter', 'sans-serif'] },
                     colors: {
-                        brand: {
-                            dark: '#0B0E14',
-                            primary: '#6366f1',
-                            secondary: '#ec4899',
-                            accent: '#06b6d4',
-                            surface: '#151a25',
-                            glow: '#818cf8',
-                        }
-                    },
-                    animation: {
-                        'blob': 'blob 7s infinite',
-                        'float': 'float 6s ease-in-out infinite',
-                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
-                        'slide-up': 'slide-up 0.5s ease-out',
-                    },
-                    keyframes: {
-                        blob: {
-                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
-                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
-                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
-                            '100%': { transform: 'translate(0px, 0px) scale(1)' },
-                        },
-                        float: {
-                            '0%, 100%': { transform: 'translateY(0)' },
-                            '50%': { transform: 'translateY(-20px)' },
-                        },
-                        'pulse-glow': {
-                            '0%, 100%': { boxShadow: '0 0 20px rgba(99,102,241,0.3)' },
-                            '50%': { boxShadow: '0 0 40px rgba(99,102,241,0.6)' },
-                        },
-                        'slide-up': {
-                            '0%': { transform: 'translateY(20px)', opacity: '0' },
-                            '100%': { transform: 'translateY(0)', opacity: '1' },
-                        }
+                        brand: { 50:'#eef2ff', 100:'#e0e7ff', 200:'#c7d2fe', 300:'#a5b4fc', 400:'#818cf8', 500:'#6366f1', 600:'#4f46e5', 700:'#4338ca', 800:'#3730a3', 900:'#312e81' }
                     }
                 }
             }
         }
     </script>
-
     <style>
-        * { scrollbar-width: thin; scrollbar-color: #6366f1 transparent; }
-        ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: transparent; }
-        ::-webkit-scrollbar-thumb { background: #6366f1; border-radius: 4px; }
-
-        .glass {
-            background: rgba(21, 26, 37, 0.7);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        * { margin:0; padding:0; box-sizing:border-box; }
+        body { font-family:'Inter',sans-serif; background:#f8fafc; color:#1e293b; }
+        .hero-bg { background: linear-gradient(135deg, #eef2ff 0%, #f0fdf4 50%, #fdf2f8 100%); }
+        .section-alt { background:#ffffff; }
+        .card-light { background:#ffffff; border:1px solid #e2e8f0; transition:all 0.3s ease; }
+        .card-light:hover { box-shadow:0 20px 60px -15px rgba(99,102,241,0.2); transform:translateY(-4px); border-color:#a5b4fc; }
+        .text-brand { color:#4f46e5; }
+        .bg-brand { background:#4f46e5; }
+        .gradient-text { background:linear-gradient(135deg,#4f46e5,#ec4899); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+        .glass-light { background:rgba(255,255,255,0.8); backdrop-filter:blur(12px); border:1px solid rgba(255,255,255,0.6); }
+        .btn-brand { background:linear-gradient(135deg,#4f46e5,#7c3aed); color:white; padding:14px 32px; border-radius:12px; font-weight:700; display:inline-flex; align-items:center; gap:8px; transition:all 0.3s; text-decoration:none; }
+        .btn-brand:hover { box-shadow:0 8px 30px rgba(79,70,229,0.4); transform:translateY(-2px); }
+        .btn-outline { border:2px solid #e2e8f0; color:#334155; padding:12px 28px; border-radius:12px; font-weight:600; display:inline-flex; align-items:center; gap:8px; transition:all 0.3s; text-decoration:none; background:transparent; }
+        .btn-outline:hover { border-color:#4f46e5; color:#4f46e5; background:#eef2ff; }
+        .section-divider { height:1px; background:linear-gradient(90deg,transparent,#e2e8f0,transparent); max-width:800px; margin:0 auto; }
+        .faq-answer { max-height:0; overflow:hidden; transition:max-height 0.4s ease; }
+        .faq-item.active .faq-answer { max-height:500px; }
+        .faq-item.active .faq-icon { transform:rotate(45deg); }
+        .faq-icon { transition:transform 0.3s; }
+        .nav-link { position:relative; }
+        .nav-link::after { content:''; position:absolute; bottom:-4px; left:0; width:0; height:2px; background:linear-gradient(90deg,#4f46e5,#ec4899); transition:width 0.3s; }
+        .nav-link:hover::after { width:100%; }
+        .input-icon { position:relative; }
+        .input-icon i { position:absolute; left:14px; top:50%; transform:translateY(-50%); color:#a5b4fc; font-size:0.85rem; }
+        .input-icon input, .input-icon textarea, .input-icon select { padding-left:42px; }
+        .mobile-menu { transform:translateX(100%); transition:transform 0.3s ease; }
+        .mobile-menu.open { transform:translateX(0); }
+        .typing-dot { animation:typing 1.4s infinite ease-in-out both; }
+        .typing-dot:nth-child(1) { animation-delay:-0.32s; }
+        .typing-dot:nth-child(2) { animation-delay:-0.16s; }
+        @keyframes typing { 0%,80%,100%{transform:scale(0)} 40%{transform:scale(1)} }
+        @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-12px)} }
+        .animate-float { animation:float 5s ease-in-out infinite; }
+        @keyframes pulse-glow { 0%,100%{box-shadow:0 0 20px rgba(34,197,94,0.3)} 50%{box-shadow:0 0 40px rgba(34,197,94,0.6)} }
+        .whatsapp-pulse { animation:pulse-glow 2s ease-in-out infinite; }
+        .marquee-track { display:flex; animation:marquee 25s linear infinite; }
+        @keyframes marquee { 0%{transform:translateX(0)} 100%{transform:translateX(-50%)} }
+        ::-webkit-scrollbar { width:6px; }
+        ::-webkit-scrollbar-thumb { background:#c7d2fe; border-radius:3px; }
+        @media(max-width:640px) {
+            .hero-title { font-size:2rem !important; line-height:1.15 !important; }
+            .stat-number { font-size:2rem !important; }
+            .section-pad { padding:48px 0 !important; }
         }
-        .glass-light {
-            background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(8px);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .text-gradient {
-            background: linear-gradient(135deg, #6366f1, #ec4899, #06b6d4);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .text-gradient-alt {
-            background: linear-gradient(135deg, #06b6d4, #6366f1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-
-        .card-hover {
-            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-        }
-        .card-hover:hover {
-            transform: translateY(-10px) scale(1.02);
-            box-shadow: 0 20px 60px -15px rgba(99, 102, 241, 0.3);
-            border-color: rgba(99, 102, 241, 0.5);
-        }
-
-        .glow-border {
-            box-shadow: 0 0 15px rgba(99, 102, 241, 0.15), inset 0 0 15px rgba(99, 102, 241, 0.05);
-        }
-
-        .btn-glow:hover {
-            box-shadow: 0 0 30px rgba(99, 102, 241, 0.5);
-        }
-
-        /* Typing indicator */
-        .typing-dot {
-            animation: typing 1.4s infinite ease-in-out both;
-        }
-        .typing-dot:nth-child(1) { animation-delay: -0.32s; }
-        .typing-dot:nth-child(2) { animation-delay: -0.16s; }
-
-        @keyframes typing {
-            0%, 80%, 100% { transform: scale(0); }
-            40% { transform: scale(1); }
-        }
-
-        /* FAQ Accordion */
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s ease, padding 0.3s ease;
-        }
-        .faq-item.active .faq-answer {
-            max-height: 500px;
-            padding-top: 12px;
-        }
-        .faq-item.active .faq-icon {
-            transform: rotate(45deg);
-        }
-        .faq-icon {
-            transition: transform 0.3s ease;
-        }
-
-        /* Input focus glow */
-        .input-glow:focus {
-            box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
-        }
-
-        /* Section divider */
-        .section-divider {
-            height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(99,102,241,0.3), transparent);
-        }
-
-        /* Nav underline animation */
-        .nav-link::after {
-            content: '';
-            position: absolute;
-            bottom: -4px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: linear-gradient(90deg, #6366f1, #ec4899);
-            transition: width 0.3s ease;
-        }
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-        /* Marquee */
-        .marquee-content {
-            animation: marquee 30s linear infinite;
-        }
-        @keyframes marquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
-        }
-
-        /* Mobile menu */
-        .mobile-menu {
-            transform: translateX(100%);
-            transition: transform 0.3s ease;
-        }
-        .mobile-menu.open {
-            transform: translateX(0);
-        }
-
-        /* Form icon */
-        .form-group {
-            position: relative;
-        }
-        .form-group i.form-icon {
-            position: absolute;
-            left: 16px;
-            top: 50%;
-            transform: translateY(-50%);
-            color: #6366f1;
-            font-size: 0.9rem;
-            transition: color 0.3s;
-        }
-        .form-group input:focus ~ i.form-icon,
-        .form-group textarea:focus ~ i.form-icon,
-        .form-group select:focus ~ i.form-icon {
-            color: #ec4899;
-        }
-        .form-group input, .form-group textarea, .form-group select {
-            padding-left: 44px;
-        }
+        @media(pointer:coarse) { .btn-brand, .btn-outline, a, button { min-height:44px; } }
     </style>
 </head>
+<body>
 
-<body class="bg-brand-dark text-white overflow-x-hidden selection:bg-brand-secondary selection:text-white">
-
-    <!-- ===== BACKGROUND BLOBS ===== -->
-    <div class="fixed inset-0 z-[-1] overflow-hidden pointer-events-none">
-        <div class="absolute top-0 left-1/4 w-96 h-96 bg-brand-primary/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob"></div>
-        <div class="absolute top-0 right-1/4 w-96 h-96 bg-brand-secondary/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" style="animation-delay: 2s;"></div>
-        <div class="absolute -bottom-32 left-1/3 w-96 h-96 bg-brand-accent/20 rounded-full mix-blend-screen filter blur-3xl opacity-20 animate-blob" style="animation-delay: 4s;"></div>
-    </div>
-
-    <!-- ===== PRELOADER ===== -->
-    <div id="preloader" class="fixed inset-0 z-[9999] bg-brand-dark flex items-center justify-center transition-opacity duration-500">
-        <div class="text-center">
-            <div class="w-16 h-16 mx-auto mb-4 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center animate-pulse">
-                <i class="fa-solid fa-microchip text-white text-2xl"></i>
+<!-- NAVBAR -->
+<nav class="fixed w-full z-50 glass-light shadow-sm" id="navbar">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16 sm:h-18">
+            <a href="#" class="flex items-center gap-2 font-black text-xl text-brand-600">
+                <div class="w-9 h-9 bg-gradient-to-br from-brand-500 to-purple-600 rounded-lg flex items-center justify-center shadow-md">
+                    <i class="fa-solid fa-microchip text-white text-sm"></i>
+                </div>
+                PIXEL FORGE<span class="text-pink-500">📡</span>
+            </a>
+            <div class="hidden md:flex items-center gap-7">
+                <a href="#services" class="nav-link text-slate-600 hover:text-brand-600 font-medium text-sm transition">Services</a>
+                <a href="#process" class="nav-link text-slate-600 hover:text-brand-600 font-medium text-sm transition">Process</a>
+                <a href="#pricing" class="nav-link text-slate-600 hover:text-brand-600 font-medium text-sm transition">Pricing</a>
+                <a href="#faq" class="nav-link text-slate-600 hover:text-brand-600 font-medium text-sm transition">FAQ</a>
+                <a href="https://wa.me/919620024812" target="_blank" class="bg-green-500 hover:bg-green-600 text-white px-5 py-2.5 rounded-full font-bold text-sm transition flex items-center gap-2 shadow-md shadow-green-500/20">
+                    <i class="fa-brands fa-whatsapp text-base"></i> Chat Now
+                </a>
             </div>
-            <p class="text-gradient font-bold text-xl tracking-wider">PIXEL FORGE</p>
-            <div class="mt-4 w-48 h-1 bg-brand-surface rounded-full overflow-hidden mx-auto">
-                <div class="h-full bg-gradient-to-r from-brand-primary to-brand-secondary rounded-full" style="animation: loading 1.5s ease-in-out;"></div>
-            </div>
+            <button class="md:hidden text-2xl text-slate-700" onclick="toggleMobile()"><i class="fa-solid fa-bars" id="menuIcon"></i></button>
         </div>
     </div>
-    <style>
-        @keyframes loading {
-            0% { width: 0; }
-            50% { width: 70%; }
-            100% { width: 100%; }
-        }
-    </style>
+</nav>
 
-        /* ===== ENHANCED MOBILE STYLES ===== */
-        @media (max-width: 640px) {
-            .hero h1 { font-size: 2.2rem !important; line-height: 1.2; }
-            .hero p { font-size: 1rem !important; }
-            .faq-item h3 { font-size: 0.95rem; }
-            footer .grid { gap: 2rem; }
-        }
-
-        /* Touch-friendly tap targets */
-        @media (pointer: coarse) {
-            .btn, button, a { min-height: 44px; }
-            .faq-item { min-height: 56px; }
-        }
-
-        /* Safe area for notched phones */
-        @supports (padding: env(safe-area-inset-bottom)) {
-            footer { padding-bottom: calc(1rem + env(safe-area-inset-bottom)); }
-        }
-
-        /* Prevent text overflow on mobile */
-        h1, h2, h3 { overflow-wrap: break-word; word-break: break-word; }
-
-        /* Better scroll on iOS */
-        .chat-messages { -webkit-overflow-scrolling: touch; }
-
-        /* Mobile nav backdrop */
-        .mobile-menu-backdrop {
-            display: none;
-            position: fixed;
-            inset: 0;
-            background: rgba(0,0,0,0.5);
-            z-index: 55;
-        }
-        .mobile-menu-backdrop.open { display: block; }
-
-    <!-- ===== NAVIGATION ===== -->
-    <nav class="fixed w-full z-50 glass transition-all duration-300" id="navbar">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center gap-3 cursor-pointer group" onclick="window.scrollTo({top:0,behavior:'smooth'})">
-                    <div class="w-10 h-10 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-lg flex items-center justify-center shadow-lg group-hover:rotate-12 transition duration-300">
-                        <i class="fa-solid fa-microchip text-white"></i>
-                    </div>
-                    <span class="font-black text-xl tracking-tight text-white group-hover:text-brand-accent transition duration-300">PIXEL FORGE<span class="text-brand-secondary">📡</span></span>
-                </div>
-
-                <!-- Desktop Nav -->
-                <div class="hidden lg:flex items-center space-x-8">
-                    <a href="#services" class="nav-link relative text-slate-300 hover:text-white font-medium transition">Services</a>
-                    <a href="#process" class="nav-link relative text-slate-300 hover:text-white font-medium transition">Process</a>
-                    <a href="#portfolio" class="nav-link relative text-slate-300 hover:text-white font-medium transition">Portfolio</a>
-                    <a href="#pricing" class="nav-link relative">Pricing</a>
-                    <a href="#faq" class="nav-link relative text-slate-300 hover:text-white font-medium transition">FAQ</a>
-                    <a href="https://wa.me/919620024812" target="_blank" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white px-6 py-2.5 rounded-full font-bold transition shadow-lg shadow-green-500/20 flex items-center gap-2 transform hover:scale-105">
-                        <i class="fa-brands fa-whatsapp text-lg"></i> Chat Now
-                    </a>
-                </div>
-
-                <!-- Mobile Hamburger -->
-                <button class="lg:hidden text-white text-2xl" onclick="toggleMobileMenu()">
-                    <i class="fa-solid fa-bars" id="menuIcon"></i>
-                </button>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Mobile Menu -->
-    <div class="mobile-menu fixed top-0 right-0 w-80 h-full bg-brand-surface z-[60] p-8 lg:hidden" id="mobileMenu">
-            </div>
-    <div class="mobile-menu-backdrop" id="mobileBackdrop" onclick="toggleMobileMenu()"></div>
+<!-- Mobile Menu -->
+<div class="mobile-menu fixed top-0 right-0 w-72 h-full bg-white z-[60] p-6 shadow-2xl" id="mobileMenu">
+    <button class="absolute top-4 right-4 text-2xl text-slate-500" onclick="toggleMobile()"><i class="fa-solid fa-xmark"></i></button>
+    <div class="mt-14 space-y-1">
+        <a href="#services" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-rocket mr-3 text-brand-500 w-5"></i>Services</a>
+        <a href="#process" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-diagram-project mr-3 text-pink-500 w-5"></i>Process</a>
+        <a href="#pricing" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-indian-rupee-sign mr-3 text-green-500 w-5"></i>Pricing</a>
+        <a href="#team" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-users mr-3 text-cyan-500 w-5"></i>Team</a>
+        <a href="#blog" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-pen-nib mr-3 text-yellow-500 w-5"></i>Blog</a>
+        <a href="#faq" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-circle-question mr-3 text-purple-500 w-5"></i>FAQ</a>
+        <a href="#contact" onclick="toggleMobile()" class="block py-3 px-4 rounded-lg font-semibold text-slate-700 hover:bg-brand-50 hover:text-brand-600 transition"><i class="fa-solid fa-envelope mr-3 text-orange-500 w-5"></i>Contact</a>
+        <div class="pt-4 mt-4 border-t border-slate-100">
+            <a href="https://wa.me/919620024812" target="_blank" class="flex items-center gap-3 bg-green-50 text-green-600 px-4 py-3 rounded-xl font-bold"><i class="fa-brands fa-whatsapp text-xl"></i> WhatsApp Us</a>
         </div>
     </div>
+</div>
 
-    <!-- ===== HERO SECTION ===== -->
-    <section class="relative min-h-screen flex items-center pt-20 overflow-hidden" id="hero">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-
-            <!-- Text Content -->
-            <div data-aos="fade-right" data-aos-duration="1000">
-                <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-primary/10 border border-brand-primary/20 text-brand-primary text-sm font-semibold mb-6">
-                    <span class="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span> Available for New Projects
-                </div>
-                <h1 class="text-5xl md:text-7xl font-black leading-tight mb-6">
-                    We Build<br>
-                    <span class="text-gradient">Digital Reality.</span>
-                </h1>
-                <p class="text-lg text-slate-400 mb-8 max-w-lg leading-relaxed">
-                    From high-performance web apps to scalable cloud infrastructure. Pixel Forge turns your vision into a market-dominating product in <strong class="text-white">Bangalore</strong> and beyond.
-                </p>
-                <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#contact" class="btn-glow bg-white text-brand-dark hover:bg-slate-200 px-8 py-4 rounded-full font-bold text-lg transition shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2">
-                        Start Project <i class="fa-solid fa-arrow-right"></i>
-                    </a>
-                    <a href="#portfolio" class="glass text-white hover:bg-white/10 px-8 py-4 rounded-full font-bold text-lg transition flex items-center justify-center gap-2 border border-white/10">
-                        <i class="fa-solid fa-play"></i> View Portfolio
-                    </a>
-                </div>
-
-                <!-- Trust Badges -->
-                <div class="mt-12 flex items-center gap-6 text-sm text-slate-500">
-                    <div class="flex -space-x-3">
-                        <img class="w-9 h-9 rounded-full border-2 border-brand-dark object-cover" src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=64&h=64" alt="User">
-                        <img class="w-9 h-9 rounded-full border-2 border-brand-dark object-cover" src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=64&h=64" alt="User">
-                        <img class="w-9 h-9 rounded-full border-2 border-brand-dark object-cover" src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=64&h=64" alt="User">
-                        <img class="w-9 h-9 rounded-full border-2 border-brand-dark object-cover" src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&h=64" alt="User">
-                    </div>
-                    <div>
-                        <div class="flex text-yellow-400 text-xs mb-0.5">
-                            <i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i>
-                        </div>
-                        <p>Trusted by <strong class="text-white">50+ Startups</strong></p>
-                    </div>
-                </div>
+<!-- HERO -->
+<section class="hero-bg min-h-screen flex items-center pt-16 overflow-hidden">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+        <div data-aos="fade-right" data-aos-duration="800">
+            <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-50 border border-brand-200 text-brand-600 text-xs font-bold mb-5">
+                <span class="w-2 h-2 rounded-full bg-green-500 animate-pulse"></span> Available for New Projects
             </div>
-
-            <!-- Hero Visual -->
-            <div class="relative hidden lg:block" data-aos="fade-left" data-aos-duration="1000">
-                <div class="relative z-10 animate-float">
-                    <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=1000&q=80" alt="Tech Infrastructure" class="rounded-2xl shadow-2xl border border-white/10 w-full object-cover h-[500px]">
-
-                    <!-- Floating Card 1 -->
-                    <div class="absolute -top-6 -left-6 glass p-4 rounded-xl flex items-center gap-3 animate-bounce" style="animation-duration: 3s;">
-                        <div class="w-10 h-10 bg-green-500/20 rounded-full flex items-center justify-center text-green-400"><i class="fa-solid fa-code"></i></div>
-                        <div>
-                            <p class="text-xs text-slate-400">Status</p>
-                            <p class="font-bold text-sm">System Online ✅</p>
-                        </div>
-                    </div>
-
-                    <!-- Floating Card 2 -->
-                    <div class="absolute -bottom-6 -right-6 glass p-4 rounded-xl flex items-center gap-3 animate-bounce" style="animation-duration: 4s;">
-                        <div class="w-10 h-10 bg-brand-secondary/20 rounded-full flex items-center justify-center text-brand-secondary"><i class="fa-solid fa-rocket"></i></div>
-                        <div>
-                            <p class="text-xs text-slate-400">Performance</p>
-                            <p class="font-bold text-sm">100/100 Lighthouse 🚀</p>
-                        </div>
-                    </div>
-
-                    <!-- Floating Card 3 -->
-                    <div class="absolute top-1/2 -right-8 glass p-3 rounded-xl flex items-center gap-2" style="animation: float 5s ease-in-out infinite; animation-delay: 1s;">
-                        <div class="w-8 h-8 bg-brand-accent/20 rounded-full flex items-center justify-center text-brand-accent text-sm"><i class="fa-solid fa-shield-halved"></i></div>
-                        <p class="font-bold text-xs">Secured 🔒</p>
-                    </div>
+            <h1 class="hero-title text-4xl sm:text-5xl md:text-6xl font-black leading-tight mb-5 text-slate-900">We Build<br><span class="gradient-text">Digital Reality.</span></h1>
+            <p class="text-base sm:text-lg text-slate-500 mb-7 max-w-lg leading-relaxed">From high-performance web apps to scalable cloud infrastructure. We turn your vision into a market-dominating product in <strong class="text-slate-800">Bangalore</strong> and beyond.</p>
+            <div class="flex flex-col sm:flex-row gap-3">
+                <a href="#contact" class="btn-brand text-center">Start Project <i class="fa-solid fa-arrow-right"></i></a>
+                <a href="#portfolio" class="btn-outline text-center">View Portfolio</a>
+            </div>
+            <div class="mt-10 flex items-center gap-4">
+                <div class="flex -space-x-3">
+                    <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=80&h=80&fit=crop" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
+                    <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=80&h=80&fit=crop" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" class="w-9 h-9 rounded-full border-2 border-white object-cover" alt="">
+                </div>
+                <div class="text-sm text-slate-500">
+                    <div class="flex text-yellow-400 text-xs mb-0.5"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                    Trusted by <strong class="text-slate-800">50+ Startups</strong>
                 </div>
             </div>
         </div>
-    </section>
-
-    <!-- ===== TECH MARQUEE ===== -->
-    <div class="py-8 border-y border-white/5 overflow-hidden">
-        <div class="flex marquee-content whitespace-nowrap">
-            <div class="flex items-center gap-12 text-slate-600 font-mono text-sm mx-12">
-                <span><i class="fa-brands fa-react text-2xl text-brand-accent"></i> React</span>
-                <span><i class="fa-brands fa-node-js text-2xl text-green-500"></i> Node.js</span>
-                <span><i class="fa-brands fa-python text-2xl text-yellow-400"></i> Python</span>
-                <span><i class="fa-brands fa-aws text-2xl text-orange-400"></i> AWS</span>
-                <span><i class="fa-brands fa-docker text-2xl text-blue-400"></i> Docker</span>
-                <span><i class="fa-solid fa-database text-2xl text-brand-secondary"></i> MongoDB</span>
-                <span><i class="fa-brands fa-vuejs text-2xl text-green-400"></i> Vue.js</span>
-                <span><i class="fa-brands fa-flutter text-2xl text-cyan-400"></i> Flutter</span>
-                <span><i class="fa-brands fa-figma text-2xl text-pink-400"></i> Figma</span>
-                <span><i class="fa-solid fa-fire text-2xl text-orange-500"></i> Firebase</span>
-            </div>
-            <div class="flex items-center gap-12 text-slate-600 font-mono text-sm mx-12" aria-hidden="true">
-                <span><i class="fa-brands fa-react text-2xl text-brand-accent"></i> React</span>
-                <span><i class="fa-brands fa-node-js text-2xl text-green-500"></i> Node.js</span>
-                <span><i class="fa-brands fa-python text-2xl text-yellow-400"></i> Python</span>
-                <span><i class="fa-brands fa-aws text-2xl text-orange-400"></i> AWS</span>
-                <span><i class="fa-brands fa-docker text-2xl text-blue-400"></i> Docker</span>
-                <span><i class="fa-solid fa-database text-2xl text-brand-secondary"></i> MongoDB</span>
-                <span><i class="fa-brands fa-vuejs text-2xl text-green-400"></i> Vue.js</span>
-                <span><i class="fa-brands fa-flutter text-2xl text-cyan-400"></i> Flutter</span>
-                <span><i class="fa-brands fa-figma text-2xl text-pink-400"></i> Figma</span>
-                <span><i class="fa-solid fa-fire text-2xl text-orange-500"></i> Firebase</span>
+        <div class="relative hidden lg:block" data-aos="fade-left" data-aos-duration="800">
+            <div class="animate-float">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop" alt="Dashboard" class="rounded-2xl shadow-2xl border border-slate-200 w-full object-cover h-[440px]">
+                <div class="absolute -top-5 -left-5 bg-white p-3 rounded-xl shadow-lg flex items-center gap-3 border border-slate-100">
+                    <div class="w-10 h-10 bg-green-100 rounded-full flex items-center justify-center"><i class="fa-solid fa-code text-green-600"></i></div>
+                    <div><p class="text-[10px] text-slate-400">Status</p><p class="text-sm font-bold">System Online</p></div>
+                </div>
+                <div class="absolute -bottom-5 -right-5 bg-white p-3 rounded-xl shadow-lg flex items-center gap-3 border border-slate-100">
+                    <div class="w-10 h-10 bg-brand-100 rounded-full flex items-center justify-center"><i class="fa-solid fa-rocket text-brand-600"></i></div>
+                    <div><p class="text-[10px] text-slate-400">Speed</p><p class="text-sm font-bold">100/100 Score</p></div>
+                </div>
             </div>
         </div>
     </div>
+</section>
 
-    <!-- ===== SERVICES SECTION ===== -->
-    <section id="services" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-brand-primary font-mono text-sm tracking-widest uppercase">What We Do</span>
-                <h2 class="text-3xl md:text-5xl font-black mt-2 mb-4">Our <span class="text-gradient">Expertise</span></h2>
-                <p class="text-slate-400 max-w-2xl mx-auto">We don't just write code. We engineer scalable ecosystems designed for exponential growth.</p>
+<!-- TECH MARQUEE -->
+<div class="py-6 bg-white border-y border-slate-100 overflow-hidden">
+    <div class="marquee-track">
+        <div class="flex items-center gap-10 text-slate-400 text-sm font-medium mx-10 whitespace-nowrap">
+            <span><i class="fa-brands fa-react text-xl text-cyan-500"></i> React</span>
+            <span><i class="fa-brands fa-node-js text-xl text-green-600"></i> Node.js</span>
+            <span><i class="fa-brands fa-python text-xl text-yellow-500"></i> Python</span>
+            <span><i class="fa-brands fa-aws text-xl text-orange-500"></i> AWS</span>
+            <span><i class="fa-brands fa-docker text-xl text-blue-500"></i> Docker</span>
+            <span><i class="fa-solid fa-database text-xl text-purple-500"></i> MongoDB</span>
+            <span><i class="fa-brands fa-vuejs text-xl text-green-500"></i> Vue.js</span>
+            <span><i class="fa-brands fa-flutter text-xl text-sky-500"></i> Flutter</span>
+            <span><i class="fa-brands fa-figma text-xl text-pink-500"></i> Figma</span>
+            <span><i class="fa-solid fa-fire text-xl text-red-500"></i> Firebase</span>
+        </div>
+        <div class="flex items-center gap-10 text-slate-400 text-sm font-medium mx-10 whitespace-nowrap" aria-hidden="true">
+            <span><i class="fa-brands fa-react text-xl text-cyan-500"></i> React</span>
+            <span><i class="fa-brands fa-node-js text-xl text-green-600"></i> Node.js</span>
+            <span><i class="fa-brands fa-python text-xl text-yellow-500"></i> Python</span>
+            <span><i class="fa-brands fa-aws text-xl text-orange-500"></i> AWS</span>
+            <span><i class="fa-brands fa-docker text-xl text-blue-500"></i> Docker</span>
+            <span><i class="fa-solid fa-database text-xl text-purple-500"></i> MongoDB</span>
+            <span><i class="fa-brands fa-vuejs text-xl text-green-500"></i> Vue.js</span>
+            <span><i class="fa-brands fa-flutter text-xl text-sky-500"></i> Flutter</span>
+            <span><i class="fa-brands fa-figma text-xl text-pink-500"></i> Figma</span>
+            <span><i class="fa-solid fa-fire text-xl text-red-500"></i> Firebase</span>
+        </div>
+    </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services" class="section-alt section-pad py-20">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14" data-aos="fade-up">
+            <p class="text-brand-600 font-bold text-sm tracking-widest uppercase mb-2">What We Do</p>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Our <span class="gradient-text">Expertise</span></h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 bg-brand-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-laptop-code text-xl text-brand-600"></i></div>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">Web Development</h3>
+                <p class="text-slate-500 text-sm mb-3">Next.js, React, Vue apps optimized for SEO and speed. PWA ready.</p>
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=400&h=200&fit=crop" alt="Web Dev" class="rounded-xl w-full h-32 object-cover">
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Service 1 -->
-                <div class="glass p-8 rounded-2xl card-hover transition group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="w-14 h-14 bg-brand-primary/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-primary transition duration-300">
-                        <i class="fa-solid fa-laptop-code text-2xl text-brand-primary group-hover:text-white transition"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Web Development</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Next.js, React, and Vue applications optimized for SEO and speed. PWA ready with offline support.</p>
-                    <ul class="text-xs text-slate-500 space-y-2 font-mono">
-                        <li><i class="fa-solid fa-check text-brand-primary mr-2"></i>E-Commerce Platforms</li>
-                        <li><i class="fa-solid fa-check text-brand-primary mr-2"></i>SaaS Applications</li>
-                        <li><i class="fa-solid fa-check text-brand-primary mr-2"></i>Landing Pages & Marketing</li>
-                    </ul>
-                </div>
-
-                <!-- Service 2 -->
-                <div class="glass p-8 rounded-2xl card-hover transition group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="w-14 h-14 bg-brand-secondary/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-secondary transition duration-300">
-                        <i class="fa-solid fa-mobile-screen-button text-2xl text-brand-secondary group-hover:text-white transition"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Mobile Apps</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Native performance with Flutter & React Native. iOS and Android from one codebase.</p>
-                    <ul class="text-xs text-slate-500 space-y-2 font-mono">
-                        <li><i class="fa-solid fa-check text-brand-secondary mr-2"></i>Cross-Platform Development</li>
-                        <li><i class="fa-solid fa-check text-brand-secondary mr-2"></i>UI/UX Design</li>
-                        <li><i class="fa-solid fa-check text-brand-secondary mr-2"></i>App Store Optimization</li>
-                    </ul>
-                </div>
-
-                <!-- Service 3 -->
-                <div class="glass p-8 rounded-2xl card-hover transition group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="w-14 h-14 bg-brand-accent/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-brand-accent transition duration-300">
-                        <i class="fa-solid fa-server text-2xl text-brand-accent group-hover:text-white transition"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Cloud & DevOps</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">AWS/Azure architecture, Docker, Kubernetes, and CI/CD pipelines for zero downtime.</p>
-                    <ul class="text-xs text-slate-500 space-y-2 font-mono">
-                        <li><i class="fa-solid fa-check text-brand-accent mr-2"></i>Auto-Scaling Infrastructure</li>
-                        <li><i class="fa-solid fa-check text-brand-accent mr-2"></i>Security Audit & Compliance</li>
-                        <li><i class="fa-solid fa-check text-brand-accent mr-2"></i>99.99% Uptime SLA</li>
-                    </ul>
-                </div>
-
-                <!-- Service 4 -->
-                <div class="glass p-8 rounded-2xl card-hover transition group" data-aos="fade-up" data-aos-delay="400">
-                    <div class="w-14 h-14 bg-green-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-green-500 transition duration-300">
-                        <i class="fa-solid fa-robot text-2xl text-green-400 group-hover:text-white transition"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">AI & ML Integration</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Embed GPT-4, computer vision, and predictive models into your products seamlessly.</p>
-                    <ul class="text-xs text-slate-500 space-y-2 font-mono">
-                        <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Chatbots & Virtual Assistants</li>
-                        <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Data Analytics & Insights</li>
-                        <li><i class="fa-solid fa-check text-green-400 mr-2"></i>Process Automation</li>
-                    </ul>
-                </div>
-
-                <!-- Service 5 -->
-                <div class="glass p-8 rounded-2xl card-hover transition group" data-aos="fade-up" data-aos-delay="500">
-                    <div class="w-14 h-14 bg-yellow-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-yellow-500 transition duration-300">
-                        <i class="fa-solid fa-palette text-2xl text-yellow-400 group-hover:text-white transition"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">UI/UX Design</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Beautiful, intuitive interfaces designed in Figma. User-tested and conversion-optimized.</p>
-                    <ul class="text-xs text-slate-500 space-y-2 font-mono">
-                        <li><i class="fa-solid fa-check text-yellow-400 mr-2"></i>Design Systems</li>
-                        <li><i class="fa-solid fa-check text-yellow-400 mr-2"></i>Prototyping & Wireframes</li>
-                        <li><i class="fa-solid fa-check text-yellow-400 mr-2"></i>User Research</li>
-                    </ul>
-                </div>
-
-                <!-- Service 6 -->
-                <div class="glass p-8 rounded-2xl card-hover transition group" data-aos="fade-up" data-aos-delay="600">
-                    <div class="w-14 h-14 bg-red-500/20 rounded-xl flex items-center justify-center mb-6 group-hover:bg-red-500 transition duration-300">
-                        <i class="fa-solid fa-shield-halved text-2xl text-red-400 group-hover:text-white transition"></i>
-                    </div>
-                    <h3 class="text-xl font-bold mb-3">Cybersecurity</h3>
-                    <p class="text-slate-400 text-sm leading-relaxed mb-4">Penetration testing, vulnerability assessments, and compliance for enterprise-grade security.</p>
-                    <ul class="text-xs text-slate-500 space-y-2 font-mono">
-                        <li><i class="fa-solid fa-check text-red-400 mr-2"></i>Vulnerability Scanning</li>
-                        <li><i class="fa-solid fa-check text-red-400 mr-2"></i>SOC 2 Compliance</li>
-                        <li><i class="fa-solid fa-check text-red-400 mr-2"></i>Data Encryption</li>
-                    </ul>
-                </div>
+            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 bg-pink-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-mobile-screen-button text-xl text-pink-600"></i></div>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">Mobile Apps</h3>
+                <p class="text-slate-500 text-sm mb-3">Native performance with Flutter and React Native for iOS and Android.</p>
+                <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?w=400&h=200&fit=crop" alt="Mobile" class="rounded-xl w-full h-32 object-cover">
+            </div>
+            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 bg-cyan-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-cloud text-xl text-cyan-600"></i></div>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">Cloud & DevOps</h3>
+                <p class="text-slate-500 text-sm mb-3">AWS architecture, Docker, Kubernetes, CI/CD for zero downtime.</p>
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=200&fit=crop" alt="Cloud" class="rounded-xl w-full h-32 object-cover">
+            </div>
+            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-12 h-12 bg-green-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-robot text-xl text-green-600"></i></div>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">AI & ML Integration</h3>
+                <p class="text-slate-500 text-sm mb-3">Embed GPT-4, computer vision, and predictive models into your products.</p>
+                <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=400&h=200&fit=crop" alt="AI" class="rounded-xl w-full h-32 object-cover">
+            </div>
+            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
+                <div class="w-12 h-12 bg-yellow-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-palette text-xl text-yellow-600"></i></div>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">UI/UX Design</h3>
+                <p class="text-slate-500 text-sm mb-3">Beautiful interfaces designed in Figma. User-tested and conversion-optimized.</p>
+                <img src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=400&h=200&fit=crop" alt="Design" class="rounded-xl w-full h-32 object-cover">
+            </div>
+            <div class="card-light p-7 rounded-2xl" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-12 h-12 bg-red-100 rounded-xl flex items-center justify-center mb-4"><i class="fa-solid fa-shield-halved text-xl text-red-600"></i></div>
+                <h3 class="font-bold text-lg text-slate-900 mb-2">Cybersecurity</h3>
+                <p class="text-slate-500 text-sm mb-3">Penetration testing, vulnerability assessments, and compliance solutions.</p>
+                <img src="https://images.unsplash.com/photo-1555949963-aa79dcee981c?w=400&h=200&fit=crop" alt="Security" class="rounded-xl w-full h-32 object-cover">
             </div>
         </div>
-    </section>
+    </div>
+</section>
 
-    <div class="section-divider max-w-4xl mx-auto"></div>
+<div class="section-divider"></div>
 
-    <!-- ===== PROCESS SECTION ===== -->
-    <section id="process" class="py-24 bg-brand-surface/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-                <div data-aos="fade-right">
-                    <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&w=1000&q=80" alt="Team Collaboration" class="rounded-2xl shadow-2xl border border-white/5 w-full">
-                </div>
-                <div data-aos="fade-left">
-                    <span class="text-brand-secondary font-mono text-sm tracking-widest uppercase">How We Work</span>
-                    <h2 class="text-3xl md:text-4xl font-black mt-2 mb-8">How We <span class="text-brand-primary">Forge</span> Success</h2>
-
-                    <div class="space-y-8">
-                        <div class="flex gap-4 group cursor-default">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-primary flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">1</div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-1 group-hover:text-brand-primary transition">Discovery & Strategy</h4>
-                                <p class="text-slate-400 text-sm">We analyze your goals, market, and competitors. Then we map out a technical roadmap for success.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 group cursor-default">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-secondary flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">2</div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-1 group-hover:text-brand-secondary transition">Design & Prototype</h4>
-                                <p class="text-slate-400 text-sm">High-fidelity UI/UX designs in Figma. Interactive prototypes for your approval before coding starts.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 group cursor-default">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-brand-accent flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">3</div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-1 group-hover:text-brand-accent transition">Agile Development</h4>
-                                <p class="text-slate-400 text-sm">2-week sprints with weekly demos. You see real progress every step of the way.</p>
-                            </div>
-                        </div>
-                        <div class="flex gap-4 group cursor-default">
-                            <div class="flex-shrink-0 w-12 h-12 rounded-full bg-green-500 flex items-center justify-center font-bold text-lg group-hover:scale-110 transition">4</div>
-                            <div>
-                                <h4 class="text-xl font-bold mb-1 group-hover:text-green-400 transition">Launch & Scale</h4>
-                                <p class="text-slate-400 text-sm">Production deployment, monitoring setup, and ongoing support. We scale with you.</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+<!-- PROCESS -->
+<section id="process" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div data-aos="fade-right">
+                <img src="https://images.unsplash.com/photo-1522071820081-009f0129c71c?w=800&h=600&fit=crop" alt="Team" class="rounded-2xl shadow-xl w-full">
             </div>
-        </div>
-    </section>
-
-    <!-- ===== STATS SECTION ===== -->
-    <section id="stats" class="py-20 relative overflow-hidden">
-        <div class="absolute inset-0 bg-brand-primary/5"></div>
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <h2 class="text-3xl md:text-4xl font-black">Our Track <span class="text-gradient">Record</span></h2>
-            </div>
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div data-aos="zoom-in" data-aos-delay="0" class="glass p-6 rounded-2xl">
-                    <i class="fa-solid fa-rocket text-3xl text-brand-primary mb-3 block"></i>
-                    <h3 class="text-4xl md:text-5xl font-black mb-2 counter" data-target="50">0</h3>
-                    <p class="text-brand-primary font-mono uppercase tracking-widest text-xs">Projects Delivered</p>
-                </div>
-                <div data-aos="zoom-in" data-aos-delay="100" class="glass p-6 rounded-2xl">
-                    <i class="fa-solid fa-heart text-3xl text-brand-secondary mb-3 block"></i>
-                    <h3 class="text-4xl md:text-5xl font-black mb-2 counter" data-target="98">0</h3>
-                    <p class="text-brand-secondary font-mono uppercase tracking-widest text-xs">Client Satisfaction %</p>
-                </div>
-                <div data-aos="zoom-in" data-aos-delay="200" class="glass p-6 rounded-2xl">
-                    <i class="fa-solid fa-clock text-3xl text-brand-accent mb-3 block"></i>
-                    <h3 class="text-4xl md:text-5xl font-black mb-2 counter" data-target="5">0</h3>
-                    <p class="text-brand-accent font-mono uppercase tracking-widest text-xs">Years Experience</p>
-                </div>
-                <div data-aos="zoom-in" data-aos-delay="300" class="glass p-6 rounded-2xl">
-                    <i class="fa-solid fa-headset text-3xl text-green-400 mb-3 block"></i>
-                    <h3 class="text-4xl md:text-5xl font-black mb-2 counter" data-target="24">0</h3>
-                    <p class="text-green-400 font-mono uppercase tracking-widest text-xs">Hour Support</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- ===== PORTFOLIO SECTION ===== -->
-    <section id="portfolio" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-brand-accent font-mono text-sm tracking-widest uppercase">Our Work</span>
-                <h2 class="text-3xl md:text-5xl font-black mt-2 mb-4">Featured <span class="text-gradient">Projects</span></h2>
-                <p class="text-slate-400 max-w-xl mx-auto">A showcase of our finest work across industries.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <div class="glass rounded-2xl overflow-hidden card-hover group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-52 bg-gradient-to-br from-brand-primary to-brand-accent flex items-center justify-center text-5xl relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=600&q=80" alt="Analytics Dashboard" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent"></div>
-                        <span class="absolute bottom-4 left-4 text-sm font-bold">Analytics Platform</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold mb-2">FinTrack Analytics</h3>
-                        <p class="text-slate-400 text-sm mb-4">Real-time financial dashboard with AI-powered insights.</p>
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="text-xs bg-brand-primary/15 text-brand-primary px-3 py-1 rounded-full">React</span>
-                            <span class="text-xs bg-brand-accent/15 text-brand-accent px-3 py-1 rounded-full">D3.js</span>
-                            <span class="text-xs bg-brand-secondary/15 text-brand-secondary px-3 py-1 rounded-full">AI</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass rounded-2xl overflow-hidden card-hover group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-52 bg-gradient-to-br from-brand-secondary to-red-500 flex items-center justify-center text-5xl relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&w=600&q=80" alt="E-Commerce" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent"></div>
-                        <span class="absolute bottom-4 left-4 text-sm font-bold">E-Commerce</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold mb-2">ShopElite India</h3>
-                        <p class="text-slate-400 text-sm mb-4">Full-stack e-commerce with payments, inventory & admin.</p>
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="text-xs bg-green-500/15 text-green-400 px-3 py-1 rounded-full">Next.js</span>
-                            <span class="text-xs bg-yellow-500/15 text-yellow-400 px-3 py-1 rounded-full">Stripe</span>
-                            <span class="text-xs bg-blue-500/15 text-blue-400 px-3 py-1 rounded-full">PostgreSQL</span>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="glass rounded-2xl overflow-hidden card-hover group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="h-52 bg-gradient-to-br from-green-500 to-brand-accent flex items-center justify-center text-5xl relative overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=600&q=80" alt="Mobile App" class="w-full h-full object-cover opacity-80 group-hover:scale-110 transition duration-500">
-                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark/80 to-transparent"></div>
-                        <span class="absolute bottom-4 left-4 text-sm font-bold">Mobile App</span>
-                    </div>
-                    <div class="p-6">
-                        <h3 class="text-lg font-bold mb-2">HealthPulse App</h3>
-                        <p class="text-slate-400 text-sm mb-4">Cross-platform health tracking with wearable integration.</p>
-                        <div class="flex gap-2 flex-wrap">
-                            <span class="text-xs bg-cyan-500/15 text-cyan-400 px-3 py-1 rounded-full">Flutter</span>
-                            <span class="text-xs bg-orange-500/15 text-orange-400 px-3 py-1 rounded-full">Firebase</span>
-                            <span class="text-xs bg-purple-500/15 text-purple-400 px-3 py-1 rounded-full">ML Kit</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- ===== TESTIMONIALS ===== -->
-    <section class="py-24 bg-brand-surface/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-green-400 font-mono text-sm tracking-widest uppercase">Testimonials</span>
-                <h2 class="text-3xl md:text-5xl font-black mt-2 mb-4">What Clients <span class="text-gradient">Say</span></h2>
-            </div>
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <div class="glass p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="100">
-                    <div class="flex text-yellow-400 text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-slate-300 mb-6 leading-relaxed">"Pixel Forge transformed our outdated system into a modern, scalable platform. Their team is incredibly talented and responsive. Highly recommend!"</p>
-                    <div class="flex items-center gap-3">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=64&h=64" alt="Rajesh" class="w-12 h-12 rounded-full object-cover">
-                        <div><strong>Rajesh Kumar</strong><br><span class="text-slate-500 text-sm">CTO, TechStartup</span></div>
-                    </div>
-                </div>
-                <div class="glass p-8 rounded-2xl" data-aos="fade-up" data-aos-delay="200">
-                    <div class="flex text-yellow-400 text-sm mb-4"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
-                    <p class="text-slate-300 mb-6 leading-relaxed">"The mobile app they built for us increased our user engagement by 300%. Professional, on-time, and beyond our expectations. 10/10!"</p>
-                    <div class="flex items-center gap-3">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=64&h=64" alt="Priya" class="w-12 h-12 rounded-full object-cover">
-                        <div><strong>Priya Sharma</strong><br><span class="text-slate-500 text-sm">CEO, HealthApp Inc</span></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- ===== FAQ SECTION ===== -->
-    <section id="faq" class="py-24">
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-brand-primary font-mono text-sm tracking-widest uppercase">Got Questions?</span>
-                <h2 class="text-3xl md:text-5xl font-black mt-2 mb-4">Frequently Asked <span class="text-gradient">Questions</span></h2>
-                <p class="text-slate-400">Everything you need to know before starting your project.</p>
-            </div>
-
-            <div class="space-y-4" data-aos="fade-up">
-                <!-- FAQ 1 -->
-                <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center p-6">
-                        <h3 class="font-bold text-lg pr-4">How much does it cost to build a website?</h3>
-                        <i class="fa-solid fa-plus text-brand-primary faq-icon flex-shrink-0"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-slate-400 text-sm leading-relaxed">
-                        Our projects start from <strong class="text-white">₹25,000</strong> for basic landing pages to <strong class="text-white">₹5,00,000+</strong> for complex web applications. The exact cost depends on features, complexity, and timeline. We provide a detailed quote after understanding your requirements. Contact us for a free consultation! 💬
-                    </div>
-                </div>
-
-                <!-- FAQ 2 -->
-                <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center p-6">
-                        <h3 class="font-bold text-lg pr-4">How long does it take to complete a project?</h3>
-                        <i class="fa-solid fa-plus text-brand-primary faq-icon flex-shrink-0"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-slate-400 text-sm leading-relaxed">
-                        Timelines vary by project scope: <strong class="text-white">Landing pages: 1-2 weeks</strong>, <strong class="text-white">Websites: 3-4 weeks</strong>, <strong class="text-white">Web apps: 6-10 weeks</strong>, <strong class="text-white">Mobile apps: 8-12 weeks</strong>. We follow agile methodology with weekly progress demos so you always know where things stand. ⚡
-                    </div>
-                </div>
-
-                <!-- FAQ 3 -->
-                <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center p-6">
-                        <h3 class="font-bold text-lg pr-4">Do you provide hosting and maintenance?</h3>
-                        <i class="fa-solid fa-plus text-brand-primary faq-icon flex-shrink-0"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-slate-400 text-sm leading-relaxed">
-                        Yes! We handle everything end-to-end. <strong class="text-white">Hosting setup</strong> on AWS/Vercel/Netlify, <strong class="text-white">SSL certificates</strong>, <strong class="text-white">domain configuration</strong>, and ongoing maintenance packages. Our maintenance plans start at ₹5,000/month covering updates, security patches, and 24/7 monitoring. 🛡️
-                    </div>
-                </div>
-
-                <!-- FAQ 4 -->
-                <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center p-6">
-                        <h3 class="font-bold text-lg pr-4">What technologies do you use?</h3>
-                        <i class="fa-solid fa-plus text-brand-primary faq-icon flex-shrink-0"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-slate-400 text-sm leading-relaxed">
-                        We use modern, battle-tested tech: <strong class="text-white">Frontend:</strong> React, Next.js, Vue.js, Tailwind CSS. <strong class="text-white">Backend:</strong> Node.js, Python, Go. <strong class="text-white">Mobile:</strong> Flutter, React Native. <strong class="text-white">Cloud:</strong> AWS, GCP, Vercel. <strong class="text-white">Database:</strong> PostgreSQL, MongoDB, Redis. We pick the best stack for your specific needs.
-                    </div>
-                </div>
-
-                <!-- FAQ 5 -->
-                <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center p-6">
-                        <h3 class="font-bold text-lg pr-4">Can you build a PWA (Progressive Web App)?</h3>
-                        <i class="fa-solid fa-plus text-brand-primary faq-icon flex-shrink-0"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-slate-400 text-sm leading-relaxed">
-                        Absolutely! We specialize in PWAs. A PWA works like a native app — <strong class="text-white">installable</strong> on any device, <strong class="text-white">offline support</strong>, <strong class="text-white">push notifications</strong>, and lightning-fast performance. PWAs combine the best of web and mobile apps at a fraction of the cost. 📱
-                    </div>
-                </div>
-
-                <!-- FAQ 6 -->
-                <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center p-6">
-                        <h3 class="font-bold text-lg pr-4">Do you work with clients outside Bangalore?</h3>
-                        <i class="fa-solid fa-plus text-brand-primary faq-icon flex-shrink-0"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-slate-400 text-sm leading-relaxed">
-                        Yes! While we're based in <strong class="text-white">Bangalore</strong>, we work with clients globally. We use tools like Zoom, Slack, Notion, and GitHub for seamless collaboration. Many of our best projects have been delivered remotely to clients across India and internationally. 🌍
-                    </div>
-                </div>
-
-                <!-- FAQ 7 -->
-                <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center p-6">
-                        <h3 class="font-bold text-lg pr-4">What is your payment structure?</h3>
-                        <i class="fa-solid fa-plus text-brand-primary faq-icon flex-shrink-0"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-slate-400 text-sm leading-relaxed">
-                        We follow a milestone-based payment: <strong class="text-white">30% upfront</strong> to begin, <strong class="text-white">40% at midpoint</strong> (design approval), and <strong class="text-white">30% on delivery</strong>. For larger projects, we can arrange custom payment schedules. We accept UPI, bank transfer, and international wire transfers. 💳
-                    </div>
-                </div>
-
-                <!-- FAQ 8 -->
-                <div class="faq-item glass rounded-xl overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
-                    <div class="flex justify-between items-center p-6">
-                        <h3 class="font-bold text-lg pr-4">Will my website be SEO-friendly?</h3>
-                        <i class="fa-solid fa-plus text-brand-primary faq-icon flex-shrink-0"></i>
-                    </div>
-                    <div class="faq-answer px-6 pb-6 text-slate-400 text-sm leading-relaxed">
-                        100% yes! SEO is built into our development process: <strong class="text-white">semantic HTML</strong>, <strong class="text-white">meta tags & Open Graph</strong>, <strong class="text-white">fast load speeds</strong> (90+ Lighthouse), <strong class="text-white">mobile-first design</strong>, <strong class="text-white">structured data</strong>, and <strong class="text-white">clean URL structure</strong>. We also offer dedicated SEO consulting as an add-on service. 📈
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- ===== CONTACT SECTION ===== -->
-    <section id="contact" class="py-24 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="glass rounded-3xl p-8 md:p-12 overflow-hidden relative border border-white/10 glow-border">
-                <div class="absolute top-0 right-0 w-64 h-64 bg-brand-primary/20 rounded-full filter blur-3xl -z-10"></div>
-                <div class="absolute bottom-0 left-0 w-64 h-64 bg-brand-secondary/10 rounded-full filter blur-3xl -z-10"></div>
-
-                <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
-                    <!-- Contact Info -->
-                    <div data-aos="fade-right">
-                        <span class="text-brand-primary font-mono text-sm tracking-widest uppercase">Get In Touch</span>
-                        <h2 class="text-3xl font-black mt-2 mb-6">Let's Start Your <span class="text-gradient">Project</span></h2>
-                        <p class="text-slate-400 mb-8">Fill the form or reach us directly. We usually reply within 1 hour.</p>
-
-                        <div class="space-y-4">
-                            <a href="https://wa.me/919620024812" target="_blank" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-green-500/10 transition group cursor-pointer border border-transparent hover:border-green-500/30">
-                                <div class="w-12 h-12 rounded-full bg-green-500/20 flex items-center justify-center text-green-400 group-hover:scale-110 transition">
-                                    <i class="fa-brands fa-whatsapp text-2xl"></i>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-slate-400 uppercase tracking-wide">WhatsApp Us</p>
-                                    <p class="font-bold text-lg">+91 9620024812</p>
-                                </div>
-                            </a>
-
-                            <a href="tel:+919620024812" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-brand-primary/10 transition group cursor-pointer border border-transparent hover:border-brand-primary/30">
-                                <div class="w-12 h-12 rounded-full bg-brand-primary/20 flex items-center justify-center text-brand-primary group-hover:scale-110 transition">
-                                    <i class="fa-solid fa-phone text-xl"></i>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-slate-400 uppercase tracking-wide">Call Us</p>
-                                    <p class="font-bold text-lg">+91 9620024812</p>
-                                </div>
-                            </a>
-
-                            <div class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-brand-secondary/10 transition group cursor-pointer border border-transparent hover:border-brand-secondary/30">
-                                <div class="w-12 h-12 rounded-full bg-brand-secondary/20 flex items-center justify-center text-brand-secondary group-hover:scale-110 transition">
-                                    <i class="fa-solid fa-location-dot text-xl"></i>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-slate-400 uppercase tracking-wide">Visit Office</p>
-                                    <p class="font-bold">No 1, M.G Road, Brigade Road, Bangalore</p>
-                                </div>
-                            </div>
-
-                            <a href="mailto:hello@pixelforge.dev" class="flex items-center gap-4 p-4 rounded-xl bg-white/5 hover:bg-yellow-500/10 transition group cursor-pointer border border-transparent hover:border-yellow-500/30">
-                                <div class="w-12 h-12 rounded-full bg-yellow-500/20 flex items-center justify-center text-yellow-400 group-hover:scale-110 transition">
-                                    <i class="fa-solid fa-envelope text-xl"></i>
-                                </div>
-                                <div>
-                                    <p class="text-xs text-slate-400 uppercase tracking-wide">Email Us</p>
-                                    <p class="font-bold">hello@pixelforge.dev</p>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-
-                    <!-- Contact Form -->
-                    <div data-aos="fade-left">
-                        <form id="contactForm" class="space-y-4">
-                            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                                <div class="form-group">
-                                    <input type="text" placeholder="Your Name" required class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-brand-primary outline-none transition input-glow">
-                                    <i class="fa-solid fa-user form-icon"></i>
-                                </div>
-                                <div class="form-group">
-                                    <input type="tel" placeholder="Phone Number" required class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-brand-primary outline-none transition input-glow">
-                                    <i class="fa-solid fa-phone form-icon"></i>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <input type="email" placeholder="Email Address" required class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-brand-primary outline-none transition input-glow">
-                                <i class="fa-solid fa-envelope form-icon"></i>
-                            </div>
-                            <div class="form-group">
-                                <select class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3 text-slate-400 focus:border-brand-primary outline-none transition input-glow appearance-none cursor-pointer">
-                                    <option value="">Select Service</option>
-                                    <option>Web Development</option>
-                                    <option>Mobile App Development</option>
-                                    <option>Cloud & DevOps</option>
-                                    <option>AI & ML Integration</option>
-                                    <option>UI/UX Design</option>
-                                    <option>Cybersecurity</option>
-                                </select>
-                                <i class="fa-solid fa-briefcase form-icon"></i>
-                            </div>
-                            <div class="form-group">
-                                <input type="text" placeholder="Budget Range (optional)" class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-brand-primary outline-none transition input-glow">
-                                <i class="fa-solid fa-indian-rupee-sign form-icon"></i>
-                            </div>
-                            <div class="form-group">
-                                <textarea rows="4" placeholder="Tell us about your project..." class="w-full bg-brand-dark/50 border border-white/10 rounded-xl px-4 py-3 text-white focus:border-brand-primary outline-none transition input-glow resize-none"></textarea>
-                                <i class="fa-solid fa-comment form-icon" style="top: 24px; transform: none;"></i>
-                            </div>
-
-                            <button type="submit" class="w-full bg-gradient-to-r from-brand-primary to-brand-secondary hover:opacity-90 text-white font-bold py-4 rounded-xl transition shadow-lg transform active:scale-95 flex items-center justify-center gap-2">
-                                <span id="submitText">Send Message</span>
-                                <i class="fa-solid fa-paper-plane" id="submitIcon"></i>
-                                <i class="fa-solid fa-circle-notch fa-spin hidden" id="submitSpinner"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ===== FOOTER ===== -->
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- ===== CLIENTS / TRUSTED BY ===== -->
-    <section class="py-16 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12" data-aos="fade-up">
-                <span class="text-slate-500 font-mono text-sm tracking-widest uppercase">Trusted By Leading Brands</span>
-            </div>
-            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-40 hover:opacity-70 transition duration-500">
-                <div class="text-2xl font-black text-white flex items-center gap-2"><i class="fa-solid fa-building"></i> TechCorp</div>
-                <div class="text-2xl font-black text-white flex items-center gap-2"><i class="fa-solid fa-rocket"></i> LaunchPad</div>
-                <div class="text-2xl font-black text-white flex items-center gap-2"><i class="fa-solid fa-bolt"></i> VoltEdge</div>
-                <div class="text-2xl font-black text-white flex items-center gap-2"><i class="fa-solid fa-cloud"></i> CloudNine</div>
-                <div class="text-2xl font-black text-white flex items-center gap-2"><i class="fa-solid fa-shield"></i> SecureNet</div>
-                <div class="text-2xl font-black text-white flex items-center gap-2"><i class="fa-solid fa-database"></i> DataFlow</div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- ===== PRICING SECTION ===== -->
-    <section id="pricing" class="py-24 bg-brand-surface/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-brand-secondary font-mono text-sm tracking-widest uppercase">Pricing</span>
-                <h2 class="text-3xl md:text-5xl font-black mt-2 mb-4">Transparent <span class="text-gradient">Pricing</span></h2>
-                <p class="text-slate-400 max-w-xl mx-auto">No hidden costs. No surprises. Pick a plan that fits your needs.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-                <!-- Starter -->
-                <div class="glass p-8 rounded-2xl card-hover relative" data-aos="fade-up" data-aos-delay="100">
-                    <div class="text-center mb-6">
-                        <div class="w-14 h-14 bg-brand-primary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <i class="fa-solid fa-paper-plane text-2xl text-brand-primary"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Starter</h3>
-                        <p class="text-slate-500 text-sm mt-1">Perfect for small businesses</p>
-                    </div>
-                    <div class="text-center mb-6">
-                        <span class="text-5xl font-black">₹25K</span>
-                        <span class="text-slate-500 text-sm">/project</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Landing Page</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Responsive Design</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> SEO Setup</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Contact Form</li>
-                        <li class="flex items-center gap-3 text-slate-600"><i class="fa-solid fa-xmark"></i> Mobile App</li>
-                        <li class="flex items-center gap-3 text-slate-600"><i class="fa-solid fa-xmark"></i> Backend API</li>
-                    </ul>
-                    <a href="#contact" class="block w-full text-center py-3 rounded-xl border border-white/10 hover:border-brand-primary font-bold transition">Get Started</a>
-                </div>
-
-                <!-- Pro (Popular) -->
-                <div class="glass p-8 rounded-2xl card-hover relative border-brand-primary glow-border" data-aos="fade-up" data-aos-delay="200">
-                    <span class="absolute -top-4 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-primary to-brand-secondary text-white text-xs font-bold px-4 py-1 rounded-full">⭐ MOST POPULAR</span>
-                    <div class="text-center mb-6">
-                        <div class="w-14 h-14 bg-brand-secondary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <i class="fa-solid fa-rocket text-2xl text-brand-secondary"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Professional</h3>
-                        <p class="text-slate-500 text-sm mt-1">For growing startups</p>
-                    </div>
-                    <div class="text-center mb-6">
-                        <span class="text-5xl font-black">₹1.5L</span>
-                        <span class="text-slate-500 text-sm">/project</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Full Website (5+ pages)</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Admin Dashboard</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Backend API + Database</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> PWA Support</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> SEO + Analytics</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> 3 Months Support</li>
-                    </ul>
-                    <a href="#contact" class="block w-full text-center py-3 rounded-xl bg-gradient-to-r from-brand-primary to-brand-secondary font-bold transition hover:opacity-90 shadow-lg">Get Started</a>
-                </div>
-
-                <!-- Enterprise -->
-                <div class="glass p-8 rounded-2xl card-hover relative" data-aos="fade-up" data-aos-delay="300">
-                    <div class="text-center mb-6">
-                        <div class="w-14 h-14 bg-brand-accent/20 rounded-xl flex items-center justify-center mx-auto mb-4">
-                            <i class="fa-solid fa-gem text-2xl text-brand-accent"></i>
-                        </div>
-                        <h3 class="text-xl font-bold">Enterprise</h3>
-                        <p class="text-slate-500 text-sm mt-1">For large-scale projects</p>
-                    </div>
-                    <div class="text-center mb-6">
-                        <span class="text-5xl font-black">₹5L+</span>
-                        <span class="text-slate-500 text-sm">/project</span>
-                    </div>
-                    <ul class="space-y-3 mb-8 text-sm">
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Full-Stack Web App</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Mobile App (iOS + Android)</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> Cloud Infrastructure</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> AI/ML Integration</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> DevOps + CI/CD</li>
-                        <li class="flex items-center gap-3"><i class="fa-solid fa-check text-green-400"></i> 12 Months Priority Support</li>
-                    </ul>
-                    <a href="#contact" class="block w-full text-center py-3 rounded-xl border border-white/10 hover:border-brand-accent font-bold transition">Contact Us</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- ===== TEAM SECTION ===== -->
-    <section id="team" class="py-24">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-brand-accent font-mono text-sm tracking-widest uppercase">Our People</span>
-                <h2 class="text-3xl md:text-5xl font-black mt-2 mb-4">Meet The <span class="text-gradient">Team</span></h2>
-                <p class="text-slate-400 max-w-xl mx-auto">The talented individuals behind every pixel and line of code.</p>
-            </div>
-
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
-                <!-- Member 1 -->
-                <div class="glass rounded-2xl overflow-hidden card-hover group text-center" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=400&h=400&q=80" alt="Arjun Mehta" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg">Arjun Mehta</h3>
-                        <p class="text-brand-primary text-sm font-mono">Founder & CEO</p>
-                        <div class="flex justify-center gap-3 mt-4">
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-brand-primary transition"><i class="fa-brands fa-linkedin text-sm"></i></a>
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white transition"><i class="fa-brands fa-github text-sm"></i></a>
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-blue-400 transition"><i class="fa-brands fa-twitter text-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 2 -->
-                <div class="glass rounded-2xl overflow-hidden card-hover group text-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=400&h=400&q=80" alt="Priya Nair" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg">Priya Nair</h3>
-                        <p class="text-brand-secondary text-sm font-mono">Lead Designer</p>
-                        <div class="flex justify-center gap-3 mt-4">
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-brand-primary transition"><i class="fa-brands fa-linkedin text-sm"></i></a>
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-pink-400 transition"><i class="fa-brands fa-dribbble text-sm"></i></a>
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-pink-500 transition"><i class="fa-brands fa-instagram text-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 3 -->
-                <div class="glass rounded-2xl overflow-hidden card-hover group text-center" data-aos="fade-up" data-aos-delay="300">
-                    <div class="h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=400&h=400&q=80" alt="Vikram Das" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg">Vikram Das</h3>
-                        <p class="text-brand-accent text-sm font-mono">Full-Stack Engineer</p>
-                        <div class="flex justify-center gap-3 mt-4">
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-brand-primary transition"><i class="fa-brands fa-linkedin text-sm"></i></a>
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white transition"><i class="fa-brands fa-github text-sm"></i></a>
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-blue-400 transition"><i class="fa-brands fa-twitter text-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Member 4 -->
-                <div class="glass rounded-2xl overflow-hidden card-hover group text-center" data-aos="fade-up" data-aos-delay="400">
-                    <div class="h-56 overflow-hidden">
-                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=400&h=400&q=80" alt="Ananya Roy" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                    </div>
-                    <div class="p-6">
-                        <h3 class="font-bold text-lg">Ananya Roy</h3>
-                        <p class="text-green-400 text-sm font-mono">DevOps Engineer</p>
-                        <div class="flex justify-center gap-3 mt-4">
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-brand-primary transition"><i class="fa-brands fa-linkedin text-sm"></i></a>
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-white transition"><i class="fa-brands fa-github text-sm"></i></a>
-                            <a href="#" class="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:text-yellow-400 transition"><i class="fa-solid fa-globe text-sm"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- ===== BLOG / ARTICLES ===== -->
-    <section id="blog" class="py-24 bg-brand-surface/30">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16" data-aos="fade-up">
-                <span class="text-yellow-400 font-mono text-sm tracking-widest uppercase">Latest Insights</span>
-                <h2 class="text-3xl md:text-5xl font-black mt-2 mb-4">From Our <span class="text-gradient">Blog</span></h2>
-                <p class="text-slate-400 max-w-xl mx-auto">Tech tips, tutorials, and industry insights from our team.</p>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Blog 1 -->
-                <div class="glass rounded-2xl overflow-hidden card-hover group" data-aos="fade-up" data-aos-delay="100">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?auto=format&fit=crop&w=600&q=80" alt="Blog" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-3 left-3 bg-brand-primary text-white text-xs font-bold px-3 py-1 rounded-full">AI</span>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-slate-500 text-xs mb-2">📅 Sep 1, 2026 · ⏱️ 5 min read</p>
-                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-primary transition">How AI is Revolutionizing Web Development in 2026</h3>
-                        <p class="text-slate-400 text-sm mb-4">From auto-generated code to intelligent testing — AI is changing everything...</p>
-                        <a href="#" class="text-brand-primary font-bold text-sm hover:underline">Read More →</a>
-                    </div>
-                </div>
-
-                <!-- Blog 2 -->
-                <div class="glass rounded-2xl overflow-hidden card-hover group" data-aos="fade-up" data-aos-delay="200">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?auto=format&fit=crop&w=600&q=80" alt="Blog" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-3 left-3 bg-brand-secondary text-white text-xs font-bold px-3 py-1 rounded-full">Mobile</span>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-slate-500 text-xs mb-2">📅 Aug 28, 2026 · ⏱️ 7 min read</p>
-                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-secondary transition">Flutter vs React Native: The Ultimate 2026 Comparison</h3>
-                        <p class="text-slate-400 text-sm mb-4">Which framework should you choose for your next mobile project? We break it down...</p>
-                        <a href="#" class="text-brand-secondary font-bold text-sm hover:underline">Read More →</a>
-                    </div>
-                </div>
-
-                <!-- Blog 3 -->
-                <div class="glass rounded-2xl overflow-hidden card-hover group" data-aos="fade-up" data-aos-delay="300">
-                    <div class="h-48 overflow-hidden relative">
-                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=600&q=80" alt="Blog" class="w-full h-full object-cover group-hover:scale-110 transition duration-500">
-                        <span class="absolute top-3 left-3 bg-brand-accent text-white text-xs font-bold px-3 py-1 rounded-full">Cloud</span>
-                    </div>
-                    <div class="p-6">
-                        <p class="text-slate-500 text-xs mb-2">📅 Aug 20, 2026 · ⏱️ 6 min read</p>
-                        <h3 class="font-bold text-lg mb-2 group-hover:text-brand-accent transition">10 Cloud Architecture Patterns Every Startup Should Know</h3>
-                        <p class="text-slate-400 text-sm mb-4">Scalability, reliability, and cost optimization — patterns that save lakhs...</p>
-                        <a href="#" class="text-brand-accent font-bold text-sm hover:underline">Read More →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- ===== CTA BANNER ===== -->
-    <section class="py-24 relative overflow-hidden">
-        <div class="absolute inset-0 bg-gradient-to-br from-brand-primary/20 via-brand-secondary/10 to-brand-accent/20"></div>
-        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10" data-aos="zoom-in">
-            <div class="glass p-12 md:p-16 rounded-3xl glow-border">
-                <div class="w-20 h-20 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-2xl flex items-center justify-center mx-auto mb-6 animate-float">
-                    <i class="fa-solid fa-rocket text-white text-3xl"></i>
-                </div>
-                <h2 class="text-3xl md:text-5xl font-black mb-4">Ready to <span class="text-gradient">Launch</span> Your Project?</h2>
-                <p class="text-slate-400 text-lg mb-8 max-w-2xl mx-auto">Join 50+ satisfied clients who trusted Pixel Forge to build their digital future. Let's create something extraordinary together.</p>
-                <div class="flex flex-col sm:flex-row gap-4 justify-center">
-                    <a href="https://wa.me/919620024812?text=Hi%20Pixel%20Forge!%20I%20want%20to%20start%20a%20project." target="_blank" class="bg-gradient-to-r from-green-500 to-emerald-600 hover:from-green-400 hover:to-emerald-500 text-white px-8 py-4 rounded-full font-bold text-lg transition shadow-lg shadow-green-500/20 flex items-center justify-center gap-2">
-                        <i class="fa-brands fa-whatsapp text-xl"></i> Chat on WhatsApp
-                    </a>
-                    <a href="#contact" class="bg-white text-brand-dark hover:bg-slate-200 px-8 py-4 rounded-full font-bold text-lg transition shadow-[0_0_20px_rgba(255,255,255,0.3)] flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-envelope"></i> Send a Message
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="bg-black py-12 border-t border-white/10">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
-                <div>
-                    <div class="flex items-center gap-2 mb-4">
-                        <div class="w-8 h-8 bg-gradient-to-br from-brand-primary to-brand-secondary rounded-lg flex items-center justify-center">
-                            <i class="fa-solid fa-microchip text-white text-sm"></i>
-                        </div>
-                        <span class="font-black text-lg">PIXEL FORGE<span class="text-brand-secondary">📡</span></span>
-                    </div>
-                    <p class="text-slate-500 text-sm leading-relaxed">Future-ready digital solutions. From concept to launch, we forge your vision into reality.</p>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Quick Links</h4>
-                    <div class="space-y-2">
-                        <a href="#services" class="block text-slate-500 hover:text-brand-primary text-sm transition">Services</a>
-                        <a href="#portfolio" class="block text-slate-500 hover:text-brand-primary text-sm transition">Portfolio</a>
-                        <a href="#faq" class="block text-slate-500 hover:text-brand-primary text-sm transition">FAQ</a>
-                        <a href="#contact" class="block text-slate-500 hover:text-brand-primary text-sm transition">Contact</a>
-                    </div>
-                </div>
-                <div>
-                    <h4 class="font-bold mb-4">Connect With Us</h4>
+            <div data-aos="fade-left">
+                <p class="text-pink-500 font-bold text-sm tracking-widest uppercase mb-2">How We Work</p>
+                <h2 class="text-3xl font-black text-slate-900 mb-8">How We <span class="text-brand-600">Forge</span> Success</h2>
+                <div class="space-y-6">
                     <div class="flex gap-4">
-                        <a href="https://wa.me/919620024812" target="_blank" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-green-400 hover:bg-green-500/20 transition"><i class="fa-brands fa-whatsapp"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-blue-400 hover:bg-blue-500/20 transition"><i class="fa-brands fa-linkedin"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-pink-400 hover:bg-pink-500/20 transition"><i class="fa-brands fa-instagram"></i></a>
-                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 flex items-center justify-center text-slate-400 hover:bg-white/10 transition"><i class="fa-brands fa-github"></i></a>
+                        <div class="flex-shrink-0 w-11 h-11 rounded-full bg-brand-500 text-white flex items-center justify-center font-bold">1</div>
+                        <div><h4 class="font-bold text-slate-900 mb-1">Discovery & Strategy</h4><p class="text-slate-500 text-sm">We analyze your goals and map out a technical roadmap.</p></div>
                     </div>
-                    <div class="mt-4 text-slate-500 text-sm">
-                        <p><i class="fa-solid fa-location-dot mr-2"></i>No 1, M.G Road, Brigade Road, Bangalore</p>
-                        <p class="mt-1"><i class="fa-solid fa-phone mr-2"></i>+91 9620024812</p>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-11 h-11 rounded-full bg-pink-500 text-white flex items-center justify-center font-bold">2</div>
+                        <div><h4 class="font-bold text-slate-900 mb-1">Design & Prototype</h4><p class="text-slate-500 text-sm">High-fidelity UI/UX designs for your approval before coding.</p></div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-11 h-11 rounded-full bg-cyan-500 text-white flex items-center justify-center font-bold">3</div>
+                        <div><h4 class="font-bold text-slate-900 mb-1">Agile Development</h4><p class="text-slate-500 text-sm">2-week sprints with weekly demos. You see progress every step.</p></div>
+                    </div>
+                    <div class="flex gap-4">
+                        <div class="flex-shrink-0 w-11 h-11 rounded-full bg-green-500 text-white flex items-center justify-center font-bold">4</div>
+                        <div><h4 class="font-bold text-slate-900 mb-1">Launch & Scale</h4><p class="text-slate-500 text-sm">Production deployment, monitoring, and ongoing support.</p></div>
                     </div>
                 </div>
-            </div>
-            <div class="section-divider mb-6"></div>
-            <div class="flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-600 text-sm">&copy; 2026 Pixel Forge. All rights reserved.</p>
-                <p class="text-slate-600 text-sm">Designed & Developed by <span class="text-brand-primary">Pixel Forge Team</span> 💜</p>
             </div>
         </div>
-    </footer>
-
-    <!-- ===== WHATSAPP FLOATING BUTTON ===== -->
-    <a href="https://wa.me/919620024812?text=Hi%20Pixel%20Forge!%20I%27m%20interested%20in%20your%20services." target="_blank" class="fixed bottom-24 left-6 z-50 bg-green-500 hover:bg-green-400 text-white w-14 h-14 rounded-full shadow-lg shadow-green-500/30 flex items-center justify-center text-2xl transition transform hover:scale-110 animate-pulse-glow" title="Chat on WhatsApp" style="animation: pulse-glow 2s ease-in-out infinite;">
-        <i class="fa-brands fa-whatsapp"></i>
-    </a>
-
-    <!-- ===== ADVANCED AI CHATBOT ===== -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
-        <!-- Chat Window -->
-        <div id="chat-window" class="hidden w-80 md:w-96 bg-brand-surface border border-white/10 rounded-2xl shadow-2xl mb-4 overflow-hidden flex flex-col h-[520px] transition-all duration-300 origin-bottom-right transform scale-95 opacity-0">
-            <!-- Header -->
-            <div class="bg-gradient-to-r from-brand-primary to-brand-secondary p-4 text-white flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="relative">
-                        <div class="w-10 h-10 bg-white/20 rounded-full flex items-center justify-center">
-                            <i class="fa-solid fa-robot"></i>
-                        </div>
-                        <div class="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-400 rounded-full border-2 border-brand-primary"></div>
-                    </div>
-                    <div>
-                        <span class="font-bold block">ForgeBot AI</span>
-                        <span class="text-xs text-white/80">Online • Replies instantly</span>
-                    </div>
-                </div>
-                <button onclick="toggleChat()" class="hover:bg-white/20 p-2 rounded-lg transition"><i class="fa-solid fa-xmark text-lg"></i></button>
-            </div>
-
-            <!-- Messages Area -->
-            <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-4 bg-brand-dark/90" style="scrollbar-width:thin; scrollbar-color:#6366f1 transparent;">
-                <!-- Welcome -->
-                <div class="flex justify-start animate-[slide-up_0.3s_ease-out]">
-                    <div class="bg-white/10 backdrop-blur-md border border-white/5 text-slate-200 px-4 py-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-sm leading-relaxed">
-                        Hello! 👋 I'm <strong>ForgeBot</strong>, your AI assistant at Pixel Forge. I can help you with:
-                        <br><br>
-                        💰 Pricing<br>
-                        🛠️ Services<br>
-                        📍 Location<br>
-                        📞 Contact<br>
-                        ❓ FAQs
-                    </div>
-                </div>
-
-                <!-- Quick Replies -->
-                <div class="flex flex-wrap gap-2" id="quick-replies">
-                    <button onclick="sendQuickReply('What are your services?')" class="text-xs bg-brand-primary/20 hover:bg-brand-primary/40 text-brand-primary px-3 py-1.5 rounded-full border border-brand-primary/30 transition">🛠️ Services</button>
-                    <button onclick="sendQuickReply('How much does it cost?')" class="text-xs bg-brand-secondary/20 hover:bg-brand-secondary/40 text-brand-secondary px-3 py-1.5 rounded-full border border-brand-secondary/30 transition">💰 Pricing</button>
-                    <button onclick="sendQuickReply('Where is your office?')" class="text-xs bg-brand-accent/20 hover:bg-brand-accent/40 text-brand-accent px-3 py-1.5 rounded-full border border-brand-accent/30 transition">📍 Location</button>
-                    <button onclick="sendQuickReply('Tell me about FAQs')" class="text-xs bg-green-500/20 hover:bg-green-500/40 text-green-400 px-3 py-1.5 rounded-full border border-green-500/30 transition">❓ FAQ</button>
-                </div>
-            </div>
-
-            <!-- Input -->
-            <div class="p-3 bg-brand-surface border-t border-white/10 flex gap-2">
-                <input type="text" id="user-input" placeholder="Type a message..." class="flex-1 bg-brand-dark border border-white/10 rounded-full px-4 py-2.5 text-sm text-white focus:border-brand-primary outline-none transition" onkeypress="handleKeyPress(event)" autocomplete="off">
-                <button onclick="sendMessage()" class="bg-brand-primary hover:bg-brand-secondary text-white w-10 h-10 rounded-full flex items-center justify-center transition flex-shrink-0">
-                    <i class="fa-solid fa-paper-plane text-sm"></i>
-                </button>
-            </div>
-        </div>
-
-        <!-- Toggle Button -->
-        <button onclick="toggleChat()" id="chatToggle" class="bg-gradient-to-r from-brand-primary to-brand-secondary hover:shadow-[0_0_30px_rgba(99,102,241,0.6)] text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl transition transform hover:scale-110 animate-bounce" style="animation-duration: 3s;">
-            <i class="fa-solid fa-comment-dots" id="chatToggleIcon"></i>
-        </button>
     </div>
+</section>
 
-    <!-- ===== BACK TO TOP ===== -->
-    <button onclick="window.scrollTo({top:0,behavior:'smooth'})" class="fixed bottom-6 left-20 z-50 bg-brand-surface border border-white/10 text-white w-10 h-10 rounded-full items-center justify-center text-sm transition transform hover:scale-110 hover:border-brand-primary hidden" id="backToTop">
-        <i class="fa-solid fa-arrow-up"></i>
+<!-- STATS -->
+<section id="stats" class="py-16 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6">
+            <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="zoom-in">
+                <div class="w-14 h-14 bg-brand-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-rocket text-brand-600 text-xl"></i></div>
+                <h3 class="text-4xl font-black text-slate-900 stat-number counter" data-target="50">0</h3>
+                <p class="text-brand-600 font-bold text-xs tracking-wider uppercase mt-1">Projects Delivered</p>
+            </div>
+            <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="zoom-in" data-aos-delay="100">
+                <div class="w-14 h-14 bg-pink-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-heart text-pink-500 text-xl"></i></div>
+                <h3 class="text-4xl font-black text-slate-900 stat-number counter" data-target="98">0</h3>
+                <p class="text-pink-500 font-bold text-xs tracking-wider uppercase mt-1">Client Satisfaction %</p>
+            </div>
+            <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="zoom-in" data-aos-delay="200">
+                <div class="w-14 h-14 bg-cyan-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-clock text-cyan-600 text-xl"></i></div>
+                <h3 class="text-4xl font-black text-slate-900 stat-number counter" data-target="5">0</h3>
+                <p class="text-cyan-600 font-bold text-xs tracking-wider uppercase mt-1">Years Experience</p>
+            </div>
+            <div class="text-center p-6 rounded-2xl bg-slate-50 border border-slate-100" data-aos="zoom-in" data-aos-delay="300">
+                <div class="w-14 h-14 bg-green-100 rounded-2xl flex items-center justify-center mx-auto mb-3"><i class="fa-solid fa-headset text-green-600 text-xl"></i></div>
+                <h3 class="text-4xl font-black text-slate-900 stat-number">24/7</h3>
+                <p class="text-green-600 font-bold text-xs tracking-wider uppercase mt-1">Hour Support</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PORTFOLIO -->
+<section id="portfolio" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14" data-aos="fade-up">
+            <p class="text-cyan-600 font-bold text-sm tracking-widest uppercase mb-2">Our Work</p>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Featured <span class="gradient-text">Projects</span></h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="card-light rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-brand-600 bg-brand-50 px-3 py-1 rounded-full">Analytics</span>
+                    <h3 class="font-bold text-lg text-slate-900 mt-3 mb-2">FinTrack Analytics</h3>
+                    <p class="text-slate-500 text-sm mb-3">Real-time financial dashboard with AI-powered insights.</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">React</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">D3.js</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">AI</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-light rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-pink-600 bg-pink-50 px-3 py-1 rounded-full">E-Commerce</span>
+                    <h3 class="font-bold text-lg text-slate-900 mt-3 mb-2">ShopElite India</h3>
+                    <p class="text-slate-500 text-sm mb-3">Full-stack e-commerce with payments and admin dashboard.</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Next.js</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Stripe</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Postgres</span>
+                    </div>
+                </div>
+            </div>
+            <div class="card-light rounded-2xl overflow-hidden" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=600&h=300&fit=crop" alt="Project" class="w-full h-48 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-green-600 bg-green-50 px-3 py-1 rounded-full">Mobile App</span>
+                    <h3 class="font-bold text-lg text-slate-900 mt-3 mb-2">HealthPulse App</h3>
+                    <p class="text-slate-500 text-sm mb-3">Cross-platform health tracking with wearable integration.</p>
+                    <div class="flex gap-2 flex-wrap">
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Flutter</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">Firebase</span>
+                        <span class="text-xs bg-slate-100 text-slate-600 px-2 py-1 rounded">ML Kit</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14" data-aos="fade-up">
+            <p class="text-green-600 font-bold text-sm tracking-widest uppercase mb-2">Testimonials</p>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">What Clients <span class="gradient-text">Say</span></h2>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <div class="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="100">
+                <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-slate-600 text-sm mb-5 leading-relaxed">"Pixel Forge transformed our outdated system into a modern platform. Their team is incredibly talented. Highly recommend!"</p>
+                <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=80&h=80&fit=crop" class="w-11 h-11 rounded-full object-cover" alt="">
+                    <div><strong class="text-slate-900 text-sm">Rajesh Kumar</strong><br><span class="text-slate-400 text-xs">CTO, TechStartup</span></div>
+                </div>
+            </div>
+            <div class="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="200">
+                <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-slate-600 text-sm mb-5 leading-relaxed">"The mobile app they built increased our user engagement by 300%. Professional, on-time, and beyond expectations."</p>
+                <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=80&h=80&fit=crop" class="w-11 h-11 rounded-full object-cover" alt="">
+                    <div><strong class="text-slate-900 text-sm">Priya Sharma</strong><br><span class="text-slate-400 text-xs">CEO, HealthApp Inc</span></div>
+                </div>
+            </div>
+            <div class="bg-white p-7 rounded-2xl border border-slate-100 shadow-sm" data-aos="fade-up" data-aos-delay="300">
+                <div class="flex text-yellow-400 text-sm mb-3"><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i><i class="fa-solid fa-star"></i></div>
+                <p class="text-slate-600 text-sm mb-5 leading-relaxed">"Their cloud infrastructure saved us 60% on hosting costs while improving uptime to 99.99%. Absolutely incredible work!"</p>
+                <div class="flex items-center gap-3">
+                    <img src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=80&h=80&fit=crop" class="w-11 h-11 rounded-full object-cover" alt="">
+                    <div><strong class="text-slate-900 text-sm">Amit Patel</strong><br><span class="text-slate-400 text-xs">Founder, CloudNine</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- PRICING -->
+<section id="pricing" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14" data-aos="fade-up">
+            <p class="text-pink-500 font-bold text-sm tracking-widest uppercase mb-2">Pricing</p>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Transparent <span class="gradient-text">Pricing</span></h2>
+            <p class="text-slate-500 mt-2">No hidden costs. Pick a plan that fits your needs.</p>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 card-light text-center" data-aos="fade-up" data-aos-delay="100">
+                <div class="w-14 h-14 bg-brand-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-paper-plane text-brand-600 text-xl"></i></div>
+                <h3 class="font-bold text-lg text-slate-900">Starter</h3>
+                <p class="text-slate-400 text-xs mb-4">For small businesses</p>
+                <div class="text-4xl font-black text-slate-900 mb-1">₹25K</div>
+                <p class="text-slate-400 text-xs mb-6">/project</p>
+                <ul class="space-y-2.5 text-sm text-left mb-6">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Landing Page</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Responsive Design</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> SEO Setup</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Contact Form</li>
+                    <li class="flex items-center gap-2 text-slate-300"><i class="fa-solid fa-xmark text-xs"></i> Mobile App</li>
+                </ul>
+                <a href="#contact" class="block w-full py-3 rounded-xl border-2 border-slate-200 text-slate-600 font-bold text-sm hover:border-brand-500 hover:text-brand-600 transition">Get Started</a>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border-2 border-brand-500 card-light text-center relative shadow-lg shadow-brand-500/10" data-aos="fade-up" data-aos-delay="200">
+                <span class="absolute -top-3 left-1/2 -translate-x-1/2 bg-gradient-to-r from-brand-500 to-purple-600 text-white text-xs font-bold px-4 py-1 rounded-full">MOST POPULAR</span>
+                <div class="w-14 h-14 bg-pink-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-rocket text-pink-500 text-xl"></i></div>
+                <h3 class="font-bold text-lg text-slate-900">Professional</h3>
+                <p class="text-slate-400 text-xs mb-4">For growing startups</p>
+                <div class="text-4xl font-black text-slate-900 mb-1">₹1.5L</div>
+                <p class="text-slate-400 text-xs mb-6">/project</p>
+                <ul class="space-y-2.5 text-sm text-left mb-6">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Full Website (5+ pages)</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Admin Dashboard</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Backend API + Database</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> PWA Support</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> 3 Months Support</li>
+                </ul>
+                <a href="#contact" class="block w-full py-3 rounded-xl bg-gradient-to-r from-brand-500 to-purple-600 text-white font-bold text-sm hover:opacity-90 transition shadow-md">Get Started</a>
+            </div>
+            <div class="bg-white p-8 rounded-2xl border border-slate-200 card-light text-center" data-aos="fade-up" data-aos-delay="300">
+                <div class="w-14 h-14 bg-cyan-100 rounded-xl flex items-center justify-center mx-auto mb-4"><i class="fa-solid fa-gem text-cyan-600 text-xl"></i></div>
+                <h3 class="font-bold text-lg text-slate-900">Enterprise</h3>
+                <p class="text-slate-400 text-xs mb-4">For large-scale projects</p>
+                <div class="text-4xl font-black text-slate-900 mb-1">₹5L+</div>
+                <p class="text-slate-400 text-xs mb-6">/project</p>
+                <ul class="space-y-2.5 text-sm text-left mb-6">
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Full-Stack Web App</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Mobile App (iOS + Android)</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> Cloud Infrastructure</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> AI/ML Integration</li>
+                    <li class="flex items-center gap-2"><i class="fa-solid fa-check text-green-500 text-xs"></i> 12 Months Priority</li>
+                </ul>
+                <a href="#contact" class="block w-full py-3 rounded-xl border-2 border-slate-200 text-slate-600 font-bold text-sm hover:border-cyan-500 hover:text-cyan-600 transition">Contact Us</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TEAM -->
+<section id="team" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14" data-aos="fade-up">
+            <p class="text-cyan-600 font-bold text-sm tracking-widest uppercase mb-2">Our People</p>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Meet The <span class="gradient-text">Team</span></h2>
+        </div>
+        <div class="grid grid-cols-2 lg:grid-cols-4 gap-6">
+            <div class="bg-white rounded-2xl overflow-hidden card-light text-center" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop" alt="Arjun" class="w-full h-44 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 text-sm">Arjun Mehta</h3>
+                    <p class="text-brand-600 text-xs font-mono mt-1">Founder & CEO</p>
+                    <div class="flex justify-center gap-2 mt-3">
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-brand-600 transition"><i class="fa-brands fa-linkedin text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-800 transition"><i class="fa-brands fa-github text-xs"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden card-light text-center" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=400&fit=crop" alt="Priya" class="w-full h-44 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 text-sm">Priya Nair</h3>
+                    <p class="text-pink-500 text-xs font-mono mt-1">Lead Designer</p>
+                    <div class="flex justify-center gap-2 mt-3">
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-pink-500 transition"><i class="fa-brands fa-dribbble text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-pink-600 transition"><i class="fa-brands fa-instagram text-xs"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden card-light text-center" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=400&h=400&fit=crop" alt="Vikram" class="w-full h-44 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 text-sm">Vikram Das</h3>
+                    <p class="text-cyan-600 text-xs font-mono mt-1">Full-Stack Engineer</p>
+                    <div class="flex justify-center gap-2 mt-3">
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-800 transition"><i class="fa-brands fa-github text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-brand-600 transition"><i class="fa-brands fa-linkedin text-xs"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden card-light text-center" data-aos="fade-up" data-aos-delay="400">
+                <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=400&fit=crop" alt="Ananya" class="w-full h-44 object-cover">
+                <div class="p-5">
+                    <h3 class="font-bold text-slate-900 text-sm">Ananya Roy</h3>
+                    <p class="text-green-600 text-xs font-mono mt-1">DevOps Engineer</p>
+                    <div class="flex justify-center gap-2 mt-3">
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-slate-800 transition"><i class="fa-brands fa-github text-xs"></i></a>
+                        <a href="#" class="w-8 h-8 rounded-full bg-slate-100 flex items-center justify-center text-slate-400 hover:text-brand-600 transition"><i class="fa-brands fa-linkedin text-xs"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- BLOG -->
+<section id="blog" class="py-20 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14" data-aos="fade-up">
+            <p class="text-yellow-500 font-bold text-sm tracking-widest uppercase mb-2">Latest Insights</p>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">From Our <span class="gradient-text">Blog</span></h2>
+        </div>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div class="bg-white rounded-2xl overflow-hidden card-light" data-aos="fade-up" data-aos-delay="100">
+                <img src="https://images.unsplash.com/photo-1461749280684-dccba630e2f6?w=600&h=300&fit=crop" alt="Blog" class="w-full h-44 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-brand-600 bg-brand-50 px-2.5 py-1 rounded-full">AI</span>
+                    <p class="text-slate-400 text-xs mt-3 mb-2">Sep 1, 2026</p>
+                    <h3 class="font-bold text-slate-900 mb-2">How AI is Revolutionizing Web Development</h3>
+                    <a href="#" class="text-brand-600 font-bold text-sm">Read More →</a>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden card-light" data-aos="fade-up" data-aos-delay="200">
+                <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&h=300&fit=crop" alt="Blog" class="w-full h-44 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-pink-600 bg-pink-50 px-2.5 py-1 rounded-full">Mobile</span>
+                    <p class="text-slate-400 text-xs mt-3 mb-2">Aug 28, 2026</p>
+                    <h3 class="font-bold text-slate-900 mb-2">Flutter vs React Native: The 2026 Comparison</h3>
+                    <a href="#" class="text-pink-500 font-bold text-sm">Read More →</a>
+                </div>
+            </div>
+            <div class="bg-white rounded-2xl overflow-hidden card-light" data-aos="fade-up" data-aos-delay="300">
+                <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=600&h=300&fit=crop" alt="Blog" class="w-full h-44 object-cover">
+                <div class="p-6">
+                    <span class="text-xs font-bold text-cyan-600 bg-cyan-50 px-2.5 py-1 rounded-full">Cloud</span>
+                    <p class="text-slate-400 text-xs mt-3 mb-2">Aug 20, 2026</p>
+                    <h3 class="font-bold text-slate-900 mb-2">10 Cloud Architecture Patterns for Startups</h3>
+                    <a href="#" class="text-cyan-600 font-bold text-sm">Read More →</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- FAQ -->
+<section id="faq" class="py-20 bg-slate-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-14" data-aos="fade-up">
+            <p class="text-brand-600 font-bold text-sm tracking-widest uppercase mb-2">Got Questions?</p>
+            <h2 class="text-3xl sm:text-4xl font-black text-slate-900">Frequently Asked <span class="gradient-text">Questions</span></h2>
+        </div>
+        <div class="space-y-3" data-aos="fade-up">
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center p-5">
+                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">How much does it cost to build a website?</h3>
+                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed">Our projects start from <strong class="text-slate-800">₹25,000</strong> for landing pages to <strong class="text-slate-800">₹5,00,000+</strong> for complex apps. Contact us for a free quote!</div>
+            </div>
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center p-5">
+                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">How long does it take to complete a project?</h3>
+                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed"><strong class="text-slate-800">Landing pages: 1-2 weeks</strong>, <strong class="text-slate-800">Websites: 3-4 weeks</strong>, <strong class="text-slate-800">Web apps: 6-10 weeks</strong>, <strong class="text-slate-800">Mobile apps: 8-12 weeks</strong>.</div>
+            </div>
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center p-5">
+                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">Do you provide hosting and maintenance?</h3>
+                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed">Yes! Hosting, SSL, domain setup, and maintenance packages starting at ₹5,000/month.</div>
+            </div>
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center p-5">
+                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">What technologies do you use?</h3>
+                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed"><strong class="text-slate-800">Frontend:</strong> React, Next.js, Vue. <strong class="text-slate-800">Backend:</strong> Node.js, Python. <strong class="text-slate-800">Mobile:</strong> Flutter, React Native. <strong class="text-slate-800">Cloud:</strong> AWS, Vercel.</div>
+            </div>
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center p-5">
+                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">Can you build a PWA?</h3>
+                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed">Yes! We specialize in PWAs — installable, offline-ready, push notifications, and blazing fast.</div>
+            </div>
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center p-5">
+                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">Do you work with clients outside Bangalore?</h3>
+                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed">Yes! We work globally via Zoom, Slack, Notion, and GitHub for seamless remote collaboration.</div>
+            </div>
+            <div class="faq-item bg-white rounded-xl border border-slate-200 overflow-hidden cursor-pointer" onclick="toggleFaq(this)">
+                <div class="flex justify-between items-center p-5">
+                    <h3 class="font-bold text-slate-900 text-sm sm:text-base pr-4">What is your payment structure?</h3>
+                    <i class="fa-solid fa-plus text-brand-500 faq-icon flex-shrink-0"></i>
+                </div>
+                <div class="faq-answer px-5 pb-5 text-slate-500 text-sm leading-relaxed">30% upfront, 40% at midpoint, 30% on delivery. UPI, bank transfer, and wire accepted.</div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<div class="section-divider"></div>
+
+<!-- CTA -->
+<section class="py-20 bg-white">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center" data-aos="zoom-in">
+        <div class="bg-gradient-to-br from-brand-500 via-purple-600 to-pink-500 p-10 sm:p-14 rounded-3xl text-white">
+            <div class="w-16 h-16 bg-white/20 rounded-2xl flex items-center justify-center mx-auto mb-5 animate-float"><i class="fa-solid fa-rocket text-white text-2xl"></i></div>
+            <h2 class="text-2xl sm:text-4xl font-black mb-3">Ready to Launch Your Project?</h2>
+            <p class="text-white/80 mb-8 max-w-xl mx-auto">Join 50+ satisfied clients. Let's create something extraordinary together.</p>
+            <div class="flex flex-col sm:flex-row gap-3 justify-center">
+                <a href="https://wa.me/919620024812?text=Hi%20Pixel%20Forge!" target="_blank" class="bg-white text-green-600 px-7 py-3.5 rounded-full font-bold flex items-center justify-center gap-2 hover:shadow-lg transition"><i class="fa-brands fa-whatsapp text-lg"></i> WhatsApp Us</a>
+                <a href="#contact" class="bg-white/20 text-white border border-white/40 px-7 py-3.5 rounded-full font-bold flex items-center justify-center gap-2 hover:bg-white/30 transition"><i class="fa-solid fa-envelope"></i> Send Message</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="py-20 bg-slate-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="bg-white rounded-3xl p-6 sm:p-10 border border-slate-200 shadow-xl" data-aos="fade-up">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                <div>
+                    <p class="text-brand-600 font-bold text-sm tracking-widest uppercase mb-2">Get In Touch</p>
+                    <h2 class="text-2xl sm:text-3xl font-black text-slate-900 mb-5">Let's Start Your <span class="gradient-text">Project</span></h2>
+                    <p class="text-slate-500 text-sm mb-6">Fill the form or reach us directly. We reply within 1 hour.</p>
+                    <div class="space-y-3">
+                        <a href="https://wa.me/919620024812" target="_blank" class="flex items-center gap-3 p-4 rounded-xl bg-green-50 border border-green-100 hover:border-green-300 transition">
+                            <div class="w-10 h-10 rounded-full bg-green-100 flex items-center justify-center"><i class="fa-brands fa-whatsapp text-green-600"></i></div>
+                            <div><p class="text-[10px] text-slate-400 uppercase">WhatsApp</p><p class="font-bold text-sm text-slate-900">+91 9620024812</p></div>
+                        </a>
+                        <div class="flex items-center gap-3 p-4 rounded-xl bg-brand-50 border border-brand-100">
+                            <div class="w-10 h-10 rounded-full bg-brand-100 flex items-center justify-center"><i class="fa-solid fa-location-dot text-brand-600"></i></div>
+                            <div><p class="text-[10px] text-slate-400 uppercase">Office</p><p class="font-bold text-sm text-slate-900">No 1, M.G Road, Brigade Road, Bangalore</p></div>
+                        </div>
+                        <a href="mailto:hello@pixelforge.dev" class="flex items-center gap-3 p-4 rounded-xl bg-yellow-50 border border-yellow-100 hover:border-yellow-300 transition">
+                            <div class="w-10 h-10 rounded-full bg-yellow-100 flex items-center justify-center"><i class="fa-solid fa-envelope text-yellow-600"></i></div>
+                            <div><p class="text-[10px] text-slate-400 uppercase">Email</p><p class="font-bold text-sm text-slate-900">hello@pixelforge.dev</p></div>
+                        </a>
+                    </div>
+                </div>
+                <form id="contactForm" class="space-y-3">
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                        <div class="input-icon"><input type="text" placeholder="Your Name" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition"><i class="fa-solid fa-user"></i></div>
+                        <div class="input-icon"><input type="tel" placeholder="Phone Number" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition"><i class="fa-solid fa-phone"></i></div>
+                    </div>
+                    <div class="input-icon"><input type="email" placeholder="Email Address" required class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition"><i class="fa-solid fa-envelope"></i></div>
+                    <div class="input-icon">
+                        <select class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-500 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition appearance-none">
+                            <option value="">Select Service</option>
+                            <option>Web Development</option>
+                            <option>Mobile App</option>
+                            <option>Cloud & DevOps</option>
+                            <option>AI & ML</option>
+                            <option>UI/UX Design</option>
+                        </select>
+                        <i class="fa-solid fa-briefcase"></i>
+                    </div>
+                    <div class="input-icon"><textarea rows="3" placeholder="Tell us about your project..." class="w-full bg-slate-50 border border-slate-200 rounded-xl px-4 py-3 text-sm text-slate-900 focus:border-brand-500 focus:ring-2 focus:ring-brand-100 outline-none transition resize-none"></textarea><i class="fa-solid fa-comment" style="top:20px;transform:none;"></i></div>
+                    <button type="submit" class="w-full btn-brand justify-center text-center" id="submitBtn">Send Message <i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-slate-900 text-white py-12">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 mb-8">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <div class="w-8 h-8 bg-gradient-to-br from-brand-400 to-purple-500 rounded-lg flex items-center justify-center"><i class="fa-solid fa-microchip text-white text-sm"></i></div>
+                    <span class="font-black text-lg">PIXEL FORGE<span class="text-pink-400">📡</span></span>
+                </div>
+                <p class="text-slate-400 text-sm leading-relaxed">Future-ready digital solutions. From concept to launch.</p>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-sm">Quick Links</h4>
+                <div class="space-y-2 text-sm">
+                    <a href="#services" class="block text-slate-400 hover:text-white transition">Services</a>
+                    <a href="#pricing" class="block text-slate-400 hover:text-white transition">Pricing</a>
+                    <a href="#team" class="block text-slate-400 hover:text-white transition">Team</a>
+                    <a href="#faq" class="block text-slate-400 hover:text-white transition">FAQ</a>
+                </div>
+            </div>
+            <div>
+                <h4 class="font-bold mb-4 text-sm">Connect</h4>
+                <div class="flex gap-3 mb-4">
+                    <a href="https://wa.me/919620024812" target="_blank" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-green-500 transition"><i class="fa-brands fa-whatsapp"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-blue-500 transition"><i class="fa-brands fa-linkedin"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-pink-500 transition"><i class="fa-brands fa-instagram"></i></a>
+                    <a href="#" class="w-9 h-9 rounded-full bg-white/10 flex items-center justify-center hover:bg-slate-700 transition"><i class="fa-brands fa-github"></i></a>
+                </div>
+                <p class="text-slate-500 text-xs"><i class="fa-solid fa-location-dot mr-1"></i> No 1, M.G Road, Brigade Road, Bangalore</p>
+                <p class="text-slate-500 text-xs mt-1"><i class="fa-solid fa-phone mr-1"></i> +91 9620024812</p>
+            </div>
+        </div>
+        <div class="border-t border-slate-800 pt-6 flex flex-col sm:flex-row justify-between items-center gap-3 text-xs text-slate-500">
+            <p>&copy; 2026 Pixel Forge. All rights reserved.</p>
+            <p>Designed by <span class="text-brand-400">Pixel Forge Team</span></p>
+        </div>
+    </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<a href="https://wa.me/919620024812?text=Hi%20Pixel%20Forge!" target="_blank" class="fixed bottom-20 left-5 z-50 bg-green-500 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-2xl whatsapp-pulse hover:bg-green-600 transition">
+    <i class="fa-brands fa-whatsapp"></i>
+</a>
+
+<!-- CHATBOT -->
+<div class="fixed bottom-5 right-5 z-50 flex flex-col items-end">
+    <div id="chat-window" class="hidden w-80 sm:w-96 bg-white border border-slate-200 rounded-2xl shadow-2xl mb-3 overflow-hidden flex flex-col h-[480px] transition-all duration-300 origin-bottom-right scale-95 opacity-0">
+        <div class="bg-gradient-to-r from-brand-500 to-purple-600 p-4 text-white flex justify-between items-center">
+            <div class="flex items-center gap-3">
+                <div class="relative"><div class="w-9 h-9 bg-white/20 rounded-full flex items-center justify-center"><i class="fa-solid fa-robot text-sm"></i></div><div class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 bg-green-400 rounded-full border-2 border-brand-500"></div></div>
+                <div><span class="font-bold text-sm block">ForgeBot AI</span><span class="text-xs text-white/70">Online</span></div>
+            </div>
+            <button onclick="toggleChat()" class="hover:bg-white/20 p-1.5 rounded-lg transition"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-50">
+            <div class="flex justify-start">
+                <div class="bg-white border border-slate-200 text-slate-700 px-4 py-3 rounded-2xl rounded-tl-none shadow-sm max-w-[85%] text-sm">Hello! I'm <strong>ForgeBot</strong>. How can I help you today?</div>
+            </div>
+            <div class="flex flex-wrap gap-2" id="quick-replies">
+                <button onclick="sendQuick('What services do you offer?')" class="text-xs bg-brand-50 text-brand-600 px-3 py-1.5 rounded-full border border-brand-200 hover:bg-brand-100 transition">Services</button>
+                <button onclick="sendQuick('How much does it cost?')" class="text-xs bg-pink-50 text-pink-600 px-3 py-1.5 rounded-full border border-pink-200 hover:bg-pink-100 transition">Pricing</button>
+                <button onclick="sendQuick('Where is your office?')" class="text-xs bg-cyan-50 text-cyan-600 px-3 py-1.5 rounded-full border border-cyan-200 hover:bg-cyan-100 transition">Location</button>
+                <button onclick="sendQuick('Tell me about FAQs')" class="text-xs bg-green-50 text-green-600 px-3 py-1.5 rounded-full border border-green-200 hover:bg-green-100 transition">FAQ</button>
+            </div>
+        </div>
+        <div class="p-3 bg-white border-t border-slate-100 flex gap-2">
+            <input type="text" id="user-input" placeholder="Type a message..." class="flex-1 bg-slate-50 border border-slate-200 rounded-full px-4 py-2 text-sm text-slate-900 focus:border-brand-500 outline-none transition" onkeypress="if(event.key==='Enter')sendMsg()">
+            <button onclick="sendMsg()" class="bg-brand-500 hover:bg-brand-600 text-white w-9 h-9 rounded-full flex items-center justify-center transition flex-shrink-0"><i class="fa-solid fa-paper-plane text-xs"></i></button>
+        </div>
+    </div>
+    <button onclick="toggleChat()" class="bg-gradient-to-r from-brand-500 to-purple-600 text-white w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-xl hover:shadow-xl transition transform hover:scale-110">
+        <i class="fa-solid fa-comment-dots" id="chatIcon"></i>
     </button>
+</div>
 
-    <!-- ===== SCRIPTS ===== -->
-    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script>
-        // ===== Preloader =====
-        window.addEventListener('load', () => {
-            setTimeout(() => {
-                const preloader = document.getElementById('preloader');
-                preloader.style.opacity = '0';
-                setTimeout(() => preloader.style.display = 'none', 500);
-            }, 1500);
-        });
+<!-- SCRIPTS -->
+<script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+<script>
+    AOS.init({ once:true, offset:80, duration:700, easing:'ease-out-cubic' });
 
-        // ===== AOS Init =====
-        AOS.init({ once: true, offset: 100, duration: 800, easing: 'ease-out-cubic' });
-
-        // ===== Navbar Scroll Effect =====
-        const navbar = document.getElementById('navbar');
-        const backToTop = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-lg', 'shadow-brand-dark/50');
-            } else {
-                navbar.classList.remove('shadow-lg', 'shadow-brand-dark/50');
-            }
-            backToTop.classList.toggle('hidden', window.scrollY < 400);
-            backToTop.classList.toggle('flex', window.scrollY >= 400);
-        });
-
-        // ===== Mobile Menu =====
-        function toggleMobileMenu() {
-            const backdrop = document.getElementById("mobileBackdrop");
-            const menu = document.getElementById('mobileMenu');
-            const icon = document.getElementById('menuIcon');
-            menu.classList.toggle('open');
-            icon.className = menu.classList.contains('open') ? 'fa-solid fa-xmark' : 'fa-solid fa-bars';
-        }
-
-        // ===== Counter Animation =====
-        let counted = false;
-        const counters = document.querySelectorAll('.counter');
-        const animateCounters = () => {
-            counters.forEach(counter => {
-                const target = +counter.getAttribute('data-target');
-                let count = 0;
-                const inc = target / 100;
-                const timer = setInterval(() => {
-                    count += inc;
-                    if (count >= target) {
-                        counter.innerText = target + '+';
-                        clearInterval(timer);
-                    } else {
-                        counter.innerText = Math.ceil(count);
-                    }
-                }, 20);
+    // Counter
+    let counted=false;
+    window.addEventListener('scroll',()=>{
+        const s=document.getElementById('stats');
+        if(s && window.scrollY+window.innerHeight>s.offsetTop+100 && !counted){
+            counted=true;
+            document.querySelectorAll('.counter').forEach(c=>{
+                const t=+c.dataset.target;let n=0;const i=t/80;
+                const tm=setInterval(()=>{n+=i;if(n>=t){c.innerText=t+'+';clearInterval(tm)}else c.innerText=Math.ceil(n)},25);
             });
-        };
-
-        window.addEventListener('scroll', () => {
-            const statsSection = document.getElementById('stats');
-            if (statsSection && window.scrollY + window.innerHeight > statsSection.offsetTop + 200 && !counted) {
-                animateCounters();
-                counted = true;
-            }
-        });
-
-        // ===== FAQ Accordion =====
-        function toggleFaq(item) {
-            const isActive = item.classList.contains('active');
-            document.querySelectorAll('.faq-item').forEach(f => f.classList.remove('active'));
-            if (!isActive) item.classList.add('active');
         }
+    });
 
-        // ===== Chatbot =====
-        const chatWindow = document.getElementById('chat-window');
-        const messagesContainer = document.getElementById('chat-messages');
-        const userInput = document.getElementById('user-input');
-        let isOpen = false;
-        let hasInteracted = false;
+    // FAQ
+    function toggleFaq(el){
+        const wasActive=el.classList.contains('active');
+        document.querySelectorAll('.faq-item').forEach(f=>f.classList.remove('active'));
+        if(!wasActive) el.classList.add('active');
+    }
 
-        function toggleChat() {
-            isOpen = !isOpen;
-            if (isOpen) {
-                chatWindow.classList.remove('hidden');
-                setTimeout(() => {
-                    chatWindow.classList.remove('scale-95', 'opacity-0');
-                    chatWindow.classList.add('scale-100', 'opacity-100');
-                }, 10);
-                userInput.focus();
-            } else {
-                chatWindow.classList.add('scale-95', 'opacity-0');
-                setTimeout(() => chatWindow.classList.add('hidden'), 300);
-            }
-        }
+    // Mobile
+    function toggleMobile(){
+        const m=document.getElementById('mobileMenu');
+        m.classList.toggle('open');
+        document.getElementById('menuIcon').className=m.classList.contains('open')?'fa-solid fa-xmark':'fa-solid fa-bars';
+    }
 
-        function handleKeyPress(e) { if (e.key === 'Enter') sendMessage(); }
+    // Chat
+    let chatOpen=false;
+    function toggleChat(){
+        chatOpen=!chatOpen;
+        const w=document.getElementById('chat-window');
+        if(chatOpen){w.classList.remove('hidden');setTimeout(()=>{w.classList.remove('scale-95','opacity-0');w.classList.add('scale-100','opacity-100')},10)}
+        else{w.classList.add('scale-95','opacity-0');setTimeout(()=>w.classList.add('hidden'),300)}
+    }
+    function sendQuick(t){document.getElementById('user-input').value=t;sendMsg()}
+    function sendMsg(){
+        const t=document.getElementById('user-input').value.trim();if(!t)return;
+        addMsg(t,'user');document.getElementById('user-input').value='';
+        const qr=document.getElementById('quick-replies');if(qr)qr.style.display='none';
+        showTyping();
+        setTimeout(()=>{removeTyping();addMsg(getResponse(t),'bot')},800+Math.random()*800);
+    }
+    function addMsg(t,s){
+        const d=document.createElement('div');d.className='flex '+(s==='user'?'justify-end':'justify-start');
+        const b=document.createElement('div');
+        b.className='px-4 py-3 rounded-2xl shadow-sm max-w-[85%] text-sm leading-relaxed '+(s==='user'?'bg-brand-500 text-white rounded-tr-none':'bg-white border border-slate-200 text-slate-700 rounded-tl-none');
+        b.innerText=t;d.appendChild(b);document.getElementById('chat-messages').appendChild(d);
+        document.getElementById('chat-messages').scrollTop=99999;
+    }
+    function showTyping(){
+        const d=document.createElement('div');d.id='typing';d.className='flex justify-start';
+        d.innerHTML='<div class="bg-white border border-slate-200 px-4 py-3 rounded-2xl rounded-tl-none flex gap-1.5 items-center h-10"><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div></div>';
+        document.getElementById('chat-messages').appendChild(d);document.getElementById('chat-messages').scrollTop=99999;
+    }
+    function removeTyping(){const e=document.getElementById('typing');if(e)e.remove()}
+    function getResponse(i){
+        i=i.toLowerCase();
+        if(/^(hi|hello|hey|namaste|sup|yo)/.test(i)) return "Hello! Welcome to Pixel Forge! How can I help you? 😊";
+        if(i.includes('service')||i.includes('offer')||i.includes('do you')) return "We offer: 🌐 Web Dev, 📱 Mobile Apps, ☁️ Cloud/DevOps, 🤖 AI/ML, 🎨 UI/UX, 🛡️ Cybersecurity. Which interests you?";
+        if(i.includes('price')||i.includes('cost')||i.includes('budget')||i.includes('how much')) return "Pricing starts at:\n📄 Landing Page: ₹25K\n🌐 Website: ₹1.5L\n📱 Mobile App: ₹2L+\n🚀 Enterprise: ₹5L+\n\nWant a free quote? 📝";
+        if(i.includes('location')||i.includes('address')||i.includes('where')||i.includes('office')) return "📍 No 1, M.G Road, Brigade Road, Bangalore. Drop by for coffee! ☕";
+        if(i.includes('contact')||i.includes('phone')||i.includes('whatsapp')) return "📱 WhatsApp: +91 9620024812\n📧 Email: hello@pixelforge.dev\n📍 Office: Brigade Road, Bangalore";
+        if(i.includes('time')||i.includes('long')||i.includes('how soon')) return "⏱️ Timelines:\n📄 Landing: 1-2 weeks\n🌐 Website: 3-4 weeks\n📱 App: 8-12 weeks";
+        if(i.includes('faq')||i.includes('question')) return "FAQ highlights:\n1️⃣ Pricing starts ₹25K\n2️⃣ Timelines: 1-12 weeks\n3️⃣ Hosting included\n4️⃣ React, Flutter, AWS stack\n5️⃣ PWA specialists\n6️⃣ Global clients welcome!";
+        if(i.includes('tech')||i.includes('stack')) return "🛠️ Our stack: React, Next.js, Node.js, Python, Flutter, AWS, Docker, PostgreSQL, MongoDB.";
+        if(i.includes('pwa')||i.includes('progressive')) return "📱 Yes! We build PWAs: installable, offline-ready, push notifications, blazing fast!";
+        if(i.includes('portfolio')||i.includes('work')||i.includes('project')) return "💼 Featured projects: FinTrack Analytics, ShopElite India, HealthPulse App. Scroll to Portfolio section!";
+        if(i.includes('team')||i.includes('about')) return "👥 Pixel Forge: 5+ years experience, 50+ projects delivered. Arjun (CEO), Priya (Design), Vikram (Dev), Ananya (DevOps).";
+        if(i.includes('review')||i.includes('testimonial')) return "⭐ 98% client satisfaction! \"Transformed our system\" — Rajesh K. \"300% engagement boost\" — Priya S.";
+        if(i.includes('thank')) return "You're welcome! 😊 Happy to help. WhatsApp us anytime: +91 9620024812 🚀";
+        return "I can help with: 💰 Pricing, 🛠️ Services, 📍 Location, 📞 Contact, ❓ FAQs. Ask me anything! 💬";
+    }
 
-        function sendQuickReply(text) {
-            userInput.value = text;
-            sendMessage();
-        }
-
-        function sendMessage() {
-            const text = userInput.value.trim();
-            if (!text) return;
-
-            addMessage(text, 'user');
-            userInput.value = '';
-
-            if (!hasInteracted) {
-                hasInteracted = true;
-                const qr = document.getElementById('quick-replies');
-                if (qr) qr.style.display = 'none';
-            }
-
-            showTyping();
-
-            const delay = 800 + Math.random() * 1200;
-            setTimeout(() => {
-                removeTyping();
-                addMessage(getBotResponse(text), 'bot');
-            }, delay);
-        }
-
-        function showTyping() {
-            const div = document.createElement('div');
-            div.id = 'typing-indicator';
-            div.className = 'flex justify-start animate-[slide-up_0.2s_ease-out]';
-            div.innerHTML = `<div class="bg-white/10 backdrop-blur-md border border-white/5 px-4 py-3 rounded-2xl rounded-tl-none shadow-sm flex gap-1.5 items-center h-10"><div class="w-2 h-2 bg-slate-400 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-400 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-400 rounded-full typing-dot"></div></div>`;
-            messagesContainer.appendChild(div);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-
-        function removeTyping() {
-            const el = document.getElementById('typing-indicator');
-            if (el) el.remove();
-        }
-
-        function addMessage(text, sender) {
-            const div = document.createElement('div');
-            div.className = `flex ${sender === 'user' ? 'justify-end' : 'justify-start'} animate-[slide-up_0.3s_ease-out]`;
-            const bubble = document.createElement('div');
-            bubble.className = `px-4 py-3 rounded-2xl shadow-sm max-w-[85%] text-sm leading-relaxed whitespace-pre-line ${
-                sender === 'user'
-                    ? 'bg-brand-primary text-white rounded-tr-none'
-                    : 'bg-white/10 backdrop-blur-md border border-white/5 text-slate-200 rounded-tl-none'
-            }`;
-            bubble.innerText = text;
-            div.appendChild(bubble);
-            messagesContainer.appendChild(div);
-            messagesContainer.scrollTop = messagesContainer.scrollHeight;
-        }
-
-        // ===== Enhanced Bot Logic =====
-        function getBotResponse(input) {
-            input = input.toLowerCase();
-
-            // Greetings
-            if (/^(hi|hello|hey|hola|namaste|sup|yo|good\s*(morning|afternoon|evening))/.test(input)) {
-                const greetings = [
-                    "Hello! 👋 Welcome to Pixel Forge! How can I help you today?",
-                    "Hey there! 😄 Ready to build something amazing? What can I help with?",
-                    "Namaste! 🙏 Welcome to Pixel Forge. What brings you here today?"
-                ];
-                return greetings[Math.floor(Math.random() * greetings.length)];
-            }
-
-            // Services
-            if (input.includes('service') || input.includes('do you') || input.includes('what can') || input.includes('offer') || input.includes('provide')) {
-                return "We offer 6 core services:\n\n🌐 Web Development\n📱 Mobile Apps (iOS/Android)\n☁️ Cloud We offer 6 core services: DevOps\n🤖 AI & ML Integration\n🎨 UI/UX Design\n🛡️ Cybersecurity\n\nCheck our **Pricing** section for plans! 🎯\n\n🌐 Web Development\n📱 Mobile Apps (iOS/Android)\n☁️ Cloud & DevOps\n🤖 AI & ML Integration\n🎨 UI/UX Design\n🛡️ Cybersecurity\n\nWhich one interests you? 😊";
-            }
-
-            // Pricing
-            if (input.includes('price') || input.includes('cost') || input.includes('budget') || input.includes('charge') || input.includes('rate') || input.includes('how much')) {
-                return "Our pricing starts from:\n\n📄 Landing Page: ₹25,000+\n🌐 Website: ₹75,000+\n📱 Mobile App: ₹2,00,000+\n🚀 Web App: ₹3,00,000+\n\nThe exact cost depends on features & complexity. Want a free quote? Just fill the contact form or WhatsApp us! 📝";
-            }
-
-            // Location
-            if (input.includes('location') || input.includes('address') || input.includes('where') || input.includes('visit') || input.includes('office') || input.includes('bangalore')) {
-                return "📍 We're located at:\n\nNo 1, M.G Road,\nBrigade Road, Bangalore\n\nFeel free to drop by for a coffee and a chat! ☕\n\nOr reach us on WhatsApp: +91 9620024812";
-            }
-
-            // Contact
-            if (input.includes('contact') || input.includes('phone') || input.includes('number') || input.includes('whatsapp') || input.includes('call') || input.includes('reach')) {
-                return "📞 Reach us through:\n\n📱 WhatsApp: +91 9620024812\n📧 Email: hello@pixelforge.dev\n📍 Office: No 1, M.G Road, Brigade Road, Bangalore\n\nWe reply within 1 hour! ⚡";
-            }
-
-            // Timeline
-            if (input.includes('time') || input.includes('long') || input.includes('duration') || input.includes('deadline') || input.includes('deliver') || input.includes('how soon')) {
-                return "⏱️ Our typical timelines:\n\n📄 Landing Page: 1-2 weeks\n🌐 Website: 3-4 weeks\n📱 Mobile App: 8-12 weeks\n🚀 Web App: 6-10 weeks\n\nWe follow agile sprints with weekly demos! 🎯";
-            }
-
-            // FAQs
-            if (input.includes('faq') || input.includes('question') || input.includes('doubt') || input.includes('tell me about')) {
-                return "❓ Here are our most popular FAQs:\n\n1️⃣ How much does it cost? (Check Pricing section!)\n2️⃣ How long to complete?\n3️⃣ Do you provide hosting?\n4️⃣ What tech do you use?\n5️⃣ Can you build PWAs?\n6️⃣ Do you work globally?\n\nAsk me anything specific! 💬";
-            }
-
-            // Hosting
-            if (input.includes('hosting') || input.includes('maintenance') || input.includes('support') || input.includes('update')) {
-                return "✅ Yes! We provide end-to-end support:\n\n☁️ Hosting (AWS/Vercel/Netlify)\n🔒 SSL Certificates\n🌍 Domain Setup\n🔧 Maintenance (₹5,000/month)\n📊 24/7 Monitoring\n\nWe keep your product running smoothly! 💪";
-            }
-
-            // Tech
-            if (input.includes('tech') || input.includes('stack') || input.includes('technology') || input.includes('react') || input.includes('flutter') || input.includes('python')) {
-                return "🛠️ Our tech stack:\n\n🎨 Frontend: React, Next.js, Vue.js, Tailwind\n⚙️ Backend: Node.js, Python, Go\n📱 Mobile: Flutter, React Native\n☁️ Cloud: AWS, GCP, Vercel\n💾 DB: PostgreSQL, MongoDB, Redis\n\nWe pick the best for your project! 🎯";
-            }
-
-            // PWA
-            if (input.includes('pwa') || input.includes('progressive') || input.includes('offline') || input.includes('install')) {
-                return "📱 PWA (Progressive Web App) — Yes, we specialize in PWAs!\n\n✅ Installable on any device\n✅ Works offline\n✅ Push notifications\n✅ Lightning fast\n✅ No app store needed\n\nBest of web + mobile at fraction of cost! 🚀";
-            }
-
-            // Portfolio
-            if (input.includes('portfolio') || input.includes('work') || input.includes('example') || input.includes('project') || input.includes('case study')) {
-                return "💼 Check out our featured projects on the website:\n\n📊 FinTrack Analytics — AI dashboard\n🛒 ShopElite India — E-commerce\n💊 HealthPulse App — Health tracking\n\nScroll down to Portfolio section or ask me about any specific project! 🎯";
-            }
-
-            // Reviews / Testimonials
-            if (input.includes('review') || input.includes('testimonial') || input.includes('feedback') || input.includes('rating')) {
-                return "⭐ Our clients love us!\n\n💬 \"Pixel Forge transformed our outdated system into a modern platform.\" — Rajesh K., CTO\n\n💬 \"The app they built increased our engagement by 300%!\" — Priya S., CEO\n\n⭐⭐⭐⭐⭐ 98% Client Satisfaction Rate!";
-            }
-
-            // Team
-            if (input.includes('team') || input.includes('who') || input.includes('about you') || input.includes('company')) {
-                return "🏢 Pixel Forge is a Bangalore-based tech company with 5+ years of experience.\n\n👥 Our team of expert developers, designers & engineers have delivered 50+ projects for startups and enterprises across India.\n\n🎯 Mission: Turning visions into market-dominating digital products!";
-            }
-
-            // Thanks
-            if (input.includes('thank') || input.includes('thanks') || input.includes('thankyou') || input.includes('thx')) {
-                return "You're welcome! 😊 Happy to help! If you have any more questions, just ask. Or reach us on WhatsApp: +91 9620024812 🚀";
-            }
-
-            // Bye
-            if (input.includes('bye') || input.includes('goodbye') || input.includes('see you') || input.includes('later')) {
-                return "Goodbye! 👋 It was great chatting with you. Have an amazing day! Don't forget to reach us on WhatsApp if you need anything. 🚀💜";
-            }
-
-            // Fallback with suggestion
-            const fallbacks = [
-                "That's interesting! 🤔 I can help with:\n\n💰 Pricing\n🛠️ Services\n📍 Location\n📞 Contact\n❓ FAQs\n\nOr ask me anything else!",
-                "I'm not sure I understood that fully. Could you try asking about our services, pricing, or location? Or type 'FAQ' for common questions! 💬",
-                "Great question! 🤔 For detailed help, you can:\n\n1. Ask about specific services\n2. Check our pricing\n3. Visit our FAQ section\n4. WhatsApp us at +91 9620024812 for instant response!"
-            ];
-            return fallbacks[Math.floor(Math.random() * fallbacks.length)];
-        }
-
-        // ===== Contact Form =====
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            const btn = this.querySelector('button[type="submit"]');
-            const text = document.getElementById('submitText');
-            const icon = document.getElementById('submitIcon');
-            const spinner = document.getElementById('submitSpinner');
-
-            text.textContent = 'Sending...';
-            icon.classList.add('hidden');
-            spinner.classList.remove('hidden');
-            btn.disabled = true;
-
-            setTimeout(() => {
-                text.textContent = 'Sent Successfully! ✅';
-                spinner.classList.add('hidden');
-                icon.classList.remove('hidden');
-                icon.className = 'fa-solid fa-check';
-                btn.classList.remove('from-brand-primary', 'to-brand-secondary');
-                btn.classList.add('bg-green-500');
-
-                setTimeout(() => {
-                    this.reset();
-                    text.textContent = 'Send Message';
-                    icon.className = 'fa-solid fa-paper-plane';
-                    btn.classList.add('from-brand-primary', 'to-brand-secondary');
-                    btn.classList.remove('bg-green-500');
-                    btn.disabled = false;
-                }, 2500);
-            }, 1500);
-        });
-    </script>
+    // Form
+    document.getElementById('contactForm').addEventListener('submit',function(e){
+        e.preventDefault();const b=document.getElementById('submitBtn');
+        b.innerHTML='<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';b.disabled=true;
+        setTimeout(()=>{b.innerHTML='<i class="fa-solid fa-check"></i> Sent!';b.classList.add('bg-green-500');
+        setTimeout(()=>{this.reset();b.innerHTML='Send Message <i class="fa-solid fa-paper-plane"></i>';b.classList.remove('bg-green-500');b.disabled=false},2000)},1200);
+    });
+</script>
 </body>
 </html>
