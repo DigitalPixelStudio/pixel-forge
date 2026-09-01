@@ -5,14 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="description" content="Pixel Forge - Future-Ready Digital Solutions in Bangalore">
     <meta name="theme-color" content="#4f46e5">
-    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
-    <meta http-equiv="Pragma" content="no-cache">
-    <meta http-equiv="Expires" content="0">
     <title>Pixel Forge | Digital Solutions</title>
-    <link rel="manifest" href="/manifest.json">
-    <meta name="apple-mobile-web-app-capable" content="yes">
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <link rel="apple-touch-icon" href="/icons/icon-192.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
@@ -81,14 +74,8 @@
         .mobile-menu{transform:translateX(100%);transition:transform 0.3s cubic-bezier(0.4,0,0.2,1)}
         .mobile-menu.open{transform:translateX(0)}
 
+/* old removed *//
         /* ===== BOTTON ACTIONS ===== */
-        .bottom-actions{position:fixed;bottom:20px;right:16px;z-index:50;display:flex;align-items:center;gap:10px}
-        .action-btn{width:52px;height:52px;border-radius:16px;display:flex;align-items:center;justify-content:center;font-size:1.2rem;box-shadow:0 4px 20px rgba(0,0,0,0.15);transition:all 0.3s;cursor:pointer;border:none;text-decoration:none;color:#fff}
-        .action-btn:hover{transform:translateY(-3px) scale(1.05)}
-        .wa-btn{background:linear-gradient(135deg,#25D366,#128C7E);animation:waPulse 2s ease-in-out infinite}
-        .chat-btn{background:linear-gradient(135deg,#4f46e5,#ec4899)}
-        .back-btn{background:linear-gradient(135deg,#64748b,#475569);position:fixed;bottom:20px;left:16px;z-index:50;width:44px;height:44px;border-radius:14px;display:none;align-items:center;justify-content:center;color:#fff;font-size:0.9rem;box-shadow:0 4px 15px rgba(0,0,0,0.15);cursor:pointer;border:none}
-        .back-btn.show{display:flex}
         @keyframes waPulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.3)}50%{box-shadow:0 4px 30px rgba(37,211,102,0.6)}}
 
         /* ===== CHAT ===== */
@@ -775,34 +762,141 @@
     </div>
 </footer>
 
-<!-- ===== BOTTOM ACTIONS: WhatsApp + Chatbot (aligned same row) ===== -->
-<div class="bottom-actions">
-    <a href="https://wa.me/919620024812?text=Hi%20Pixel%20Forge!" target="_blank" class="action-btn wa-btn" title="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+<!-- ===== ENHANCED BOTTOM ACTIONS ===== -->
+<style>
+    .action-row{position:fixed;bottom:16px;right:16px;z-index:50;display:flex;align-items:center;gap:8px}
+    .wa-fab{
+        width:54px;height:54px;border-radius:50%;
+        background:linear-gradient(135deg,#25D366,#128C7E);
+        display:flex;align-items:center;justify-content:center;
+        color:#fff;font-size:1.4rem;text-decoration:none;
+        box-shadow:0 4px 20px rgba(37,211,102,0.4);
+        transition:all 0.3s;cursor:pointer;border:none;
+        position:relative;
+    }
+    .wa-fab:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(37,211,102,0.5)}
+    .wa-fab::after{
+        content:'';position:absolute;inset:-4px;border-radius:50%;
+        border:2px solid rgba(37,211,102,0.3);
+        animation:waRing 2s ease-out infinite;
+    }
+    @keyframes waRing{0%{transform:scale(1);opacity:1}100%{transform:scale(1.5);opacity:0}}
+
+    .bot-fab{
+        width:54px;height:54px;border-radius:50%;
+        background:linear-gradient(135deg,#4f46e5,#ec4899);
+        display:flex;align-items:center;justify-content:center;
+        color:#fff;font-size:1.3rem;cursor:pointer;
+        box-shadow:0 4px 20px rgba(79,70,229,0.4);
+        transition:all 0.3s;border:none;position:relative;
+    }
+    .bot-fab:hover{transform:scale(1.1);box-shadow:0 6px 30px rgba(79,70,229,0.5)}
+    .bot-fab .online-dot{
+        position:absolute;top:2px;right:2px;width:12px;height:12px;
+        background:#22c55e;border-radius:50%;border:2px solid #fff;
+        animation:pulse 2s infinite;
+    }
+    @keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(34,197,94,0.4)}50%{box-shadow:0 0 0 6px rgba(34,197,94,0)}}
+
+    .back-fab{
+        width:44px;height:44px;border-radius:50%;
+        background:linear-gradient(135deg,#64748b,#475569);
+        display:none;align-items:center;justify-content:center;
+        color:#fff;font-size:0.9rem;cursor:pointer;
+        box-shadow:0 4px 15px rgba(0,0,0,0.15);
+        transition:all 0.3s;border:none;
+    }
+    .back-fab.show{display:flex}
+    .back-fab:hover{transform:scale(1.1)}
+
+    /* Chat window */
+    .chat-popup{
+        position:absolute;bottom:62px;right:0;
+        width:calc(100vw - 32px);max-width:380px;
+        background:#fff;border:1px solid #e2e8f0;
+        border-radius:20px;box-shadow:0 20px 60px rgba(0,0,0,0.18);
+        overflow:hidden;display:none;flex-direction:column;height:460px;
+        transition:all 0.3s;transform:scale(0.95);opacity:0;
+    }
+    .chat-popup.open{display:flex;transform:scale(1);opacity:1}
+    .chat-head{
+        background:linear-gradient(135deg,#4f46e5,#ec4899);
+        padding:14px 16px;color:#fff;display:flex;justify-content:space-between;align-items:center;
+    }
+    .chat-body{flex:1;padding:14px;overflow-y:auto;display:flex;flex-direction:column;gap:10px;background:#f8fafc}
+    .chat-foot{padding:10px 14px;background:#fff;border-top:1px solid #f1f5f9;display:flex;gap:8px}
+    .chat-foot input{flex:1;border:1px solid #e2e8f0;border-radius:24px;padding:10px 16px;font-size:0.85rem;outline:none;color:#1e293b;background:#f8fafc}
+    .chat-foot input:focus{border-color:#4f46e5}
+    .chat-send{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,#4f46e5,#7c3aed);border:none;color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;flex-shrink:0;transition:all 0.3s}
+    .chat-send:hover{transform:scale(1.1)}
+
+    .msg-bot{background:#fff;border:1px solid #e2e8f0;padding:10px 14px;border-radius:16px;border-bottom-left-radius:4px;max-width:82%;font-size:0.85rem;color:#334155;line-height:1.5;box-shadow:0 1px 3px rgba(0,0,0,0.05)}
+    .msg-user{background:linear-gradient(135deg,#4f46e5,#7c3aed);color:#fff;padding:10px 14px;border-radius:16px;border-bottom-right-radius:4px;max-width:82%;font-size:0.85rem;line-height:1.5;margin-left:auto}
+    .typing-dots{display:flex;gap:4px;padding:10px 14px;background:#fff;border:1px solid #e2e8f0;border-radius:16px;border-bottom-left-radius:4px;width:fit-content}
+    .typing-dots span{width:7px;height:7px;background:#cbd5e1;border-radius:50%;animation:dotBounce 1.4s infinite ease-in-out both}
+    .typing-dots span:nth-child(1){animation-delay:-0.32s}
+    .typing-dots span:nth-child(2){animation-delay:-0.16s}
+    @keyframes dotBounce{0%,80%,100%{transform:scale(0)}40%{transform:scale(1)}}
+    .quick-btn{font-size:0.75rem;padding:6px 12px;border-radius:20px;border:1px solid #e2e8f0;background:#fff;color:#4f46e5;cursor:pointer;transition:all 0.2s;white-space:nowrap}
+    .quick-btn:hover{background:#eef2ff;border-color:#c7d2fe}
+
+    @media(max-width:640px){
+        .action-row{bottom:12px;right:12px;gap:6px}
+        .wa-fab,.bot-fab{width:50px;height:50px;font-size:1.2rem}
+        .chat-popup{width:calc(100vw - 24px);right:-4px;max-width:none;border-radius:16px;height:420px}
+    }
+</style>
+
+<div class="action-row">
+    <a href="https://wa.me/919620024812?text=Hi%20Pixel%20Forge!" target="_blank" class="wa-fab" title="Chat on WhatsApp">
+        <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+
     <div style="position:relative">
-        <div class="chat-window" id="chatWindow">
-            <div class="bg-gradient-to-r from-indigo-500 to-purple-600 p-4 text-white flex justify-between items-center">
-                <div class="flex items-center gap-3">
-                    <div class="relative"><div class="w-8 h-8 bg-white/20 rounded-full flex items-center justify-center"><i class="fa-solid fa-robot text-xs"></i></div><div class="absolute -bottom-0.5 -right-0.5 w-2 h-2 bg-green-400 rounded-full border-2 border-indigo-500"></div></div>
-                    <div><span class="font-bold text-sm block">ForgeBot AI</span><span class="text-[10px] text-white/70">Online</span></div>
+        <!-- Chat Window -->
+        <div class="chat-popup" id="chatWin">
+            <div class="chat-head">
+                <div style="display:flex;align-items:center;gap:10px">
+                    <div style="width:36px;height:36px;background:rgba(255,255,255,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                        <div style="position:absolute;bottom:-1px;right:-1px;width:10px;height:10px;background:#22c55e;border-radius:50%;border:2px solid #4f46e5"></div>
+                    </div>
+                    <div>
+                        <div style="font-weight:700;font-size:0.9rem">ForgeBot AI</div>
+                        <div style="font-size:0.7rem;opacity:0.8">Online now</div>
+                    </div>
                 </div>
-                <button onclick="toggleChat()" class="hover:bg-white/20 p-1.5 rounded-lg transition"><i class="fa-solid fa-xmark text-sm"></i></button>
+                <button onclick="toggleBot()" style="background:none;border:none;color:white;font-size:1.1rem;cursor:pointer;padding:4px 8px">✕</button>
             </div>
-            <div id="chatMessages" class="flex-1 p-4 overflow-y-auto space-y-3 bg-slate-50">
-                <div class="flex justify-start"><div class="bg-white border border-slate-200 text-slate-700 px-4 py-3 rounded-2xl rounded-tl-none text-sm max-w-[85%]">Hello! I'm <strong>ForgeBot</strong>. How can I help? 😊</div></div>
-                <div class="flex flex-wrap gap-2" id="quickReplies">
-                    <button onclick="sendQuick('Services')" class="text-xs bg-indigo-50 text-indigo-600 px-3 py-1.5 rounded-full border border-indigo-200 hover:bg-indigo-100 transition">Services</button>
-                    <button onclick="sendQuick('Pricing')" class="text-xs bg-pink-50 text-pink-600 px-3 py-1.5 rounded-full border border-pink-200 hover:bg-pink-100 transition">Pricing</button>
-                    <button onclick="sendQuick('Location')" class="text-xs bg-cyan-50 text-cyan-600 px-3 py-1.5 rounded-full border border-cyan-200 hover:bg-cyan-100 transition">Location</button>
+            <div class="chat-body" id="chatBody">
+                <div class="msg-bot">Hello! 👋 I'm <strong>ForgeBot</strong>, your AI assistant. I can help with pricing, services, and more!</div>
+                <div style="display:flex;gap:6px;flex-wrap:wrap" id="quickBtns">
+                    <button class="quick-btn" onclick="botQuick('What services do you offer?')">🛠️ Services</button>
+                    <button class="quick-btn" onclick="botQuick('How much does it cost?')">💰 Pricing</button>
+                    <button class="quick-btn" onclick="botQuick('Where is your office?')">📍 Location</button>
+                    <button class="quick-btn" onclick="botQuick('Show me FAQs')">❓ FAQ</button>
                 </div>
             </div>
-            <div class="p-3 bg-white border-t border-slate-100 flex gap-2">
-                <input type="text" id="chatInput" placeholder="Type a message..." class="flex-1 bg-slate-50 border border-slate-200 rounded-full px-4 py-2 text-sm text-slate-900 focus:border-indigo-500 outline-none transition" onkeypress="if(event.key==='Enter')sendMsg()">
-                <button onclick="sendMsg()" class="bg-indigo-500 hover:bg-indigo-600 text-white w-9 h-9 rounded-full flex items-center justify-center transition flex-shrink-0"><i class="fa-solid fa-paper-plane text-xs"></i></button>
+            <div class="chat-foot">
+                <input type="text" id="botInput" placeholder="Type a message..." onkeypress="if(event.key==='Enter')botSend()">
+                <button class="chat-send" onclick="botSend()">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"/></svg>
+                </button>
             </div>
         </div>
-        <button onclick="toggleChat()" class="action-btn chat-btn" title="Chat"><i class="fa-solid fa-comment-dots" id="chatIcon"></i></button>
+
+        <!-- Bot Toggle -->
+        <button class="bot-fab" onclick="toggleBot()" title="AI Chatbot">
+            <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2a2 2 0 012 2c0 .74-.4 1.39-1 1.73V7h1a7 7 0 017 7h1a1 1 0 011 1v3a1 1 0 01-1 1h-1v1a2 2 0 01-2 2H5a2 2 0 01-2-2v-1H2a1 1 0 01-1-1v-3a1 1 0 011-1h1a7 7 0 017-7h1V5.73c-.6-.34-1-.99-1-1.73a2 2 0 012-2zM9.5 13a1.5 1.5 0 100 3 1.5 1.5 0 000-3zm5 0a1.5 1.5 0 100 3 1.5 1.5 0 000-3z"/></svg>
+            <div class="online-dot"></div>
+        </button>
     </div>
 </div>
+
+<!-- BACK TO TOP -->
+<button class="back-fab" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7.41 15.41L12 10.83l4.59 4.58L18 14l-6-6-6 6z"/></svg>
+</button>
 
 <!-- BACK TO TOP -->
 <button class="back-btn" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fa-solid fa-arrow-up"></i></button>
@@ -832,11 +926,11 @@ function toggleFaq(el){const was=el.classList.contains('active');document.queryS
 
 // Chat
 let chatOpen=false;
-function toggleChat(){chatOpen=!chatOpen;const w=document.getElementById('chatWindow');if(chatOpen){w.classList.add('open');setTimeout(()=>document.getElementById('chatInput').focus(),100)}else w.classList.remove('open')}
-function sendQuick(t){document.getElementById('chatInput').value=t;sendMsg()}
-function sendMsg(){const t=document.getElementById('chatInput').value.trim();if(!t)return;addMsg(t,'user');document.getElementById('chatInput').value='';const qr=document.getElementById('quickReplies');if(qr)qr.style.display='none';showTyping();setTimeout(()=>{removeTyping();addMsg(getResp(t),'bot')},600+Math.random()*600)}
-function addMsg(t,s){const d=document.createElement('div');d.className='flex '+(s==='user'?'justify-end':'justify-start');const b=document.createElement('div');b.className='px-4 py-3 rounded-2xl text-sm leading-relaxed max-w-[85%] '+(s==='user'?'bg-indigo-500 text-white rounded-tr-none':'bg-white border border-slate-200 text-slate-700 rounded-tl-none');b.innerText=t;d.appendChild(b);document.getElementById('chatMessages').appendChild(d);document.getElementById('chatMessages').scrollTop=99999}
-function showTyping(){const d=document.createElement('div');d.id='typing';d.className='flex justify-start';d.innerHTML='<div class="bg-white border border-slate-200 px-4 py-3 rounded-2xl rounded-tl-none flex gap-1.5 items-center h-10"><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div></div>';document.getElementById('chatMessages').appendChild(d)}
+function toggleBot(){chatOpen=!chatOpen;const w=document.getElementById('chatWin');if(chatOpen){w.classList.add('open');setTimeout(()=>document.getElementById('botInput').focus(),100)}else w.classList.remove('open')}
+function botQuick(t){document.getElementById('botInput').value=t;sendMsg()}
+function botSend(){const t=document.getElementById('botInput').value.trim();if(!t)return;addMsg(t,'user');document.getElementById('botInput').value='';const qr=document.getElementById('quickBtns');if(qr)qr.style.display='none';showTyping();setTimeout(()=>{removeTyping();addMsg(getResp(t),'bot')},600+Math.random()*600)}
+function addMsg(t,s){const d=document.createElement('div');d.className='flex '+(s==='user'?'justify-end':'justify-start');const b=document.createElement('div');b.className='px-4 py-3 rounded-2xl text-sm leading-relaxed max-w-[85%] '+(s==='user'?'bg-indigo-500 text-white rounded-tr-none':'bg-white border border-slate-200 text-slate-700 rounded-tl-none');b.innerText=t;d.appendChild(b);document.getElementById('chatBody').appendChild(d);document.getElementById('chatBody').scrollTop=99999}
+function showTyping(){const d=document.createElement('div');d.id='typing';d.className='flex justify-start';d.innerHTML='<div class="bg-white border border-slate-200 px-4 py-3 rounded-2xl rounded-tl-none flex gap-1.5 items-center h-10"><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div><div class="w-2 h-2 bg-slate-300 rounded-full typing-dot"></div></div>';document.getElementById('chatBody').appendChild(d)}
 function removeTyping(){const e=document.getElementById('typing');if(e)e.remove()}
 function getResp(i){i=i.toLowerCase();if(/^(hi|hello|hey|namaste)/.test(i))return"Hello! Welcome to Pixel Forge! How can I help? 😊";if(i.includes('service')||i.includes('offer'))return"We offer: 🌐 Web Dev, 📱 Mobile, ☁️ Cloud, 🤖 AI/ML, 🎨 UI/UX, 🛡️ Security!";if(i.includes('price')||i.includes('cost')||i.includes('how much'))return"📄 Landing: ₹25K\n🌐 Website: ₹1.5L\n📱 App: ₹2L+\n🚀 Enterprise: ₹5L+";if(i.includes('location')||i.includes('where')||i.includes('office'))return"📍 No 1, M.G Road, Brigade Road, Bangalore. Visit us! ☕";if(i.includes('contact')||i.includes('phone')||i.includes('whatsapp'))return"📱 WhatsApp: +91 9620024812\n📧 hello@pixelforge.dev";if(i.includes('faq')||i.includes('question'))return"FAQs: 💰 Pricing from ₹25K, ⏱️ 1-12 weeks, ☁️ Hosting included, 📱 PWA specialists!";if(i.includes('thank'))return"You're welcome! 😊 WhatsApp anytime: +91 9620024812";return"Ask me about: 💰 Pricing, 🛠️ Services, 📍 Location, 📞 Contact!"}
 
@@ -844,7 +938,6 @@ function getResp(i){i=i.toLowerCase();if(/^(hi|hello|hey|namaste)/.test(i))retur
 document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();const b=document.getElementById('submitBtn');b.innerHTML='<i class="fa-solid fa-circle-notch fa-spin"></i> Sending...';b.disabled=true;setTimeout(()=>{b.innerHTML='<i class="fa-solid fa-check"></i> Sent!';b.classList.add('bg-green-500');setTimeout(()=>{this.reset();b.innerHTML='Send Message <i class="fa-solid fa-paper-plane"></i>';b.classList.remove('bg-green-500');b.disabled=false},2000)},1200)});
 
 // SW
-if('serviceWorker' in navigator){window.addEventListener('load',()=>{navigator.serviceWorker.register('/sw.js').catch(()=>{})})}
 </script>
 </body>
 </html>
